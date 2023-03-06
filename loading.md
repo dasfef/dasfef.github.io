@@ -1,0 +1,18 @@
+---
+layout: 
+permalink: /
+permalink_name: 
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <canvas style = "position: fixed; top: 0; left: 0;"></canvas>
+    <script type = "text/javascript" src="script.js"></script>
+</body>
+</html>

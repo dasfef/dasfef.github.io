@@ -1,8 +1,8 @@
 ---
 layout: home
-permalink: /
+permalink: /home
 permalink_name: /home
-title: jekyll-shell-theme
+title: HOME
 
 detail_image: assets/theme_logo.svg
 
