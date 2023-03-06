@@ -1,8 +1,8 @@
 title: "Choi das"
 tagline: "A jekyll theme that looks like a shell/terminal"
 description: "This is a preview of jekyll-shell-theme."
-# github_username: @dasfef
-baseurl: "/home"
+github_username: dasfef
+baseurl: ""
 url: "https://dasfef.github.io"
 
 plugins:
