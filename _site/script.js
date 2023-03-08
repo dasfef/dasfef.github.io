@@ -33,45 +33,9 @@ const draw = () => {
 
 timer = setInterval(draw, 20);
 setTime = setTimeout(timeOut, 5000);
-// setTimeout(newCanvas, 5100);
 
 function timeOut(){
     clearInterval(timer);
     ctx.clearRect(0,0,width, height);
-    // newCanvas();
-    
     location.href="loading";
-    // type();
 }
-
-// function newCanvas(){
-//     ctx.fillStyle = "black";
-//     ctx.fillRect(0,0, width, height);
-//     ctx.fillStyle = "#FFFFFF";
-//     ctx.font = `${font}px system-ui`;
-//     type();
-// }
-
-// function type() {
-//     document.addEventListener('DOMContentLoaded', () => {
-//         new TypeIt("#simpleUsage", {
-//             strings: "This is a simple string.",
-//             speed: 50,
-//             waitUntilVisible: true,
-//         }).go();
-//     })
-// }
-// function type(){
-//     context = ctx.fillText("아무거나 좀 해봐", 50, 50, 500);
-//     document.addEventListener('DOMContentLoaded', () => {
-//         new TypeIt(context, {
-//         strings: "This is a simple string.",
-//         speed: 50,
-//         waitUntilVisible: true,
-//       })).go();
-//     }
-// document.addEventListener('DOMContentLoaded', () => {
-//     new TypeIt('#title')//
-//         .pause(1000)
-//         .go();
-// });

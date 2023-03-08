@@ -4,13 +4,11 @@ function type() {
     
     document.addEventListener('DOMContentLoaded', () => {
         new TypeIt("#simpleUsage", {
-            strings: ["This is a simple string.", "where is my money?", "how can it possible?"],
-            speed: 20,
+            strings: ["Welcome to dasfef's PAGE. I believe you got some presents for me...", "If you contact me, i have some accounts for SNS and you can check it from inside the page...", "I don't believe that you can read all of my words written by this blinking effects HAHA..."],
+            speed: 0.5,
             // breakLines: false,
             waitUntilVisible: false,
         }).go();
-        // setTimeout(5000);
-        // location.href="home";
     })
 }
 setTimeout(timer, 5000);

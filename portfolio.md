@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /preview
-permalink_name: /preview
+permalink: /portfolio
+permalink_name: portfolio
 title: This is the page title
 ---
 

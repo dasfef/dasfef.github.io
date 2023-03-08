@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /read-me
-permalink_name: /read me
+permalink: /about
+permalink_name: about
 title: README.md
 ---
 
