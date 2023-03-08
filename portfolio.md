@@ -2,7 +2,7 @@
 layout: page
 permalink: /portfolio
 permalink_name: portfolio
-title: This is the page title
+title: "PORTFOLIO"
 ---
 
 # Header 1
