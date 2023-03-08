@@ -27,12 +27,12 @@ permalink_name:
     USB Devices total: 1 Drive, 3 Keyboards, 2 Mice, 0 Hub<br>
     define _CRT_SECURE_NO_WARNINGS<br>
     <br>
-    This is your last chance. After this, there is no trning back.<br>
+    <!-- This is your last chance. After this, there is no trning back.<br>
     You take the blue pill - the story ends, you wake up<br> 
     in your bed and believe whatever you want to believe.<br>
     <br>
     You take the red pill - you stay in Wonderland<br>
-    and I show you how deep the rabbit-hole goes.<br>
+    and I show you how deep the rabbit-hole goes.<br> -->
     <br>
     *** STOP: 0x0000089 (0xF3438FBC, 0x647453A2, 0x56A439CB, 0xF9948)<br>
     <br>
