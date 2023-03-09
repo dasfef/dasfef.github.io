@@ -21,8 +21,8 @@ permalink_name:
     CPU : macOS Ventura 13.2.1<br>
     <br>
     <br>
-    Learning with BKO from 22.08.22<br>
-    MISMATCHED_HAL<br>
+    <!-- Learning with BKO from 22.08.22<br>
+    MISMATCHED_HAL<br> -->
     <br>
     USB Devices total: 1 Drive, 3 Keyboards, 2 Mice, 0 Hub<br>
     define _CRT_SECURE_NO_WARNINGS<br>
@@ -36,7 +36,7 @@ permalink_name:
     <br>
     *** STOP: 0x0000089 (0xF3438FBC, 0x647453A2, 0x56A439CB, 0xF9948)<br>
     <br>
-    GPT header corruption has been detected, please check SATA mode setting<br> in BIOS setup, or you can use [BOOT SECTOR (MBR/GPT) Recovery Policy] item under<br>
+    BIOS setup, or you can use [BOOT SECTOR (MBR/GPT) Recovery Policy] item under<br>
     [Boot Configuration] page to recovery GPT header.
     </p>
     <p id="simpleUsage" style="font-family:'cursive'; color:#FFFFFF"></p>

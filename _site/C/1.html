@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    POSTS - dasfef
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>POSTS | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="POSTS" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is a preview of jekyll-shell-theme." />
+<meta property="og:description" content="This is a preview of jekyll-shell-theme." />
+<link rel="canonical" href="http://localhost:4000/C/1" />
+<meta property="og:url" content="http://localhost:4000/C/1" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="POSTS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"This is a preview of jekyll-shell-theme.","headline":"POSTS","url":"http://localhost:4000/C/1"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">POSTS</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p><strong>C 입출력 ASCII 코드 그리고 비트 연산자</strong></p>
+
+<hr>
+
+<p><br></p>
+<ul>
+  <li>입력 : scanf 함수(python의 input과 같은 기능)</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//scanf 와 입력값의 변화</span>
+
+<span class="cp">#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"입력 값 : "</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>				<span class="c1">// 정수를 8, 10, 16진수로 가져옴</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>				<span class="c1">// 10진수</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%o"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>				<span class="c1">// 8진수</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%x"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>				<span class="c1">// 16진수</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br>
+scanf 함수를 활용하기 위해선 
+#define _CRT_SECURE_NO_WARNINGS 의 정의가 필요하다 혹은
+scanf_s 함수를 활용할 수 있다.
+<br>
+<!-- <h1 style="font-color:orange;"> --></p>
+
+<p><code class="language-plaintext highlighter-rouge">* scanf 함수를 이용해보면서 헷갈렸던 것</code>
+<em>다양한 서식 지정자 중 %i 에 관한 것이 이해하기 힘들었다.</em>
+<em>내가 보던 책에는 “정수를 10진수, 8진수, 16진수로 입력” 이라고만 설명이 되어 있었고,</em>
+<em>그래서 예시라든지 다른점이 뭔데? 라고 생각이 들었다.</em></p>
+
+<p><br></p>
+
+<p><em>복습하던 중 확실히 이해할 수 있었다.</em>
+<em>즉, scanf 함수를 통해 입력 받은 값이 메모리에는 10진수, 8진수, 16진수로 입력이 되어있고</em>
+<em>이것을 printf 함수에서의 서식 지정자를 활용해 각 진수로 표현할 수 있던 것이었다.</em></p>
+
+<p><br></p>
+
+<p><em>나는 python의 input 만 써봤는데 그래서 그런지 간단하면서도 쉬운 원리들이</em>
+<em>막상 정해진 룰대로만 해야 한다는 C를 접해보면서</em>
+<em>간혹 어려움에 빠지고 있다.</em></p>
+
+<p><br></p>
+
+<figure class="fig">
+<img class="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbLKY3K%2FbtrZ8Nl9zQY%2FPkPTiLDQqpJF0EUCK9saIK%2Fimg.png">
+</figure>
+<p>위의 코드와 같이 작성을 하고 실행해보자</p>
+<figure class="fig">
+<img class="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcItt4z%2FbtrZ4cU3Iyy%2F3GrBUtI1lUK8lkSDaLxkh0%2Fimg.png">
+</figure>
+<p><br></p>
+
+<p>0x12 라는 값을 넣어주자 각 진수에 해당하는 값이 나온다
+scanf() 에서 %i 서식 지정자로 0x12에 해당하는 정수를 가져온 것이고
+이를 8, 10, 16진수로 저장해두고 있는 상태이다.
+<br>
+printf() 에서 %o(8진수) / %d(10진수) / %x(16진수) 로 값을 가져오자
+각각에 해당하는 진수를 출력하고 있다.
+<br></p>
+
+<ul>
+  <li>ASCII 코드와 문자열 연산 원리</li>
+</ul>
+
+<p>ASCII 코드란 : American Standard Code for Information Interchange 의 줄임말이다.
+코드표는 간단한 구글링으로 여러 이미지를 찾아볼 수 있으니 참조.
+<br>
+10진수로 표현되는 각 수에 16진수 그리고 char 형이 들어있다.
+(예) char : A = dec : 65 = hex : 41
+A 대문자는 10진수의 65, 16진수의 41로 표현될 수 있다는 뜻이다.
+<br>
+대문자 A 부터 65, B 66, C 67 … 등으로 나아가며
+이러한 코드표의 진수 크기차로 인해 문자간의 연산도 가능하다.</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define _CRT_SECURE_NO_WARNINGS		//scanf() 함수 사용시 필요
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"수를 입력하세요 : "</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%i%"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"8진수 : %o"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"10진수 : %d"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"16진수 : %#02x"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>	<span class="c1">// x 앞에 # 을 붙여 0x 부분도 표현</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>‘%x’ 사이에 # 을 붙여 02(자리수) 와 함께 0x ~ 되는 부분을 표현할 수 있다.</p>
+
+<figure class="fig">
+<img class="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkPJkW%2FbtrZ7qLMmtI%2F02gtR3J8UZXR8LdaT9YEhk%2Fimg.png">
+</figure>
+
+<p><br>
+<br></p>
+
+<ul>
+  <li>논리 연산자 / 비트 연산자</li>
+</ul>
+
+<p><br></p>
+
+<p>파이썬에선 논리 연산자만 사용해본 기억이 있다.
+비트 자체에 연산을 한다는 개념에 상당 부분 충격을 먹었다.</p>
+
+<p><br></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>논리 연산자 : x &amp;&amp; y / x</td>
+      <td> </td>
+      <td>y / !x</td>
+    </tr>
+    <tr>
+      <td>비트 연산자 : x &amp; y / x</td>
+      <td>y / x ^ y / ~x / x « y / x » y</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">* 비트 연산자를 활용한 좋은 문제</code></p>
+
+<p>[ RGB 색상 표기법 ]
+32비트로 저장되는 RGB 색상 Red, Green, Blue 가 있다.
+최상위 1바이트는 사용하지 않고, 각 색상이 1바이트씩 차지하고 있다.
+Red : 최하위 / Green : 중간 / Blue : 상위 / Not Used : 최상위
+unsigned int 를 활용하여 각 색상의 값을 입력하였을 때 RGB 색상을 출력하시오.</p>
+
+<p>ex) 
+red 값 입력 : 256 –&gt; 256이 아닌 0으로 저장되어야 함
+green 값 입력 : 128
+blue 값 입력 : 255
+RGB 색상 : FF8000</p>
+
+<p><br></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define _CRT_SECURE_NO_WARNINGS
+#include &lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">;</span>				<span class="c1">// unsigned int = 0 ~ 255</span>
+	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="mh">0xff</span><span class="p">;</span>				<span class="c1">// 0xff = 8비트 2진수 : 1111 1111</span>
+	<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">rgb</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Red 값 입력 : "</span><span class="p">);</span>
+	<span class="n">scanf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">red</span><span class="p">);</span>
+	<span class="n">red</span> <span class="o">&amp;=</span> <span class="n">mask</span><span class="p">;</span>
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Green 값 입력 : "</span><span class="p">);</span>
+	<span class="n">scanf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">green</span><span class="p">);</span>
+	<span class="n">green</span> <span class="o">&amp;=</span> <span class="n">mask</span><span class="p">;</span>
+
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Blue 값 입력 : "</span><span class="p">);</span>
+	<span class="n">scanf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blue</span><span class="p">);</span>
+	<span class="n">blue</span> <span class="o">&amp;=</span> <span class="n">mask</span><span class="p">;</span>
+
+	<span class="n">rgb</span> <span class="o">=</span> <span class="n">red</span> <span class="o">|</span> <span class="p">(</span><span class="n">green</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">blue</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">);</span>		<span class="c1">// (not used)(blue)(green)(red) 8비트씩</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"RGB : %06X"</span><span class="p">,</span> <span class="n">rgb</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br></p>
+
+<figure class="fig">
+<img class="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoKtqk%2FbtrZ9GG8m3E%2FLkAIhznM57OjMNn5xMrbfk%2Fimg.png">
+</figure>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>

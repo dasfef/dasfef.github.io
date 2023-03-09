@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /about
-permalink_name: about
+permalink_name: ABOUT
 title: ABOUT
 ---
 

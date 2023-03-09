@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /portfolio
-permalink_name: portfolio
+permalink_name: PORTFOLIO
 title: "PORTFOLIO"
 ---
 

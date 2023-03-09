@@ -65,3 +65,38 @@ div.error_box { margin: 100px; text-align: center; }
 div.error_box h1 { font-size: 2em; }
 
 *::selection { background-color: var(--light-alt-color); color: black; }
+
+/* POST_IMGS */
+@media(min-width: 992px){
+  .image {
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media(min-width: 768px){
+  .image {
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.image{
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+}
+
+/* POST_LINKS */
+.post_link{font-size: 14px;}
+
+@media(min-width: 768px){
+  .post_link {
+    font-size: 14px;
+  }
+}
+
+/* IMG_FIGURE */
+.fig{text-align:center;}
