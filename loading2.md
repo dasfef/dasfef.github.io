@@ -25,7 +25,7 @@ permalink_name:
     MISMATCHED_HAL<br> -->
     <br>
     USB Devices total: 1 Drive, 3 Keyboards, 2 Mice, 0 Hub<br>
-    define _CRT_SECURE_NO_WARNINGS<br>
+    <!-- define _CRT_SECURE_NO_WARNINGS<br> -->
     <br>
     <!-- This is your last chance. After this, there is no trning back.<br>
     You take the blue pill - the story ends, you wake up<br> 
