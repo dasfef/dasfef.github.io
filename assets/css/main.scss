@@ -87,6 +87,11 @@ div.error_box h1 { font-size: 2em; }
   text-align: center;
   max-width: 100%;
   height: auto;
+  transition: all 0.1s linear;
+}
+
+.image:hover{
+  transform: scale(1.3);
 }
 
 /* POST_LINKS */

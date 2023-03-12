@@ -13,38 +13,43 @@ title: ABOUT
         NAME: dasfef<br>
         BIRTH: 92.11.22<br>
         FROM: SOUTH KOREA<br>
-        CONTACT: <a href="https://www.instagram.com/das_fef" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=plastic&logo=Instagram&logoColor=white"></a> <img src="https://img.shields.io/badge/Gmail-EA4335?style=plastic&logo=Gmail&logoColor=white">
-        mealhouse3377@gmail.com
+        
     </div>
 </div>
 
 <br>
 
-**PURPOSE**
+**= CONTACT =**
+
+---
+
+<a href="https://www.instagram.com/das_fef" target="_blank" style="margin-left:8px;"><img src="https://img.shields.io/badge/Instagram-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:100px;"></a>  <a href="https://www.instagram.com/das_fef" target="blank">das_fef</a><br> <img src="https://img.shields.io/badge/Gmail.com-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:100px;">  <a>mealhouse3377@gmail.com</a>
+
+<br>
+
+**= PURPOSE =**
 
 --- 
 
 - Being most helpful person to anyone
 - The best coffee of the world
-- Eye shopping
+- Window shopping
 
 <br>
 
-**PROCESS**
+**= PROCESS =**
 
 ---
 
 2023.02.16 ~ 2023.07.05
-- 충북대학교 공동훈련센터 : IoT기반 스마트솔루션 개발자 양성 과정 진행중...
-
-<br>
+- 충북대학교 공동훈련센터 : IoT기반 스마트솔루션 개발자 양성 과정 진행중...<br>
 
 2022.08.22 ~ 2023.02.15
 - 한국IT전문학원 : 빅데이터 분석 지역형 인재 양성 과정 수료 (完)
 
 <br>
 
-**STACK**
+**= STACK =**
 
 ---
 <div class="stack">
@@ -69,7 +74,7 @@ title: ABOUT
         border-radius: 30%;
         overflow: hidden;
         float: left;
-        margin-right: 10px;
+        margin-right: 20px;
     }
     .profile{
         width: 100%;
