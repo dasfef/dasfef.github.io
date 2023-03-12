@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 permalink: /home
 permalink_name: HOME
 title: HOME
@@ -13,7 +13,6 @@ title: HOME
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donut</title>
     <style>
         ::selection {
             background: #505050;
@@ -50,7 +49,7 @@ title: HOME
     <div class="container">
         <pre class="center" id="d"></pre>
     </div>
-    <h1 align:cetner>도넛을 만들 수 있을때까지</h1>
+    <h1 text-align:center>도넛을 만들 수 있을때까지</h1>
     <script src="donut.js"></script>
     
 </body>
