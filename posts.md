@@ -8,6 +8,7 @@ title:  "POSTS"
 **C**
 
 ---
+<a class="post_link" href="/C/3">3. C vs Python 함수와 배열</a>
 <a class="post_link" href="/C/2">2. C vs Python 조건문, 반복문</a>
 <a class="post_link" href="/C/1">1. 입출력 ASCII 코드 그리고 비트 연산자</a>
 
