@@ -3,7 +3,7 @@ layout: default
 permalink: /home
 permalink_name: HOME
 title: HOME
-
+description: 개발취업난중일기
 # detail_image: assets/theme_logo.svg
 
 ---
@@ -13,8 +13,6 @@ title: HOME
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dasfef</title>
-    <meta name="description" content="개발취업난중일기">
     <style>
         ::selection {
             background: #505050;
