@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/C/1</loc>
+</url>
+<url>
+<loc>http://localhost:4000/C/2</loc>
+</url>
+<url>
+<loc>http://localhost:4000/C/3</loc>
+</url>
+<url>
+<loc>http://localhost:4000/C/4</loc>
+</url>
+<url>
+<loc>http://localhost:4000/chungbuk_univ/1</loc>
+</url>
+<url>
+<loc>http://localhost:4000/chungbuk_univ/2</loc>
+</url>
+<url>
+<loc>http://localhost:4000/404</loc>
+</url>
+<url>
+<loc>http://localhost:4000/about</loc>
+</url>
+<url>
+<loc>http://localhost:4000/home</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/loading</loc>
+</url>
+<url>
+<loc>http://localhost:4000/portfolio</loc>
+</url>
+<url>
+<loc>http://localhost:4000/posts</loc>
+</url>
+<url>
+<loc>http://localhost:4000/google6abce76d34ce8b35.html</loc>
+<lastmod>2023-03-15T23:40:15+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/naverf053120803d8b98308a7427e6964d447.html</loc>
+<lastmod>2023-03-16T00:17:33+09:00</lastmod>
+</url>
 </urlset>
