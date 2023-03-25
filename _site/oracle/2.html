@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    [미니 프로젝트] 초간단 Oracle DB 설계 - dasfef
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[미니 프로젝트] 초간단 Oracle DB 설계 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[미니 프로젝트] 초간단 Oracle DB 설계" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="남들보다 늦은 나이에 개발자로의 꿈을 펼칩니다. 함께 어둠의 심연에서 발버둥치길 바라며" />
+<meta property="og:description" content="남들보다 늦은 나이에 개발자로의 꿈을 펼칩니다. 함께 어둠의 심연에서 발버둥치길 바라며" />
+<link rel="canonical" href="http://localhost:4000/oracle/2" />
+<meta property="og:url" content="http://localhost:4000/oracle/2" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[미니 프로젝트] 초간단 Oracle DB 설계" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"남들보다 늦은 나이에 개발자로의 꿈을 펼칩니다. 함께 어둠의 심연에서 발버둥치길 바라며","headline":"[미니 프로젝트] 초간단 Oracle DB 설계","url":"http://localhost:4000/oracle/2"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[미니 프로젝트] 초간단 Oracle DB 설계</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p style="text-align:right; font-weight:bold;">2023.03.21</p>
+
+<p><br>
+짧게나마 DBA가 되어보자
+<br>
+​오늘의 프로젝트는
+충북대학교 공동훈련센터에서 진행하는
+IoT기반 스마트솔루션 개발자 양성과정 교육 중
+하루만 진행되는 미니프로젝트로 진행되었다
+<br>
+​</p>
+<figure style="text-align:center">
+----- ----- -----
+<br>
+<span style="background-color:#0078cb; font-wegith:bold;">인원</span> <br> 
+총 3명
+<br><br>
+<span style="background-color:#0078cb; font-wegith:bold;">역할</span> <br>
+릴레이션간 조회 sql 구성 / 데이터 목록 및 속성 값 구성 <br>/ DB테이블 생성 및 속성 값 기입
+<br><br>
+<span style="background-color:#0078cb; font-wegith:bold;">개요</span> <br>
+팀 별로 주제를 정하여
+해당 주제에 맞는 속성 값 준비,<br>
+릴레이션 간 조회할 수 있는 구성으로
+직접 설계 후 조회해보는 것을
+목적으로 진행
+<br>
+----- ----- -----
+</figure>
+<p>​
+미니프로젝트이다 보니
+모두 계획적으로 진행되진 않았지만
+순서를 맞추어 진행하다 보니
+역할 분담이 착실히 되어
+각자의 영역에서 몰두하는 시간을 가질 수 있었다
+<br>
+​나는 DB 유저 생성부터 속성 값 기입 후
+최종 sql 구문 조회까지 진행하는 역을 맡았고,
+<br>
+모두 sql 구문으로 진행하였다</p>
+
+<p><br>
+<span style="font-weight:bold; font-size:24px; color:#ffd300; background-color:#007433">​1. 신규 유저 생성</span>
+<br></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">user</span> <span class="k">c</span><span class="o">##</span><span class="n">RESTAURANT</span> <span class="n">identified</span> <span class="k">by</span> <span class="mi">1234</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>해당 내용으로 c##RESTAURANT 유저를 생성해주자
+비밀번호 : 1234
+<br>
+<span style="color:orange">* 오라클이 업데이트 되면서<br>공용계정에는 c##을 붙여줘야 한다는<br>규칙이 생겼다</span>
+<br></p>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/1.png">
+</figure>
+<p>​<br>
+그리고 해당 유저에 대해
+접속을 시도하면
+<br></p>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/2.png">
+<figcaption>접속 실패</figcaption>
+</figure>
+<p>​<br>
+위 내용과 같이
+권한을 가지고 있지 않아 로그인 실패라고 뜨는데
+권한 설정을 해주지 않아서 그렇다
+<br>
+권한 설정을 진행하자
+<br></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">grant</span> <span class="k">connect</span><span class="p">,</span> <span class="n">resource</span> <span class="k">to</span> <span class="k">c</span><span class="o">##</span><span class="n">RESTAURANT</span><span class="p">;</span>
+</code></pre></div></div>
+<p><br></p>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/3.png">
+<figcaption>권한 부여 성공!</figcaption>
+</figure>
+<p><br>
+다시 접속을 시도해보면
+<br></p>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/4.png">
+</figure>
+<p>성공으로 뜨는것을 잘 볼 수 있다
+<br>
+이제 RESTAURANT 유저로 접속을 해서
+sql로 테이블 및 속성값 기입을 해주자
+<br>
+<span style="font-weight:bold; font-size:24px; color:#ffd300; background-color:#007433">​2. 테이블 생성</span>
+<br></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">table</span> <span class="n">RESTAURANT</span><span class="p">(</span>
+<span class="n">restid</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+<span class="n">restname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="n">address</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">phone</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="n">openhours</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="n">restrating</span> <span class="nb">int</span><span class="p">);</span>
+</code></pre></div></div>
+<p><br></p>
+
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/5.png">
+</figure>
+<p>RESTAURANT 테이블 생성해주고
+<br></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">table</span> <span class="n">MENU</span> <span class="p">(</span>
+<span class="n">menuid</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+<span class="n">restid</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+<span class="n">menuname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="k">describe</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">price</span> <span class="nb">int</span><span class="p">,</span>
+
+<span class="k">foreign</span> <span class="k">key</span> <span class="p">(</span><span class="n">restid</span><span class="p">)</span> <span class="k">references</span> <span class="n">restaurant</span> <span class="p">(</span><span class="n">restid</span><span class="p">));</span>
+</code></pre></div></div>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/6.png">
+</figure>
+<p>MENU 테이블 생성,
+<br></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">table</span> <span class="n">REVIEW</span> <span class="p">(</span>
+<span class="n">reviewid</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+<span class="n">restid</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+<span class="n">menuid</span> <span class="nb">int</span><span class="p">,</span>
+<span class="n">orderer</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="n">r_text</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="n">reviewrating</span> <span class="nb">int</span><span class="p">,</span>
+<span class="n">wrottendate</span> <span class="nb">date</span><span class="p">,</span>
+
+<span class="k">foreign</span> <span class="k">key</span> <span class="p">(</span><span class="n">restid</span><span class="p">)</span> <span class="k">references</span> <span class="n">restaurant</span> <span class="p">(</span><span class="n">restid</span><span class="p">),</span>
+<span class="k">foreign</span> <span class="k">key</span> <span class="p">(</span><span class="n">menuid</span><span class="p">)</span> <span class="k">references</span> <span class="n">menu</span> <span class="p">(</span><span class="n">menuid</span><span class="p">));</span>
+</code></pre></div></div>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/7.png">
+</figure>
+<p>REVIEW 테이블까지 생성하면
+끝이다
+<br>
+이렇게 설계하면 된다 😎
+<br>
+가 아니라..
+본래는 여러 단계에 걸쳐
+설계 과정에 있어 결정해야 할 사항들이 많은데
+팀 프로젝트 이전 주제를 정하고
+안에 들어갈 데이터 등을 초간단으로
+만들어보기만 맛만 보는것이기에
+앞의 개념 ▶ 논리 로의 과정을 건너뛰었다
+<br>
+개념 ▶ 논리 ▶ 물리
+<br>
+세 단계의 모델링 단계를 거치면서
+요구사항 수집, 개체 추출, 
+다이어그램 작성 등을 해보며
+효율적인 DB의 구조와
+좋은 성능을 위해 고민해야 하는 단계이지만
+<br>
+​미니 프로젝트인 만큼
+관계되는 릴레이션의 구성과
+내부의 속성값만을 빠르게 기입해보고
+직접 조회해보는 시간을 가졌다
+<br>
+<span style="font-weight:bold; font-size:24px; color:#ffd300; background-color:#007433">​3. 데이터 삽입</span>
+<br>
+이제 INSERT INTO 를 통해
+데이터를 넣어주자​</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Restaurant</span> <span class="p">(</span><span class="n">restId</span><span class="p">,</span> <span class="n">restName</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">openHours</span><span class="p">,</span> <span class="n">restRating</span><span class="p">)</span>
+<span class="k">select</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'롯데리아'</span><span class="p">,</span> <span class="s1">'서울특별시 강남구 도산대로 95길 20'</span><span class="p">,</span> <span class="s1">'02-1234-5678'</span><span class="p">,</span> <span class="s1">'10:00 - 22:00'</span><span class="p">,</span> <span class="mi">5</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'맥도날드'</span><span class="p">,</span> <span class="s1">'부산광역시 해운대구 해운대해변로 280'</span><span class="p">,</span> <span class="s1">'051-9876-5432'</span><span class="p">,</span> <span class="s1">'11:00 - 23:00'</span><span class="p">,</span> <span class="mi">3</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'버거킹'</span><span class="p">,</span> <span class="s1">'대구광역시 수성구 수성로 45길 8'</span><span class="p">,</span> <span class="s1">'053-4567-1234'</span><span class="p">,</span> <span class="s1">'09:00 - 21:00'</span><span class="p">,</span> <span class="mi">4</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'맘스터치'</span><span class="p">,</span> <span class="s1">'인천광역시 연수구 컨벤시아대로 123'</span><span class="p">,</span> <span class="s1">'032-7890-1234'</span><span class="p">,</span> <span class="s1">'11:00 - 23:00'</span><span class="p">,</span> <span class="mi">4</span> <span class="k">from</span> <span class="n">dual</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>⭐⭐ Bulk Insert 를 통한 데이터 기입 ⭐⭐</p>
+
+<p>대량의 데이터 기입을 위해
+INSERT INTO 를 여러번 반복해야 하는 일이 많을텐데
+구글링을 통해 벌크 인서트 혹은 bulk insert 라고 검색해보면
+여러가지 방법 혹은 비교 글들이 많이 나온다
+<br>
+​개중 나는 위와 같은 구성으로 진행하였다
+보통은 반복문을 통해 필요한 데이터를 넣어주거나
+기존에 있던 분산 데이터를
+필요한 테이블로 옮길때 쓰여지기도 하고
+insert 성능 자체도
+엄청나게 좋아지니</p>
+
+<p>⭐⭐ 꼭 기억해두고 활용하도록 하자 ⭐⭐
+<br>
+그리고 위 코드를 기입해주면</p>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/8.png">
+</figure>
+<p>​여기에도 권한 없음 오류가 뜬다
+<br>
+해당 오류에 대해 찾아보자 
+<span style="color:orange">ORA-01950</span>
+<br>
+​<a href="https://dololak.tistory.com/756">https://dololak.tistory.com/756</a>
+<br>
+위 링크에서 살펴본 결과로는</p>
+
+<p>오라클에는 테이블 스페이스라 하여
+테이블이 저장되는 공간이 있는데,
+이 스페이스(공간)에 대해
+크기를 정해주지 않아 발생하는 오류이다</p>
+
+<p>그럼 이제 크기를 지정해주러 가보자
+<br>
+​</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">alter</span> <span class="k">user</span> <span class="k">c</span><span class="o">##</span><span class="n">restaurant</span> <span class="k">default</span> <span class="n">tablespace</span> <span class="n">users</span> <span class="n">quota</span> <span class="n">unlimited</span> <span class="k">on</span> <span class="n">users</span><span class="p">;</span>
+</code></pre></div></div>
+
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/9.png">
+<figcaption>system 에서 실행해야 권한 부여 받고 실행할 수 있다</figcaption>
+</figure>
+<p><br>
+unlimited 를 통해 크기 제한 없이 지정해주고
+다시 INSERT 구문을 시행해보면
+<br>
+​<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/10.png">
+</figure>
+잘 삽입되었다
+나머지 데이터도 넣어주자
+<br>
+​</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Menu</span> <span class="p">(</span><span class="n">menuId</span><span class="p">,</span> <span class="n">restId</span><span class="p">,</span> <span class="n">menuName</span><span class="p">,</span> <span class="k">describe</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span>
+<span class="k">select</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'불고기버거'</span><span class="p">,</span> <span class="s1">'한국 전통의 불고기 맛 햄버거.'</span><span class="p">,</span> <span class="mi">4500</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'새우버거'</span><span class="p">,</span> <span class="s1">'당신들이 새우 맛을 아는가.'</span><span class="p">,</span> <span class="mi">4500</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'빅맥'</span><span class="p">,</span> <span class="s1">'빅맥지수의 그 빅맥.'</span><span class="p">,</span> <span class="mi">5200</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'맥치킨'</span><span class="p">,</span> <span class="s1">'맥치킨이지만 사실 햄버거다.'</span><span class="p">,</span> <span class="mi">3500</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'와퍼'</span><span class="p">,</span> <span class="s1">'불맛나는 햄버거.'</span><span class="p">,</span> <span class="mi">6900</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'킹치킨버거'</span><span class="p">,</span> <span class="s1">'버거킹 최약체.'</span><span class="p">,</span> <span class="mi">3600</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'싸이버거'</span><span class="p">,</span> <span class="s1">'월드스타 싸이와 연관 없다.'</span><span class="p">,</span> <span class="mi">4300</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'화이트갈릭버거'</span><span class="p">,</span> <span class="s1">'힘을 숨긴 햄버거.'</span><span class="p">,</span> <span class="mi">4600</span> <span class="k">from</span> <span class="n">dual</span><span class="p">;</span>
+</code></pre></div></div>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/11.png">
+<figcaption>MENU TABLE INSERT</figcaption>
+</figure>
+<p><br></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Review</span> <span class="p">(</span><span class="n">reviewId</span><span class="p">,</span> <span class="n">restId</span><span class="p">,</span> <span class="n">menuid</span><span class="p">,</span> <span class="n">orderer</span><span class="p">,</span> <span class="n">r_text</span><span class="p">,</span> <span class="n">reviewRating</span><span class="p">,</span> <span class="n">wrottendate</span><span class="p">)</span>
+<span class="k">select</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'레드클리프'</span><span class="p">,</span> <span class="s1">'이 햄버거의 육즙이 넘치고, 소스도 완벽하게 어우러져 있어요!'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'2023-02-15'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'다스'</span><span class="p">,</span> <span class="s1">'햄버거가 크고 든든해서 배부르게 먹을 수 있어 좋았습니다.'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'2023-01-28'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'잭 블랙'</span><span class="p">,</span> <span class="s1">'햄버거가 짜요.'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'2023-02-20'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'윌 스미스'</span><span class="p">,</span> <span class="s1">'신선한 야채와 바삭한 튀김이 어우러진 햄버거가 인상적이었습니다.'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'2023-03-05'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'도널드 트럼프'</span><span class="p">,</span> <span class="s1">'햄버거 빵이 부드럽고 담백한 맛이 좋았어요.'</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'2023-01-10'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'레드클리프'</span><span class="p">,</span> <span class="s1">'스파이시한 소스가 들어간 햄버거로, 매콤한 맛을 좋아하는 사람들에게 추천합니다.'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'2023-03-12'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'레드클리프'</span><span class="p">,</span> <span class="s1">'스파게티가 참 맛있어요 매콤달달해서 개인적으로 만족합니다.'</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span><span class="s1">'2023-03-21'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'잭 블랙'</span><span class="p">,</span> <span class="s1">'매장이 더러워요'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="s1">'2023-02-20'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'잭 블랙'</span><span class="p">,</span> <span class="s1">'알바가 노려봐요'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="s1">'2023-01-20'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'다스'</span><span class="p">,</span> <span class="s1">'뭘로 만들었는지 모르겠어요'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="s1">'2023-03-11'</span> <span class="k">from</span> <span class="n">dual</span> <span class="k">union</span> <span class="k">all</span>
+<span class="k">select</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'다스'</span><span class="p">,</span> <span class="s1">'이 햄버거는 고기와 야채의 균형이 잘 맞아, 깔끔한 맛을 즐길 수 있었습니다.'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'2023-02-05'</span> <span class="k">from</span> <span class="n">dual</span><span class="p">;</span>
+</code></pre></div></div>
+<figure style="text-align:center">
+<img class="image" src="../contents/imgs/oracle_2/12.png">
+<figcaption>REVIEW TABLE INSERT</figcaption>
+</figure>
+<p><br>
+모든 테이블에 데이터를 넣어줬다
+이제 각 릴레이션 간 조인을 활용하여
+조회를 할 수 있는지 생각해보면서 작성해보자 🧐
+<br></p>
+
+<p>📋 예시 📋</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">--1 등록된 점포를 별점순으로 모두 출력</span>
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">Restaurant</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">restRating</span> <span class="k">desc</span><span class="p">;</span>
+<span class="c1">--2 메뉴 릴레이션에서 가격이 4500이상 5500미만인 메뉴를 출력</span>
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">Menu</span>
+<span class="k">WHERE</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">4500</span> <span class="k">and</span> <span class="n">price</span> <span class="o">&lt;</span><span class="mi">5500</span><span class="p">;</span>
+<span class="c1">--3 리뷰를 날짜순으로 전체 출력</span>
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">Review</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">wrottendate</span><span class="p">;</span>
+<span class="c1">--4 별점4점 이상인 레스토랑과 별점을 출력</span>
+<span class="k">SELECT</span> <span class="n">restName</span><span class="p">,</span> <span class="n">restRating</span>
+<span class="k">FROM</span> <span class="n">Restaurant</span>
+<span class="k">WHERE</span> <span class="n">restRating</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="c1">--5 메뉴 이름에 '치킨'이 들어간 메뉴의 제품이름, 제품가격을 출력 </span>
+<span class="k">SELECT</span> <span class="n">menuName</span><span class="p">,</span> <span class="n">price</span>
+<span class="k">FROM</span> <span class="n">Menu</span>
+<span class="k">WHERE</span> <span class="n">Menuname</span> <span class="k">LIKE</span> <span class="s1">'%치킨%'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">price</span><span class="p">;</span>
+<span class="c1">--6 소비자 평점 3점 이상인 리뷰 내용을 별점순으로 출력</span>
+<span class="k">SELECT</span> <span class="n">reviewRating</span><span class="p">,</span> <span class="n">r_text</span>
+<span class="k">FROM</span> <span class="n">Review</span>
+<span class="k">WHERE</span> <span class="n">reviewRating</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">reviewRating</span><span class="p">;</span>
+<span class="c1">--7 서울지역이 아닌 레스토랑과 영업시간을 출력</span>
+<span class="k">SELECT</span> <span class="n">restName</span><span class="p">,</span> <span class="n">openHours</span> 
+<span class="k">FROM</span> <span class="n">Restaurant</span>
+<span class="k">WHERE</span> <span class="n">address</span> <span class="k">not</span> <span class="k">like</span> <span class="s1">'서울%'</span><span class="p">;</span>
+<span class="c1">--8 각 레스토랑의 메뉴, 메뉴별 설명상세와 가격을 출력</span>
+<span class="k">SELECT</span>  <span class="n">restName</span> <span class="err">레스토랑명</span><span class="p">,</span> <span class="n">Menuname</span> <span class="err">메뉴이름</span><span class="p">,</span> <span class="k">Describe</span> <span class="err">메뉴상세</span><span class="p">,</span> <span class="n">price</span> <span class="err">가격</span>
+<span class="k">FROM</span> <span class="n">Restaurant</span><span class="p">,</span><span class="n">Menu</span>
+<span class="k">WHERE</span> <span class="n">Restaurant</span><span class="p">.</span><span class="n">restid</span> <span class="o">=</span> <span class="n">Menu</span><span class="p">.</span><span class="n">restid</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">Restaurant</span><span class="p">.</span><span class="n">restid</span><span class="p">;</span>
+<span class="c1">--9 싸이버거에 대한 평가내용만 모아서 세 건만 볼 수 있게</span>
+<span class="k">SELECT</span> <span class="n">orderer</span> <span class="err">주문자</span><span class="p">,</span> <span class="n">reviewRating</span> <span class="err">별점</span> <span class="p">,</span> <span class="n">r_text</span> <span class="err">평가내용</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">Review</span> <span class="k">where</span> <span class="n">menuid</span><span class="o">=</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">menuid</span> <span class="k">from</span> <span class="n">menu</span> <span class="k">where</span> <span class="n">menuname</span> <span class="o">=</span> <span class="s1">'싸이버거'</span> <span class="p">)</span> 
+<span class="k">order</span> <span class="k">by</span> <span class="n">reviewRating</span> <span class="k">DESC</span><span class="p">)</span> 
+<span class="k">WHERE</span> <span class="n">ROWNUM</span> <span class="o">&lt;=</span><span class="mi">3</span><span class="p">;</span>
+<span class="c1">--10 주문자 레드클리프의 리뷰만 모아보기</span>
+<span class="k">SELECT</span> <span class="n">reviewRating</span> <span class="err">평점</span><span class="p">,</span> <span class="n">r_text</span> <span class="err">리뷰내용</span>
+<span class="k">FROM</span> <span class="n">Review</span>
+<span class="k">WHERE</span> <span class="n">orderer</span> <span class="o">=</span> <span class="s1">'레드클리프'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">reviewRating</span><span class="p">;</span>
+<span class="c1">--11 불고기버거의 메뉴 상세설명, 가격정보를 보고싶다.</span>
+<span class="k">SELECT</span> <span class="n">Menuname</span> <span class="err">메뉴명</span><span class="p">,</span> <span class="k">describe</span> <span class="err">상세설명</span>
+<span class="k">FROM</span> <span class="n">Menu</span>
+<span class="k">WHERE</span> <span class="n">menuName</span> <span class="o">=</span> <span class="s1">'불고기버거'</span><span class="p">;</span>
+<span class="c1">--12 잭 블랙씨의 총 주문액</span>
+<span class="k">SELECT</span> <span class="n">orderer</span> <span class="err">주문자</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">price</span><span class="p">)</span> <span class="err">총주문액</span>
+<span class="k">FROM</span>  <span class="n">menu</span><span class="p">,</span> <span class="n">review</span>
+<span class="k">WHERE</span> <span class="n">menu</span><span class="p">.</span><span class="n">menuid</span> <span class="o">=</span> <span class="n">review</span><span class="p">.</span><span class="n">menuid</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">orderer</span>
+<span class="k">HAVING</span> <span class="n">orderer</span> <span class="o">=</span> <span class="s1">'잭 블랙'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br>
+⭐ 오류 발생시 항상 오류의 원인을 살피고 진행하자 ⭐
+구글링의 결과가 
+나에게 발생한 오류와 동일한 오류가 아닐 수 있고,
+나에게 발생한 오류의 정확한 원인은 나밖에 모른다
+항상 오류를 거슬러 올라가자</p>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>

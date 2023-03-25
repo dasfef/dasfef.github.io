@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    [오라클] PL/SQL 활용 procedure, trigger, 사용자 정의 함수 - dasfef
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[오라클] PL/SQL 활용 procedure, trigger, 사용자 정의 함수 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[오라클] PL/SQL 활용 procedure, trigger, 사용자 정의 함수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="남들보다 늦은 나이에 개발자로의 꿈을 펼칩니다. 함께 어둠의 심연에서 발버둥치길 바라며" />
+<meta property="og:description" content="남들보다 늦은 나이에 개발자로의 꿈을 펼칩니다. 함께 어둠의 심연에서 발버둥치길 바라며" />
+<link rel="canonical" href="http://localhost:4000/oracle/3" />
+<meta property="og:url" content="http://localhost:4000/oracle/3" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[오라클] PL/SQL 활용 procedure, trigger, 사용자 정의 함수" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"남들보다 늦은 나이에 개발자로의 꿈을 펼칩니다. 함께 어둠의 심연에서 발버둥치길 바라며","headline":"[오라클] PL/SQL 활용 procedure, trigger, 사용자 정의 함수","url":"http://localhost:4000/oracle/3"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[오라클] PL/SQL 활용 procedure, trigger, 사용자 정의 함수</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p style="text-align:right; font-weight:bold;">2023.03.23</p>
+<p><br>
+sql 에는 pl/sql 이란것이 있다
+procedural language 란 것인데
+이전 교육에는 배우지 못한 것이 나오니
+당황스럽기도 하고 새롭기도 했다
+<br></p>
+<p style="font-size:24px; font-weight:bold"><span style="background-color:#007433; color:#ffd300;">1. PROCEDURE</span></p>
+<!-- ​<br> -->
+<p>구문만 보자면 아래와 같다</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">or</span> <span class="k">REPLACE</span> <span class="k">PROCEDURE</span> <span class="n">INSERTBOOK</span> <span class="p">(</span>
+    <span class="n">MYBOOKID</span> <span class="k">in</span> <span class="n">number</span><span class="p">,</span>
+    <span class="n">MYBOOKNAME</span> <span class="k">in</span> <span class="n">varchar2</span><span class="p">,</span>
+    <span class="n">MYPUBLISHER</span> <span class="k">in</span> <span class="n">varchar2</span><span class="p">,</span>
+    <span class="n">MYPRICE</span> <span class="k">in</span> <span class="n">number</span><span class="p">)</span>
+<span class="k">as</span>
+<span class="k">begin</span>
+    <span class="k">insert</span> <span class="k">into</span> <span class="n">book</span><span class="p">(</span><span class="n">bookid</span><span class="p">,</span> <span class="n">bookname</span><span class="p">,</span> <span class="n">publisher</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span>
+    <span class="k">values</span><span class="p">(</span><span class="n">mybookid</span><span class="p">,</span> <span class="n">mybookname</span><span class="p">,</span> <span class="n">mypublisher</span><span class="p">,</span> <span class="n">myprice</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+<span class="o">/</span>
+</code></pre></div></div>
+
+<p>create or replace 다음 procedure 를 붙이고
+조건에 만족하는 구문을 작성해주면 되는데
+근 몇개월동안 select * from ~ 만 쓰다가
+이런 구문을 맞닥뜨리니 충격으로 다가왔다</p>
+
+<p>내가 알고 있던 sql 이 다가 아니구나 😂</p>
+
+<p>위 내용을 차례로 분석해보자</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">procedure</span> <span class="n">INSERTBOOK</span> <span class="p">(</span>                    <span class="o">//</span> <span class="k">procedure</span> <span class="err">구문</span> <span class="err">생성</span>
+<span class="n">MYBOOKID</span> <span class="k">in</span> <span class="n">number</span><span class="p">,</span>                                         <span class="o">//</span> <span class="n">number</span> <span class="err">로</span> <span class="err">된</span> <span class="n">MYBOOKID</span>
+<span class="n">MYBOOKNAME</span> <span class="k">in</span> <span class="n">varchar2</span><span class="p">,</span>                                     <span class="o">//</span> <span class="n">varchar2</span> <span class="err">로</span> <span class="err">된</span> <span class="n">MYBOOKNAME</span>
+<span class="n">MYPUBLISHER</span> <span class="k">in</span> <span class="n">varchar2</span><span class="p">,</span>                                    <span class="o">//</span> <span class="n">varchar2</span> <span class="err">로</span> <span class="err">된</span> <span class="n">MYPUBLISHER</span>
+<span class="n">MYPRICE</span> <span class="k">in</span> <span class="n">number</span><span class="p">)</span>                                          <span class="o">//</span> <span class="n">number</span> <span class="err">로</span> <span class="err">된</span> <span class="n">MYPRICE</span>
+<span class="k">as</span>
+<span class="k">begin</span>
+    <span class="k">insert</span> <span class="k">into</span> <span class="n">book</span><span class="p">(</span><span class="n">bookid</span><span class="p">,</span> <span class="n">bookname</span><span class="p">,</span> <span class="n">publisher</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span>    <span class="o">//</span> <span class="k">procedure</span> <span class="err">가</span> <span class="err">실행되면</span> <span class="err">해당</span> <span class="err">열</span> <span class="k">insert</span>
+    <span class="k">values</span><span class="p">(</span><span class="n">mybookid</span><span class="p">,</span> <span class="n">mybookname</span><span class="p">,</span> <span class="n">mypublisher</span><span class="p">,</span> <span class="n">myprice</span><span class="p">);</span>     <span class="o">//</span> <span class="err">해당</span> <span class="err">열들의</span> <span class="n">value</span>
+<span class="k">end</span><span class="p">;</span>
+<span class="err">​</span><span class="o">/</span>
+</code></pre></div></div>
+<p>즉 procedure 가 실행되면
+임의로 만들어 둔 procedure 내의 열들에
+insert 구문을 begin 하라는 것이다</p>
+
+<p>영어를 해석만 하면 얼추 내용이 이해가 간다
+<br>
+procedure 의 실행은 아래와 같다</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">exec</span> <span class="n">insertbook</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'스포츠과학'</span><span class="p">,</span> <span class="s1">'과학서적'</span><span class="p">,</span> <span class="mi">25000</span><span class="p">);</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">book</span><span class="p">;</span>
+</code></pre></div></div>
+<p>exec 을 통해 procedure 의 이름과
+해당 procedure 에 필요한 value 를 넣어주면 끝!</p>
+
+<p>select * from ~ 으로 테이블에
+내가 원하는 값들이 들어갔는지 확인해보자</p>
+
+<p>이런 procedure 는
+select ~ 구문을 쓰지 않아도
+바로 값을 출력해주는 방식으로도 쓸 수 있다</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">procedure</span> <span class="n">AVERAGEPRICE</span><span class="p">(</span>
+    <span class="n">AVERAGEVAL</span> <span class="k">out</span> <span class="n">number</span><span class="p">)</span>
+<span class="k">as</span>
+<span class="k">begin</span>
+    <span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">price</span><span class="p">)</span> <span class="k">into</span> <span class="n">AVERAGEVAL</span> <span class="k">from</span> <span class="n">book</span> 
+    <span class="k">where</span> <span class="n">price</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">set</span> <span class="n">serveroutput</span> <span class="k">on</span><span class="p">;</span>
+<span class="k">declare</span>
+    <span class="n">AVERAGEVAL</span> <span class="n">NUMBER</span><span class="p">;</span>
+<span class="k">begin</span>
+    <span class="n">AVERAGEPRICE</span><span class="p">(</span><span class="n">AVERAGEVAL</span><span class="p">);</span>
+    <span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">'책값 평균 : '</span><span class="o">||</span><span class="n">AVERAGEVAL</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+<span class="err">​</span><span class="o">/</span>
+</code></pre></div></div>
+<p>procedure 도 처음보는데
+AVERAGEVAL 옆의 out 도 처음본다</p>
+
+<p>이 out 은
+보통 우리가 테이블을 만들 때
+CREATE TABLE IN system 처럼
+in 을 쓰지만 생략하고 쓰기도 하는데
+여기서의 in 은 자료의 ‘안’에 넣는것이다</p>
+
+<p>이해가 가지 않을 것이기 때문에 
+DBMS_OUTPUT.PUT_LINE 구문과
+함께 살펴보자</p>
+
+<p>위 procedure 를 실행해보고
+set serveroutput on; 을 꼭 실행해주어야 한다
+그리고
+DBMS_OUTPUT.PUT_LINE 을 실행해보면</p>
+
+<p>​<figure style="text-align:center;">
+<img class="image" src="../contents/imgs/oracle_3/1.png">
+</figure></p>
+
+<p>이런식으로 우리가 직접 
+select ~ 어쩌구 해서 평균값을 구해주지 않아도
+바로 평균을 구해주는 구문처럼 쓸 수 있다</p>
+
+<p>그런데 만약</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">procedure</span> <span class="n">AVERAGEPRICE</span><span class="p">(</span>
+    <span class="n">AVERAGEVAL</span> <span class="k">out</span> <span class="n">number</span><span class="p">)</span>
+</code></pre></div></div>
+<p>여기서 out 이 아닌 in 을 쓴다면
+오류가 생기기도 하지만
+오류 없이 넘어간다 한들</p>
+
+<p>​<figure style="text-align:center;">
+<img class="image" src="../contents/imgs/oracle_3/2.png">
+</figure></p>
+
+<p>요 에서 원하는 책값 평균에는
+값이 들어오지 않는다</p>
+
+<p>즉, out 은 이처럼 ‘밖’으로 출력을 원할 때,
+in 은 ‘안’에서 자료 정리를 원할 때 쓴다</p>
+
+<p><span style="color:orange">* in out 을 같이 써주면 모두 가능</span>
+<br></p>
+<p style="font-size:24px; font-weight:bold"><span style="background-color:#007433; color:#ffd300;">2. CURSOR</span></p>
+
+<p>파이썬에서 DB에 접속하고
+sql 을 통해 자료를 불러올 때
+커서를 많이 접해봤다</p>
+
+<p>conn.cursor
+cursor.fetchall()</p>
+
+<p>등으로 많이 활용했다</p>
+
+<p>커서는 우리가 평소에 쓰는 말처럼
+깜박이는 커서를 연상하면 이해가 쉽다</p>
+
+<p>현재 어떤 튜플에 커서가 위치해있고
+해당 커서에 어떤 명령을 입력하느냐 인것같다</p>
+
+<p>​</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">procedure</span> <span class="n">INTEREST</span> 
+<span class="k">as</span>
+    <span class="n">MYINTEREST</span> <span class="nb">NUMERIC</span><span class="p">;</span>
+    <span class="n">PRICE</span> <span class="nb">NUMERIC</span><span class="p">;</span>
+    <span class="k">cursor</span> <span class="n">INTERESTCURSOR</span> <span class="k">is</span> <span class="k">select</span> <span class="n">saleprice</span> <span class="k">from</span> <span class="n">orders</span><span class="p">;</span>      <span class="o">//</span> <span class="err">커서에</span> <span class="err">어떤</span> <span class="k">sql</span> <span class="err">을</span> <span class="err">불러줄지</span> <span class="err">설정</span>
+<span class="k">begin</span>
+    <span class="n">myinterest</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">open</span> <span class="n">interestcursor</span><span class="p">;</span>                                        <span class="o">//</span> <span class="k">open</span> <span class="k">cursor</span>
+    <span class="n">loop</span>
+        <span class="k">fetch</span> <span class="n">interestcursor</span> <span class="k">into</span> <span class="n">price</span><span class="p">;</span>
+        <span class="n">exit</span> <span class="k">when</span> <span class="n">interestcursor</span><span class="o">%</span><span class="n">notfound</span><span class="p">;</span>
+        <span class="n">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">30000</span> <span class="k">then</span>
+            <span class="n">myinterest</span> <span class="p">:</span><span class="o">=</span> <span class="n">myinterest</span> <span class="o">+</span> <span class="n">price</span> <span class="o">*</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">myinterest</span> <span class="p">:</span><span class="o">=</span> <span class="n">myinterest</span> <span class="o">+</span> <span class="n">price</span> <span class="o">*</span> <span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">;</span>
+        <span class="k">end</span> <span class="n">if</span><span class="p">;</span>
+    <span class="k">end</span> <span class="n">loop</span><span class="p">;</span>
+    <span class="k">close</span> <span class="n">interestcursor</span><span class="p">;</span>                                       <span class="o">//</span> <span class="k">close</span> <span class="k">cursor</span>
+    <span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">'전체 이익 금액 = '</span><span class="o">||</span><span class="n">myinterest</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+<span class="o">/</span>
+
+<span class="k">set</span> <span class="n">serveroutput</span> <span class="k">on</span><span class="p">;</span>
+<span class="k">exec</span> <span class="n">interest</span><span class="p">;</span>
+</code></pre></div></div>
+<p><br></p>
+<p style="font-size:24px; font-weight:bold;"><span style="background-color:#007433; color:#ffd300">3. TRIGGER</span></p>
+
+<p>트리거는 어떤 구문이 수행 되었을 때
+따라 가게되는 수행구문이다</p>
+
+<p>무언가 건드렸을 때 발동되는 덫을 연상하면
+이해가 쉬울것 같다</p>
+
+<p>트리거에는 before 와 after 가 있는데
+after 를 통한 로그 자료 기입 구문을 살펴보자</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- trigger 실습 위한 테이블 생성</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">book_log</span> <span class="p">(</span>
+    <span class="n">BOOKID_1</span> <span class="n">NUMBER</span><span class="p">,</span>
+    <span class="n">BOOKNAME_1</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">PUBLISHER_1</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+    <span class="n">PRICE_1</span> <span class="n">NUMBER</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">trigger</span> <span class="n">AFTERINSERTBOOK</span>                             <span class="o">//</span> <span class="err">트리거</span> <span class="err">설정</span>
+<span class="k">after</span> <span class="k">insert</span> <span class="k">on</span> <span class="n">book</span> <span class="k">for</span> <span class="k">each</span> <span class="k">row</span>                                     <span class="o">//</span> <span class="err">트리거</span> <span class="err">발동</span> <span class="err">조건</span>
+<span class="k">declare</span>
+    <span class="n">average</span> <span class="n">number</span><span class="p">;</span>
+<span class="k">begin</span> 
+    <span class="k">insert</span> <span class="k">into</span> <span class="n">BOOK_LOG</span>
+    <span class="k">values</span><span class="p">(:</span><span class="k">new</span><span class="p">.</span><span class="n">bookid</span><span class="p">,</span> <span class="p">:</span><span class="k">new</span><span class="p">.</span><span class="n">bookname</span><span class="p">,</span> <span class="p">:</span><span class="k">new</span><span class="p">.</span><span class="n">publisher</span><span class="p">,</span> <span class="p">:</span><span class="k">new</span><span class="p">.</span><span class="n">price</span><span class="p">);</span>
+    <span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">'삽입 튜플을 BOOK_LOG 테이블에 백업'</span><span class="p">);</span>
+<span class="k">end</span><span class="p">;</span>
+<span class="o">/</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">book</span> <span class="k">values</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">'스포츠 과학 1'</span><span class="p">,</span> <span class="s1">'미디어'</span><span class="p">,</span> <span class="mi">25000</span><span class="p">);</span>         <span class="o">//</span> <span class="err">트리거</span> <span class="err">발동</span> <span class="err">조건</span> <span class="err">수행</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">book</span> <span class="k">where</span> <span class="n">bookid</span> <span class="o">=</span> <span class="s1">'16'</span><span class="p">;</span>                                <span class="o">//</span> <span class="err">트리거</span> <span class="err">수행</span> <span class="err">여부</span> <span class="err">확인</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">book_log</span> <span class="k">where</span> <span class="n">bookid_1</span><span class="o">=</span><span class="s1">'16'</span><span class="p">;</span>
+</code></pre></div></div>
+<p><br></p>
+
+<p style="font-size:24px; font-weight:bold;"><span style="background-color:#007433; color:#ffd300;">4. 사용자 정의 함수</span></p>
+
+<p>사용자 정의 함수는
+여느 언어들과 거의 비슷한다고 느꼈다</p>
+
+<p>그리 어렵진 않으니
+아래 구문을 살펴보면서 이해해보자
+​</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">function</span> <span class="n">fnc_interest</span><span class="p">(</span>          <span class="o">//</span> <span class="err">사용자</span> <span class="err">정의</span> <span class="err">함수</span> <span class="err">설정</span>
+    <span class="n">price</span> <span class="n">number</span><span class="p">)</span> <span class="k">return</span> <span class="nb">int</span>                     
+<span class="k">is</span>
+    <span class="n">myinterest</span> <span class="n">number</span><span class="p">;</span>
+<span class="k">begin</span>
+    <span class="n">if</span> <span class="n">price</span> <span class="o">&gt;=</span> <span class="mi">30000</span> <span class="k">then</span> 
+        <span class="n">myinterest</span> <span class="p">:</span><span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">myinterest</span> <span class="p">:</span><span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">;</span>
+    <span class="k">end</span> <span class="n">if</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">myinterest</span><span class="p">;</span>
+<span class="k">end</span><span class="p">;</span>
+<span class="o">/</span>
+
+<span class="k">select</span> <span class="n">custid</span><span class="p">,</span> <span class="n">orderid</span><span class="p">,</span> <span class="n">saleprice</span><span class="p">,</span> <span class="n">fnc_interest</span><span class="p">(</span><span class="n">saleprice</span><span class="p">)</span> <span class="n">interest</span> <span class="k">from</span> <span class="n">orders</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>pl/sql 을 통해
+내가 모르던 sql의 세계로 발을 담근거 같아 신기하기도 하지만
+직접 필요한식으로 짜보려면
+조금 익숙해질 필요가 있을것 같다 😂</p>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>
