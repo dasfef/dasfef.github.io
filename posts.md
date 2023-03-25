@@ -28,7 +28,7 @@ title:  "POSTS"
 **[ C_SHARP ]**
 
 ---
-<b><a class="post_link" href="/csharp/1" title="2023.03.23 작성">1. [미니 프로젝트]유튜브 미니플레이어 + C# 웹브라우저</a></b>
+<b><a class="post_link" href="/csharp/1" title="2023.03.23 작성">1. [MINI PROJECT]유튜브 미니플레이어 + C# 웹브라우저</a></b>
 
 
 **[ ORACLE ]**
