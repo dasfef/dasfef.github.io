@@ -25,6 +25,12 @@ header_pages:
   - portfolio.md
   - about.md
 
+exclude:
+  - ruby/
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
+
 # set the size of the text to 'large' or 'small', default is small
 font-size: small
 

@@ -1,0 +1,17 @@
+current directory: /Users/dasfef/Desktop/HTML/dasfef.github.io/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+/Users/dasfef/.rbenv/versions/2.7.7/bin/ruby -I /Users/dasfef/.rbenv/versions/2.7.7/lib/ruby/2.7.0 -r ./siteconf20230325-73208-1c5a7z3.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/dasfef/Desktop/HTML/dasfef.github.io/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /Users/dasfef/Desktop/HTML/dasfef.github.io/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/dasfef/Desktop/HTML/dasfef.github.io/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR=" install
+/opt/homebrew/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20230325-73208-1g8k45m/racc
