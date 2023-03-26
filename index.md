@@ -49,7 +49,7 @@ description: 개발취업난중일기
     <div class="container">
         <pre class="center" id="d"></pre>
     </div>
-    <h1 text-align:center>도넛을 만들 수 있을때까지</h1>
+        <p style="text-align:center">도넛을 만들 수 있을때까지</p>
     <script src="donut.js"></script>
     
 </body>

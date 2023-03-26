@@ -25,6 +25,9 @@ header_pages:
   - portfolio.md
   - about.md
 
+assets_url:
+  - /assets
+
 exclude:
   - ruby/
   - vendor/
