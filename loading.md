@@ -2,6 +2,7 @@
 layout: 
 permalink: /
 permalink_name: 
+title: "대문 두드리는 중"
 ---
 
 <html lang="en">
