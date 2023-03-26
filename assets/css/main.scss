@@ -135,8 +135,9 @@ input[id*="menu"] {
   display: none;
 }
 
-input[id*="menu"] + label {
+input[id*="menu"]:hover + label {
   cursor: pointer;
+  background-color:darkblue;
 }
 
 input[id*="menu"] + label + div {
@@ -149,8 +150,10 @@ input[id*="menu"]:checked + label + div {
   max-height: 300px;
 }
 
-.accordion div li a{
+.accordion div li a:hover{
   transition:all .35s;
+  color:#fff;
+  background-color: darkblue;
 }
 
 /* IMG_FIGURE */
