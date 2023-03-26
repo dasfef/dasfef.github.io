@@ -30,7 +30,6 @@ title:  "POSTS"
 ---
 <b><a class="post_link" href="/csharp/1" title="2023.03.23 작성">1. [MINI PROJECT]유튜브 미니플레이어 + C# 웹브라우저</a></b>
 
-
 **[ ORACLE ]**
 
 ---
@@ -52,3 +51,9 @@ title:  "POSTS"
 ---
 <b><a class="post_link" href="/chungbuk_univ/2" title="2023.03.05 작성">2. 충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[C 마지막 수업]</a>
 <a class="post_link" href="/chungbuk_univ/1" title="2023.03.02 작성">1. 충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정(2023.02.13 ~ 2023.07.05)</a></b>
+
+
+**[ ETC ]**
+
+---
+<b><a class="post_link" href="/etc/1" title="2023.03.25 작성">1. [jekyll] ~ does not have a valid date in the YAML front matter. 오류 해결</a></b>
