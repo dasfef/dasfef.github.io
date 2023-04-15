@@ -3,8 +3,8 @@ layout:
 permalink: /
 permalink_name: 
 tagline: "자신을 자랑하지 마라"
-description: "남들보다 늦은 나이에 개발자로의 꿈을 펼칩니다. 함께 어둠의 심연에서 발버둥치길 바라며"
-title: "대문 두드리는 중"
+description: "dasfef의 개발취업난중일기"
+title: "dasfef"
 ---
 
 <html lang="en">

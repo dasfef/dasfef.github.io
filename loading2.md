@@ -2,7 +2,7 @@
 layout: 
 permalink: /loading
 permalink_name: 
-title: "버선발로 나가는 중"
+title: 
 ---
 
 <html lang="en">
