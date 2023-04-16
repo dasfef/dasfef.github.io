@@ -3,7 +3,7 @@ layout: default
 permalink: /home
 permalink_name: HOME
 title: HOME
-description: 개발취업난중일기
+description: dasfef의 개발취업난중일기
 # detail_image: assets/theme_logo.svg
 
 ---
