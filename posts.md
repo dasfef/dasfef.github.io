@@ -96,16 +96,22 @@ title:  "POSTS"
         <hr>
     </div>
     <input type="checkbox" id="menu07">
-    <label for="menu07">[ 충북대학교 공동훈련센터 ]<em></em></label>
+    <label for="menu07">[ WSL ]<em></em></label>
+    <div>
+        <li><a></a></li>
+        <hr>
+    </div>
+    <input type="checkbox" id="menu08">
+    <label for="menu08">[ 충북대학교 공동훈련센터 ]<em></em></label>
     <div>
         <li><a href="/chungbuk_univ/2" title="2023.03.05 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[C 마지막 수업]</a></li>
         <li><a href="/chungbuk_univ/1" title="2023.03.02 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정(2023.02.13 ~ 2023.07.05)</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu08">
-    <label for="menu08">[ ETC ]<em></em></label>
+    <input type="checkbox" id="menu09">
+    <label for="menu09">[ ETC ]<em></em></label>
     <div>
-        <li><a href="/etc/1" title="2023.03.25 작성">[jekyll] ~ does not have a valid date in the YAML front matter. 오류 해결</a></li>
+        <li><a href="/etc/1" title="2023.03.25 작성">1. [jekyll] ~ does not have a valid date in the YAML front matter. 오류 해결</a></li>
         <hr>
     </div>
 </div>

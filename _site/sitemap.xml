@@ -34,10 +34,10 @@
 <loc>http://localhost:4000/oracle/2</loc>
 </url>
 <url>
-<loc>http://localhost:4000/oracle/3</loc>
+<loc>http://localhost:4000/csharp/1</loc>
 </url>
 <url>
-<loc>http://localhost:4000/csharp/1</loc>
+<loc>http://localhost:4000/oracle/3</loc>
 </url>
 <url>
 <loc>http://localhost:4000/etc/1</loc>
@@ -50,6 +50,12 @@
 </url>
 <url>
 <loc>http://localhost:4000/java/2</loc>
+</url>
+<url>
+<loc>http://localhost:4000/wsl/1</loc>
+</url>
+<url>
+<loc>http://localhost:4000/wsl/2</loc>
 </url>
 <url>
 <loc>http://localhost:4000/404</loc>

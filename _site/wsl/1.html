@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef의 개발취업난중일기">
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    WSL2 무작정 Ubuntu 설치하기 - dasfef
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>WSL2 무작정 Ubuntu 설치하기 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="WSL2 무작정 Ubuntu 설치하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="dasfef의 개발취업난중일기" />
+<meta property="og:description" content="dasfef의 개발취업난중일기" />
+<link rel="canonical" href="http://localhost:4000/wsl/1" />
+<meta property="og:url" content="http://localhost:4000/wsl/1" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="WSL2 무작정 Ubuntu 설치하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"dasfef의 개발취업난중일기","headline":"WSL2 무작정 Ubuntu 설치하기","url":"http://localhost:4000/wsl/1"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">WSL2 무작정 Ubuntu 설치하기</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p class="date">2023.04.11</p>
+
+<p class="caution">개인 기록용 입니다 :)
+오타, 수정 등 피드백 환영</p>
+<p><br>
+WSL(Windows Subsystem for Linux) 은
+윈도우 자체에서 리눅스를 사용할 수 있도록
+만든 가상머신이다<br>
+​애초에 DOS 에 로망이 있던 나에게
+더없이 좋은 체험 현장이다<br>
+​윈도우에 깔아주는 만큼
+본인이 진행했던 최대한 깔끔하고
+쉽고 편한 루트로 진행해보자
+<br>
+​<span class="mini-title">1. 윈도우 세팅</span></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/wsl_1/1.png">
+</figure>
+<p>검색 -&gt; Windows 기능 켜기/끄기 클릭<br></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/wsl_1/2.png">
+</figure>
+<p>Linux용 Windows 하위 시스템 / 가상 머신 플랫폼<br>
+체크 후 확인을 누르면
+시스템이 자동으로 재부팅을 권유한다
+<br>
+<span class="mini-title">2. Ubuntu 설치</span></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/wsl_1/3.png">
+</figure>
+<p>Microsoft Store 검색 후 실행</p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/wsl_1/4.png">
+</figure>
+<p>Ubuntu 설치 클릭
+<br>
+<span class="mini-title">3. WSL 설치</span></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/wsl_1/5.png">
+</figure>
+<p>검색 -&gt; Windows PowerShell(관리자 권한으로 실행)</p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/wsl_1/6.png">
+</figure>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install
+</code></pre></div></div>
+
+<p>위 명령어 실행하면
+wsl 이 설치된다
+<br>
+이후
+<br></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-version 2
+</code></pre></div></div>
+
+<p>위 명령어로 현재 나와있는 최신 wsl 2 를
+default 로 설정해준다
+다음으로
+Microsoft Store 에서 설치한
+Ubuntu 를 실행해주면</p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/wsl_1/7.png">
+</figure>
+<p>해당 화면과 같이 실행이 되고
+최초 실행시
+username / pwd 등록을 실시하라고 뜬다
+원하는 username(소문자) 와
+원하는 password 를 두번 입력하여
+등록해주면 WSL 설치 끝</p>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>
