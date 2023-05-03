@@ -2,7 +2,7 @@
 layout: default
 permalink: /home
 permalink_name: HOME
-title: HOME
+title: dasfef
 description: dasfef의 개발취업난중일기
 # detail_image: assets/theme_logo.svg
 
@@ -49,7 +49,7 @@ description: dasfef의 개발취업난중일기
     <div class="container">
         <pre class="center" id="d"></pre>
     </div>
-        <p style="text-align:center">도넛을 만들 수 있을때까지</p>
+        <!-- <p style="text-align:center">도넛을 만들 수 있을때까지</p> -->
     <script src="donut.js"></script>
     
 </body>
