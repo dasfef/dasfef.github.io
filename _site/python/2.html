@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤 - dasfef
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="dasfef의 개발취업난중일기" />
+<meta property="og:description" content="dasfef의 개발취업난중일기" />
+<link rel="canonical" href="http://localhost:4000/python/2" />
+<meta property="og:url" content="http://localhost:4000/python/2" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"dasfef의 개발취업난중일기","headline":"[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤","url":"http://localhost:4000/python/2"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p class="date">2023.04.24</p>
+
+<p class="caution">개인 기록용 입니다 :)
+오타, 수정 등 피드백 환영</p>
+<p><br>
+<span class="mini-title">1. 데이터 오픈</span>
+<br>
+DATA : 국가기후데이터</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'C:\work\BigData\day01\seoul.csv'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'cp949'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s">','</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"-----------------------------"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>f.close()
+next(data) 를 통해
+가장 첫 줄의 헤더부분(ex.열 이름) 건너뜀
+<br></p>
+<ul>
+  <li>출력결과 -</li>
+</ul>
+
+<p>// print(header) - next(data) 출력 결과
+[‘날짜’, ‘지점’, ‘평균기온(℃)’, ‘최저기온(℃)’, ‘최고기온(℃)’]</p>
+
+<p>// 반복문 내 한 줄씩 출력 결과
+[‘\t1907-10-01’, ‘108’, ‘13.5’, ‘7.9’, ‘20.7’]
+[‘\t1907-10-02’, ‘108’, ‘16.2’, ‘7.9’, ‘22’]
+[‘\t1907-10-03’, ‘108’, ‘16.2’, ‘13.1’, ‘21.3’]
+…
+​
+<br>
+<span class="mini-title">2. matplotlib 그래프 컨트롤</span>
+<br></p>
+<div class="mini-sub">1) 그래프 색 바꾸기</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">그래프</span> <span class="n">선</span> <span class="n">색</span> <span class="n">바꾸기</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"legend"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"skyblue"</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">"skyblue"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s">"pink"</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">"pink"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/1.png">
+</figure>
+<p>color = 색상
+옵션으로 색상을 변경할 수 있다<br>
+혹은 “pink” 등과 같이
+옵션에 알맞는 색상 값을 넣어주면
+해당 색상으로 색을 변경할 수 있다<br>
+color 속성에는 수많은 색상값이 있는데
+이럴때 원문을 참조하면 좋다</p>
+
+<p><a class="post_link" href="https://matplotlib.org/stable/gallery/color/named_colors.html">matplotlib colors</a></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/2.jpg">
+</figure>
+
+<p><br></p>
+<div class="mini-sub">2) 그래프 선 모양 바꾸기</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">그래프</span> <span class="n">선</span> <span class="n">모양</span> <span class="n">바꾸기</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"linestyle"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"dashed"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s">":"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"dotted"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/3.png">
+</figure>
+
+<p>linestyle 속성으로 선 모양을 바꿀 수 있다
+줄여서 ls 속성으로 쓸 수도 있으며
+옵션 값은 아래 링크 참조<br>
+​<a class="post_link" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html#linestyles">matplotlib linestyle</a></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/4.jpg">
+</figure>
+<p><br></p>
+
+<div class="mini-sub">3) 마커모양 바꾸기</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">마커</span> <span class="n">모양</span> <span class="n">바꾸기</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"marker"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="s">'r.--'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">'circle'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="s">'g^:'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">'triangle up'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/5.png">
+</figure>
+<p>‘r.–’ / ‘g^:’
+등으로 표기된 옵션은 각각
+color = red
+marker = .
+linestyle = –<br>
+color = green
+marker = ^
+linestyle = :
+를 뜻한다<br>
+<a class="post_link" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_star_poly.html">matplotlib marker</a></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/6.jpg">
+</figure>
+<p>​</p>
+
+<p><span class="caution">example_1)</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'C:\work\ML\day01\seoul.csv'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'cp949'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s">','</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s">''</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'02'</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s">'14'</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/7.png">
+</figure>
+
+<p>​<br></p>
+
+<p>​</p>
+
+<p><span class="caution">example_2)</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'C:\work\ML\day01\seoul.csv'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'cp949'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s">','</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">high</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">low</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s">''</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="s">''</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">1983</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'02'</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s">'14'</span><span class="p">:</span>
+                <span class="n">high</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="n">low</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">'Malgun Gothic'</span><span class="p">)</span>            <span class="c1"># 맑은고딕 폰트 사용 및 한글 사용 가능
+</span><span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'내 생일의 기온 변화 그래프'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'axes.unicode_minus'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>          <span class="c1"># 마이너스 기호 깨짐 방지
+</span><span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">high</span><span class="p">,</span> <span class="s">'r--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="s">'b:'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_2/8.png">
+</figure>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>

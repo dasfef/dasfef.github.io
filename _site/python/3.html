@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [데이터 분석] 다양한 차트 그래프 - dasfef
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[데이터 분석] 다양한 차트 그래프 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[데이터 분석] 다양한 차트 그래프" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="dasfef의 개발취업난중일기" />
+<meta property="og:description" content="dasfef의 개발취업난중일기" />
+<link rel="canonical" href="http://localhost:4000/python/3" />
+<meta property="og:url" content="http://localhost:4000/python/3" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[데이터 분석] 다양한 차트 그래프" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"dasfef의 개발취업난중일기","headline":"[데이터 분석] 다양한 차트 그래프","url":"http://localhost:4000/python/3"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[데이터 분석] 다양한 차트 그래프</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p class="date">2023.04.24</p>
+
+<p class="caution">개인 기록용입니다 :)
+더욱 자세하고 구체적인 정보는
+원문 정보를 참고해주세요</p>
+<p><br>
+<span class="mini-title">다양한 그래프와 차트</span>
+DATA : mois.go.kr 인구통계<br>
+<span class="mini-sub">1) barplot 활용한 항아리 그래프</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">'Malgun Gothic'</span><span class="p">)</span>        <span class="c1"># 원하는 폰트로 지정 가능, 한글 사용시 필요
+</span><span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="n">axes</span><span class="p">.</span><span class="n">unicode_minus</span><span class="p">])</span> <span class="o">=</span> <span class="bp">False</span>       <span class="c1"># 플롯에 -값이 깨질 때 활용
+</span><span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'ggplot'</span><span class="p">)</span>                         <span class="c1"># 격자 그래프 그리기 용도
+</span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'gender.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'cp949'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'알고 싶은 동네 &gt;&gt; '</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+            <span class="n">m</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="nb">int</span><span class="p">((</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]).</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">))))</span>
+            <span class="n">f</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">((</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">106</span><span class="p">]).</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">)))</span>
+        <span class="k">break</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'ggplot'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">'Malgun Gothic'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'axes.unicode_minus'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">' 지역의 성별 인구 분포'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">),</span> <span class="n">m</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">'남성'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">barh</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">),</span> <span class="n">f</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">'여성'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/1.png">
+</figure>
+<p><br>
+<span class="mini-sub">2) piechart</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">pie</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># value, label 배열화 / autopct 활용
+</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">'Malgun Gothic'</span><span class="p">)</span>    <span class="c1"># font 설정
+</span><span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2441</span><span class="p">,</span> <span class="mi">2312</span><span class="p">,</span> <span class="mi">1031</span><span class="p">,</span> <span class="mi">1233</span><span class="p">]</span>             <span class="c1"># value 설정
+</span><span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s">'A형'</span><span class="p">,</span> <span class="s">'B형'</span><span class="p">,</span> <span class="s">'AB형'</span><span class="p">,</span> <span class="s">'O형'</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">axis</span><span class="p">(</span><span class="s">'equal'</span><span class="p">)</span>                           <span class="c1"># 타원형이 아닌 원 그리기
+</span><span class="n">plt</span><span class="p">.</span><span class="n">pie</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">label</span><span class="p">,</span> <span class="n">autopct</span> <span class="o">=</span> <span class="s">'%.1f%%'</span><span class="p">)</span>    <span class="c1"># autopct 뒤에는 포맷문자열이 와야함
+</span><span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/2.png">
+</figure>
+
+<p>piechart 의 시작 지점은
+12시 방향이 아닌
+우측 90도 방향부터
+반시계 방향으로 값의 차례대로 만들어진다
+<br>
+<span class="caution">piechart explode 활용</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># explode / color 활용
+</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">'Malgun Gothic'</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2441</span><span class="p">,</span> <span class="mi">2312</span><span class="p">,</span> <span class="mi">1031</span><span class="p">,</span> <span class="mi">1233</span><span class="p">]</span>
+<span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s">'A형'</span><span class="p">,</span> <span class="s">'B형'</span><span class="p">,</span> <span class="s">'AB형'</span><span class="p">,</span> <span class="s">'O형'</span><span class="p">]</span>
+<span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s">'black'</span><span class="p">,</span> <span class="s">'gray'</span><span class="p">,</span> <span class="s">'hotpink'</span><span class="p">,</span> <span class="s">'orange'</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">axis</span><span class="p">(</span><span class="s">'equal'</span><span class="p">)</span>
+<span class="c1"># explode 도 마찬가지로 반시계 방향으로 배열 지정됨
+</span><span class="n">plt</span><span class="p">.</span><span class="n">pie</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">label</span><span class="p">,</span> <span class="n">autopct</span> <span class="o">=</span> <span class="s">'%.1f%%'</span><span class="p">,</span> <span class="n">explode</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/3.png">
+</figure>
+<p>explode 를 활용하여
+떨어져 보이는 효과를 나타낼 수 있다
+<br>
+<span class="mini-sub">3) piechart - startangle</span><br>
+우측 90도부터 시작지점인 piechart에
+startangle 속성으로 시작 지점을 변경할 수 있다</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'gender.csv'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'cp949'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'원하는 도시 입력 &gt;&gt; '</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="s">''</span><span class="p">))</span>
+            <span class="n">f</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">106</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="s">''</span><span class="p">))</span>
+            <span class="k">break</span>
+
+<span class="n">size</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">m</span><span class="p">);</span> <span class="n">size</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">pie</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">autopct</span> <span class="o">=</span> <span class="s">'%.1f%%'</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s">'crimson'</span><span class="p">,</span> <span class="s">'darkcyan'</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s">'남'</span><span class="p">,</span> <span class="s">'여'</span><span class="p">],</span> <span class="n">startangle</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">axis</span><span class="p">(</span><span class="s">'equal'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">'Malgun Gothic'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">'의 남녀 성비'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/4.png">
+</figure>
+<p>startangle = 90 인 즉,
+우측 90도를 시작지점 기준으로
+90 만큼 더 이동하는 것인데
+반시계 방향으로 값의 차례대로 들어오기 때문에
+시작지점은 좌측으로 90만큼 틀어진다<br>
+따라서 우측 90도에서
+좌측 90도로 기울어진
+12시 방향에 시작지점이 지정된다
+<br>
+<span class="mini-sub">4) barplot 양,음수로 차이 나타내기</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'gender.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'cp949'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'원하는 동네 입력 &gt;&gt; '</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">104</span><span class="p">):</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">))</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">103</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">)))</span>
+        <span class="k">break</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'axes.unicode_minus'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">),</span> <span class="n">result</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>최종으로 데이터를 부르고
+앞에서 뒤의 값을 빼주면
+앞의 값이 크면 양수,
+뒤의 값이 크면 음수로 된다<br></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/5.png">
+</figure>
+<p><br>
+예시 데이터 : 제주도
+60세 이상으로는 여자가 많고,
+그 전에는 남자의 수가 더 많음을
+유추할 수 있다
+<br>
+<span class="mini-sub">5) scatter 산점도 표현</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">300</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="s">'red'</span><span class="p">,</span> <span class="s">'blue'</span><span class="p">,</span> <span class="s">'green'</span><span class="p">,</span> <span class="s">'gold'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/6.png">
+</figure>
+<p>s = size
+c = color
+각 속성의 의미는 이러하다
+<br></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">300</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>color 속성을 range 로 바꾸어주면<br></p>
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/7.png">
+</figure>
+<p><br>
+range 범위 값만큼
+각기 다른 색으로 표현할 수 있다
+<br>
+<span class="mini-sub">6) 랜덤 값 생성 후 scatter + cmap 활용</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+    <span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+    <span class="n">size</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># cmap 속성을 통해 여러 색에 대한 표현을 간단히 할 수 있다
+</span><span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">size</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">size</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s">'jet'</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/8.png">
+</figure>
+<p>alpha = 마커의 투명도
+alpha 가 1에 가까울수록 불투명
+겹치는 부분이 있으면
+위에 위치한 마커가 겹친 마커를 가리기 때문에
+alpha 를 통해 투명도를 조정해준다
+<br>
+<span class="mini-sub">7) 제곱근으로 사이즈 크기 조절</span></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'gender.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s">'cp949'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'도시명 &gt;&gt; '</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">104</span><span class="p">):</span>
+            <span class="n">m</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">)))</span>
+            <span class="n">f</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">103</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">)))</span>
+            <span class="c1"># sqrt 제곱근으로 사이즈 크기 조정
+</span>            <span class="n">size</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">))</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">103</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">))))</span>
+        <span class="k">break</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">rc</span><span class="p">(</span><span class="s">'font'</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">'Malgun Gothic'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">'의 연령별 인구 분포'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">f</span><span class="p">)),</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">f</span><span class="p">)),</span> <span class="s">'g--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s">'jet'</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="fig">
+<img class="image" src="../contents/imgs/python_3/9.png">
+</figure>
+<p>각 값의 크기가 천차만별일 경우
+마커의 크기도 천차만별이 된다<br>
+이 크기를 자연스럽게 표현하기 위해
+제곱근(루트 : math.sqrt())로 계산하여
+소수점 단위의 크기로 표현하면
+자연스러운 크기 차이로 표현할 수 있다</p>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>
