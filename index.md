@@ -3,10 +3,10 @@ layout: default
 permalink: /home
 permalink_name: HOME
 title: "dasfef"
-description: "코드 심문자의 개발취업난중일기"
-# detail_image: assets/theme_logo.svg
-
+description: "dasfef(코드 심문자)의 개발취업난중일기"
 ---
+
+# detail_image: assets/theme_logo.svg
 
 <html lang="en">
 

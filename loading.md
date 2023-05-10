@@ -2,7 +2,7 @@
 layout: 
 permalink: /
 permalink_name: 
-tagline: "자신을 자랑하지 마라"
+# tagline: "자신을 자랑하지 마라"
 description: "dasfef(다스페프)의 개발취업난중일기"
 title: "dasfef"
 ---
