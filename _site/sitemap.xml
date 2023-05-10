@@ -58,6 +58,15 @@
 <loc>http://localhost:4000/wsl/2</loc>
 </url>
 <url>
+<loc>http://localhost:4000/python/2</loc>
+</url>
+<url>
+<loc>http://localhost:4000/chungbuk_univ/3</loc>
+</url>
+<url>
+<loc>http://localhost:4000/python/3</loc>
+</url>
+<url>
 <loc>http://localhost:4000/404</loc>
 </url>
 <url>

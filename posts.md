@@ -92,6 +92,8 @@ title:  "POSTS"
     <input type="checkbox" id="menu06">
     <label for="menu06">[ PYTHON ]<em></em></label>
     <div>
+        <li><a href="/python/3" title="2023.04.24 작성">[데이터 분석] 다양한 차트 그래프</a></li>
+        <li><a href="/python/2" title="2023.04.24 작성">[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤</a></li>
         <li><a href="/python/1" title="2023.03.12 작성">Python 클래스와 객체</a></li>
         <hr>
     </div>
@@ -105,6 +107,7 @@ title:  "POSTS"
     <input type="checkbox" id="menu08">
     <label for="menu08">[ 충북대학교 공동훈련센터 ]<em></em></label>
     <div>
+        <li><a href="/chungbuk_univ/3" title="2023.04.23 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[JAVA 개인 공부 및 미니프로그램 발표]</a></li>
         <li><a href="/chungbuk_univ/2" title="2023.03.05 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[C 마지막 수업]</a></li>
         <li><a href="/chungbuk_univ/1" title="2023.03.02 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정(2023.02.13 ~ 2023.07.05)</a></li>
         <hr>
