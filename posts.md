@@ -78,6 +78,7 @@ title:  "POSTS"
     <input type="checkbox" id="menu04">
     <label for="menu04">[ JAVA ]<em></em></label>
     <div>
+        <li><a href="/java/3" title="2023.05.03 작성">[Android] 안드로이드 스튜디오 설치 및 개발환경 구성(AMD CPU)</a></li>
         <li><a href="/java/2" title="2023.04.06 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (2) 배열 및 참조 호출</a></li>
         <li><a href="/java/1" title="2023.04.04 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (1)</a></li>
     </div>
@@ -92,6 +93,8 @@ title:  "POSTS"
     <input type="checkbox" id="menu06">
     <label for="menu06">[ PYTHON ]<em></em></label>
     <div>
+        <li><a href="/python/4" title="2023.05.01 작성">[데이터 분석] numpy random.rand에 관하여
+</a></li>
         <li><a href="/python/3" title="2023.04.24 작성">[데이터 분석] 다양한 차트 그래프</a></li>
         <li><a href="/python/2" title="2023.04.24 작성">[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤</a></li>
         <li><a href="/python/1" title="2023.03.12 작성">Python 클래스와 객체</a></li>
@@ -107,6 +110,7 @@ title:  "POSTS"
     <input type="checkbox" id="menu08">
     <label for="menu08">[ 충북대학교 공동훈련센터 ]<em></em></label>
     <div>
+        <li><a href="/chungbuk_univ/4" title="2023.05.01 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[충북대학교 오창캠퍼스 가는길]</a></li>
         <li><a href="/chungbuk_univ/3" title="2023.04.23 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[JAVA 개인 공부 및 미니프로그램 발표]</a></li>
         <li><a href="/chungbuk_univ/2" title="2023.03.05 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[C 마지막 수업]</a></li>
         <li><a href="/chungbuk_univ/1" title="2023.03.02 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정(2023.02.13 ~ 2023.07.05)</a></li>
@@ -115,7 +119,8 @@ title:  "POSTS"
     <input type="checkbox" id="menu09">
     <label for="menu09">[ ETC ]<em></em></label>
     <div>
-        <li><a href="/etc/1" title="2023.03.25 작성">1. [jekyll] ~ does not have a valid date in the YAML front matter. 오류 해결</a></li>
+        <li><a href="/etc/2" title="2023.05.01 작성">[git] push 시 기억해야할 점 기록 master 와 main</a></li>
+        <li><a href="/etc/1" title="2023.03.25 작성">[jekyll] ~ does not have a valid date in the YAML front matter. 오류 해결</a></li>
         <hr>
     </div>
 </div>

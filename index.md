@@ -13,15 +13,15 @@ description: "dasfef(코드 심문자)의 개발취업난중일기"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="dasfef(코드 심문자)의 개발취업난중일기">
+    <meta name="title" content="dasfef">
     <style>
         ::selection {
             background: #505050;
         }
-
         ::-moz-selection {
             background: #505050;
         }
-
         html,
         body,
         .container {
@@ -29,7 +29,6 @@ description: "dasfef(코드 심문자)의 개발취업난중일기"
             background-color: black;
             height: auto;
         }
-
         .container {
             color: white;
             display: -webkit-flexbox;
