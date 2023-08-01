@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="윈도우 및 GPU를 활용하여 딥러닝 진행시 CUDA, cuDNN 등의 NVIDIA 프로그램이 필요하다. 이에 안정적인 버전 및 개인적으로 진행했던 세팅에 대해 기록을 남긴다." />
+<meta property="og:description" content="윈도우 및 GPU를 활용하여 딥러닝 진행시 CUDA, cuDNN 등의 NVIDIA 프로그램이 필요하다. 이에 안정적인 버전 및 개인적으로 진행했던 세팅에 대해 기록을 남긴다." />
+<link rel="canonical" href="http://localhost:4000/python/5" />
+<meta property="og:url" content="http://localhost:4000/python/5" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"윈도우 및 GPU를 활용하여 딥러닝 진행시 CUDA, cuDNN 등의 NVIDIA 프로그램이 필요하다. 이에 안정적인 버전 및 개인적으로 진행했던 세팅에 대해 기록을 남긴다.","headline":"[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기","url":"http://localhost:4000/python/5"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p class="date">2023.06.13</p>
+
+<p class="caution">개인 기록용 입니다 :)
+오타, 수정 등 피드백 환영</p>
+<p><br></p>
+<p style="text-align:center">
+[ 내 컴퓨터 사양 ]
+CPU : AMD Ryzen 9 5900X
+RAM : 32GB
+Windows x64
+GPU : NVIDIA GeForce 3060 Ti
+
+
+<span class="mini-title">본인 사양에 맞는 CUDA 확인하기</span>
+
+<a href="https://en.wikipedia.org/wiki/CUDA#Version_features_and_specifications" target="_blank">WIKIPEDIA에서 CUDA 버전 확인하기</a>
+
+필자는 기존에 진행해봤던 사양이 있어
+해당 사양으로 진행 예정입니다
+
+<a href="https://www.nvidia.co.kr/Download/Find.aspx?lang=kr" target="_blank">NVIDIA 그래픽카드 드라이버 설치</a>
+
+<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank">CUDA 11.2.2 버전</a>
+<img class="image" src="/contents/imgs/python_5/1.png">
+
+<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank">cuDNN 8.1.1 버전</a>
+<img class="image" src="/contents/imgs/python_5/2.png">
+
+파일 옮기기
+
+CUDA 는 기본 설정으로 모두 설치
+cuDNN 은 알집을 풀고
+안에 있는 cuda 폴더를
+CUDA가 설치된 폴더로 복사 붙여넣기 진행
+
+default 설정으로 CUDA를 설치했다면
+
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2​
+
+위의 경로로 설치가 진행됐을텐데
+cuDNN 알집을 풀고 보이는 폴더들이
+해당 폴더의 폴더들과 이름이 같은 것을 알 수 있다
+
+cuDNN 의 파일들을 복사하여
+CUDA 폴더에 맞게 붙여넣어주면 된다
+
+cuda\bin 의 *.dll 파일을
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin 로
+
+
+cuda\include 의 *.h 파일을
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\include 로
+
+​
+cuda\lib\x64 의 *.lib 파일을
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\lib\x64 로
+<img class="image" src="/contents/imgs/python_5/3.png">
+<img class="image" src="/contents/imgs/python_5/4.png">
+​
+
+<span class="mini-title">환경변수 확인</span>
+
+검색 → "시스템 환경 변수 편집" → "환경 변수"
+<img class="image" src="/contents/imgs/python_5/5.png">
+<img class="image" src="/contents/imgs/python_5/6.png">
+
+cmd 창에서 다음 코드 입력 후 실행 결과 확인
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\extras\demo_suite\deviceQuery.exe"
+<img class="image" src="/contents/imgs/python_5/7.png">
+최하단 Result = PASS 라고 나오면 성공
+
+CUDA Driver Version = 12.1
+Runtime Version = 11.2
+
+라고 다르게 나오는데
+Driver Version 은 말그대로 NVIDIA Driver 로 설치된 버전
+Runtime은 CUDA tool kit 에 의해 설치된 버전
+
+필자는 NVIDIA Driver 가 기존에 있어 설치를 안했는데
+다시 설치를 해보았다
+
+
+<span class="mini-title">conda 가상환경에서 테스트</span>
+</p>
+<script src="https://gist.github.com/dasfef/08adae511e6a1aa2596adc225194e62d.js"></script>
+
+<p style="text-align:center">
+conda 가상환경 내
+위 라이브러리 설치 후 테스트 진행
+
+vscode 에 연동하여 진행
+
+from tensorflow.python.client import device_lib 
+print(device_lib.list_local_devices())
+​
+해당 코드 작성 후 실행시
+<img class="image" src="/contents/imgs/python_5/8.png">
+
+위와 같은 오류 발생
+
+​
+# 오류발생시
+pip install protobuf==3.20.*
+이와 같이 protobuf 버전을 지정해서 설치해주자
+
+이제 tensorflow 동작에 gpu가 잡히는지 테스트해보자
+<img class="image" src="/contents/imgs/python_5/9.png">
+이렇게 GPU가 잡힌다면 성공!
+</p>
+
+<p>만일 cmd 내에서
+nvcc –version / nvidia-smi
+두 명령어를 실행했을 때
+CUDA, cuDNN 모두 잡히고
+버전에도 이상이 없는데도 불구하고
+GPU 인식이 안된다면
+tensorflow 버전이 맞지 않을 가능성이 있다</p>
+
+<p>이때 conda 환경에서 conda install tensorflow 를 했다면
+conda list tensorflow,
+pip install tensorflow 를 했다면
+pip list tensorflow 를 하여
+나오는 tensorflow 버전을 확인한 후
+맞지 않는 버전을 지우고 호환되는 버전으로 재설치 하면
+다시 나타날 수 있으니 참고하자</p>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>

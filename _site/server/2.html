@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2) 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2) | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="이전 안드로이드에서 php와 apache 설치한 글에 이어 mysql로의 연동 시작해보기" />
+<meta property="og:description" content="이전 안드로이드에서 php와 apache 설치한 글에 이어 mysql로의 연동 시작해보기" />
+<link rel="canonical" href="http://localhost:4000/server/2" />
+<meta property="og:url" content="http://localhost:4000/server/2" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"이전 안드로이드에서 php와 apache 설치한 글에 이어 mysql로의 연동 시작해보기","headline":"[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2)","url":"http://localhost:4000/server/2"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2)</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p class="date">2023.06.13</p>
+
+<p class="caution">개인 기록용 입니다 :)
+오타, 수정 등 피드백 환영</p>
+<p><br></p>
+<p style="text-align:center">
+<a href="https://blog.naver.com/heybry/223118173349">아파치 서버 설치 후 PHP 및 MySQL 연동(1)</a>
+
+
+이전 시간에 php 와 아파치의 연동이 잘 되는것을 확인했으니
+이제 php 와 MySQL 의 연동이 잘 되는지 확인해보자
+
+phpinfo 를 띄웠던것 처럼 DB 연동에 성공시
+일정 문구를 띄워보도록 해보자
+</p>
+
+<h1 id="mysqltestphp-파일-작성">mysqltest.php 파일 작성</h1>
+<script src="https://gist.github.com/dasfef/90725d5b71c4d7c24007e48b5b1863d9.js"></script>
+
+<p style="text-align:center">
+이런식으로 php를 작성해주고
+c:\program files\apache24\htdocs 내에 넣어준다
+(개인이 다른 경로로 넣었다면 해당 경로를 찾아주자)
+
+그리고 웹브라우저에서 localhost/mysqltest.php 를 호출해주면
+
+​<img class="image" src="/contents/imgs/server_2/1.png">
+
+php 에서의 DB 연결에 성공했다는 문구와 함께
+내가 지정한 DB 내의 데이터들을 불러준다
+
+이렇게 php 와 mysql 의 연동은 성공했지만
+궁극적으로 나는 안드로이드에서 이 데이터를 얻어오고
+다시 데이터를 쓸수도 있도록 하고 싶다
+
+그러기 위해선 여러 단계가 필요한데
+이 부분을 공부하면서 복잡할 수 있어 정리해두고자 한다
+
+<span class="mini-sub">1) php 에서 json 으로 변환</span>
+
+<span class="mini-sub">2) 변환된 json 데이터를 안드로이드에서 불러온다</span>
+
+==============​
+
+작성하다가 너무 피곤해서 잠이 들었다
+
+이미 프로젝트는 발표까지 끝났고
+약 일주일이 지나서야 생각이 나
+계속해서 작성하려 한다
+
+우선 json 으로의 변환도 php를 통해 해주어야 한다
+
+하지만 내가 원하는 것은
+안드로이드에서 입력 받은 것을 DB에 넣고싶고,
+그 입력 받은 DB를 안드로이드에서 조회하고도 싶다
+
+대략적인 절차 요약
+
+<span class="mini-title">안드로이드 -&gt; DB 입력</span>
+
+<span class="mini-sub">1) php를 통해 데이터 입력 공간 제작</span>
+
+​<img class="image" src="/contents/imgs/server_2/2.png">
+
+<span class="mini-sub">2) 안드로이드에서 입력시 php로 데이터 전송</span>
+
+원하는 값을 입력 하는 php 파일 작성​
+</p>
+
+<h1 id="placeregisterphp">PlaceRegister.php</h1>
+<script src="https://gist.github.com/dasfef/16ecbf5a322884e12c3f86a05eafee6f.js"></script>
+
+<p style="text-align:center">
+php 를 배우지 않았던 터라 이곳에서 작은 고생을 했다
+html 은 미리 알았던 터라 큰 문제는 없었지만
+기존에 인터넷으로 보고 배운 mysqli 를 활용하는 법과
+pdo 의 활용하는 법이 약간씩 다른점이 있어
+이러한 부분을 익히고 html 자체도 php 안에 있어야
+데이터가 들어간다는 것을 조금 늦게 깨달았다
+</p>
+
+<p>AsyncTask 를 상속받는 임의의 클래스 생성
+<script src="https://gist.github.com/dasfef/62bd9dd4209034a3ce172871da8e12b3.js"></script></p>
+<p style="text-align:center">
+<span class="mini-sub">3) 입력된 데이터를 AsyncTask와 InputStream 을 활용해 DB로 전송</span>
+
+순으로 이루어진다
+
+InsertData task = new InsertData();
+task.execute("http://" + IP_ADDRESS + "/placeregister.php",Name,Addr,Review,Lat,Lon);
+그리고 이런식으로 특정 행위 이후
+
+클래스 객체 생성 후
+해당 클래스에서 execute를 해주면
+원하는 값을 원하는 php로 삽입할 수 있다
+
+<a href="https://webnautes.tistory.com/828" target="_blank">참조블로그: webnautes.tistory.com</a>
+
+DB -&gt; 안드로이드에서 조회
+반대로 안드로이드에서 DB를 조회하는 것도 비슷하다
+
+<span class="mini-sub">1) php를 통해 mysql 접근</span>
+</p>
+
+<h1 id="getplacephp">getPlace.php</h1>
+<script src="https://gist.github.com/dasfef/979a6e5ee426d2a6c8fda57f7d73c6fe.js"></script>
+
+<p style="text-align:center">
+<span class="mini-sub">2) php에 sql문 작성</span>
+
+<span class="mini-sub">3) php 내부에서 json_encode 를 통해 json으로 변환</span>
+
+<span class="mini-sub">4) 안드로이드에서 json 데이터 읽기</span>
+
+</p>
+
+<script src="https://gist.github.com/dasfef/b06b22fa2a4111743b43df81dbdad105.js"></script>
+
+<p style="text-align:center">
+추가설명)
+json 으로 변환된 데이터를 받아온 후
+map 이라는 새로운 HashMap 객체 생성 후
+map 에 각 데이터의 key와 value 를 넣어줌
+
+이후 map 을 전역변수로 만들어 둔 hash 라는 이름의 HashMap 에 추가
+이해하기 쉽게 말하면 2차원 Dictionary 같은 느낌으로 데이터가 들어간다
+
+그리고 원하는 값을 꺼낼때
+hash 의 ~번째 인덱스의 ~키의 값을 불러달라
+하면 원하는 값 추출 가능
+
+필자의 경우 원하는 위도, 경도 값의 데이터를
+네이버 맵이 로드되었을때 불러오고
+해당하는 위도,경도에 마커를 찍는 형태로 구현했다
+</p>
+
+<script src="https://gist.github.com/dasfef/cc629c70c00a8d0d2385fe30fe05a612.js"></script>
+
+<p style="text-align:center">
+최초 어플 실행 후 맵을 로드하면
+아래와 같이 DB에 저장되어 있는 위도,경도 값을 불러
+그 위치에 마커를 찍어준다
+​
+​<img class="image" src="/contents/imgs/server_2/3.png">
+
+[ TravelJotter 최종 시행 화면 ]
+</p><div class="extensions extensions--video">
+    <iframe src="https://www.youtube.com/embed/bPIVM0uY5Xo" frameborder="0" scrolling="no" allowfullscreen="" style="width:100%; height:500px;"></iframe>
+</div>
+
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>
