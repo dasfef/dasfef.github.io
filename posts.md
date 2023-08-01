@@ -83,11 +83,11 @@ title:  "POSTS"
         <li><a href="/java/1" title="2023.04.04 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (1)</a></li>
     </div>
     <input type="checkbox" id="menu05">
-    <label for="menu05">[ ORACLE ]<em></em></label>
+    <label for="menu05">[ Database ]<em></em></label>
     <div>
-        <li><a href="/oracle/3" title="2023.03.23 작성">PL/SQL 활용 procedure, trigger, 사용자 정의 함수</a></li>
-        <li><a href="/oracle/2" title="2023.03.21 작성">[MINI PROJECT] 초간단 Oracle DB 설계</a></li>
-        <li><a href="/oracle/1" title="2023.03.19 작성">Oracle database 접속 실패 오류 해결</a></li>
+        <li><a href="/oracle/3" title="2023.03.23 작성">[Oracle]PL/SQL 활용 procedure, trigger, 사용자 정의 함수</a></li>
+        <li><a href="/oracle/2" title="2023.03.21 작성">[Oracle] 초간단 Oracle DB 설계</a></li>
+        <li><a href="/oracle/1" title="2023.03.19 작성">[Oracle] database 접속 실패 오류 해결</a></li>
         <hr>
     </div>
     <input type="checkbox" id="menu06">
