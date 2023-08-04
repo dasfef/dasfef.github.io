@@ -109,15 +109,15 @@ title:  "POSTS"
         <li><a href="/server/1" title="2023.06.02 작성">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(1)</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu07">
-    <label for="menu07">[ WSL ]<em></em></label>
+    <input type="checkbox" id="menu08">
+    <label for="menu08">[ OS ]<em></em></label>
     <div>
-        <li><a href="/WSL/2" title="2023.04.12 작성">WSL2 무작정 JAVA 와 eclipse 설치하고 구동해보기</a></li>
-        <li><a href="/WSL/1" title="2023.04.11 작성">WSL2 무작정 Ubuntu 설치하기</a></li>
+        <li><a href="/WSL/2" title="2023.04.12 작성">[WSL2] 무작정 JAVA 와 eclipse 설치하고 구동해보기</a></li>
+        <li><a href="/WSL/1" title="2023.04.11 작성">[WSL2] 무작정 Ubuntu 설치하기</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu08">
-    <label for="menu08">[ 충북대학교 공동훈련센터 ]<em></em></label>
+    <input type="checkbox" id="menu09">
+    <label for="menu09">[ 충북대학교 공동훈련센터 ]<em></em></label>
     <div>
         <li><a href="/chungbuk_univ/4" title="2023.05.01 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[충북대학교 오창캠퍼스 가는길]</a></li>
         <li><a href="/chungbuk_univ/3" title="2023.04.23 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[JAVA 개인 공부 및 미니프로그램 발표]</a></li>
@@ -125,8 +125,8 @@ title:  "POSTS"
         <li><a href="/chungbuk_univ/1" title="2023.03.02 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정(2023.02.13 ~ 2023.07.05)</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu09">
-    <label for="menu09">[ ETC ]<em></em></label>
+    <input type="checkbox" id="menu10">
+    <label for="menu10">[ ETC ]<em></em></label>
     <div>
         <li><a href="/etc/2" title="2023.05.01 작성">[git] push 시 기억해야할 점 기록 master 와 main</a></li>
         <li><a href="/etc/1" title="2023.03.25 작성">[jekyll] ~ does not have a valid date in the YAML front matter. 오류 해결</a></li>
