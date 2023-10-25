@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="지난 시간엔 M1 맥북에서 VMWare fusion을 활용하여 가상머신을 구축했다(CentOS, Kali linux). 이번 시간엔 리눅스 환경 내에서 네트워크 설정을 건드리는 연습을 해보자. CentOS 8버전부터는 nmcli를 활용하여 커맨드로 네트워크 설정을 변경하는 것을 권장하고 있다. 물론 GUI 환경에서도 네트워크 설정을 변경할 수 있다." />
+<meta property="og:description" content="지난 시간엔 M1 맥북에서 VMWare fusion을 활용하여 가상머신을 구축했다(CentOS, Kali linux). 이번 시간엔 리눅스 환경 내에서 네트워크 설정을 건드리는 연습을 해보자. CentOS 8버전부터는 nmcli를 활용하여 커맨드로 네트워크 설정을 변경하는 것을 권장하고 있다. 물론 GUI 환경에서도 네트워크 설정을 변경할 수 있다." />
+<link rel="canonical" href="http://localhost:4000/server/3" />
+<meta property="og:url" content="http://localhost:4000/server/3" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"지난 시간엔 M1 맥북에서 VMWare fusion을 활용하여 가상머신을 구축했다(CentOS, Kali linux). 이번 시간엔 리눅스 환경 내에서 네트워크 설정을 건드리는 연습을 해보자. CentOS 8버전부터는 nmcli를 활용하여 커맨드로 네트워크 설정을 변경하는 것을 권장하고 있다. 물론 GUI 환경에서도 네트워크 설정을 변경할 수 있다.","headline":"[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기","url":"http://localhost:4000/server/3"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p class="date">2023.10.25</p>
+
+<p class="caution">개인 기록용 입니다 :)
+오타, 수정 등 피드백 환영</p>
+
+<p style="text-align:center;">
+
+<span class="mini-title">nmcli 명령어</span>
+
+현재 CentOS, Kali linux 를 설치한 상태이다.
+모두 리눅스이니 nmcli 명령 또한 같기에
+CentOS 로 한번에 알아보도록 하자.
+
+우선 리눅스를 실행한 후
+가장 기본적인 ifconfig 를 통해 ip주소를 알아보자.
+
+<img class="image" src="/contents/imgs/server_3/1.png">
+여기에 보이듯 'ens160' 이라는 네트워크와
+inet 이후의 ip주소를 확인할 수 있다.
+
+우리가 해당 리눅스에서 쓰는 네트워크는 'ens160' 이라는 네트워크이고,
+그 네트워크의 ip는 inet 이후의 ip주소로 확인할 수 있다.
+
+지금 필자의 VMWare의 CentOS 네트워크 설정은 다음과 같다.
+
+<img class="image" src="/contents/imgs/server_3/2.png">
+'Share with my Mac' 설정을 통해
+호스트 ip에서 자동으로 NAT 설정이 되어 있고
+NAT란 외부 네트워크와의 연결을
+호스트 ip를 통해 진행한다는 뜻이다.
+
+공인 ip에서 받은 쿠키 하나를
+공유기를 통해 쪼개어 하나의 쿠키를 여럿이서 먹는것.
+(이라고 이해하고 있지만 틀렸다면 피드백 부탁드립니다 :x)
+
+아무튼 이렇게 되면 부여받은 네트워크 주소를
+내가 원하는 정적 ip로 바꾸어 사용할 수 있는데
+여기에서 GUI를 통한 설정과 nmcli를 통한 설정으로 각기 진행할 수 있다.
+
+필자는 nmcli를 통해 설정하는 법을 정리해두려 한다.
+
+
+<span class="mini-sub">nmcli connection show</span>
+
+해당 명령어를 통해
+내 리눅스에서 작동하는 네트워크들의 목록을 볼 수 있다
+
+<img class="image" src="/contents/imgs/server_3/3.png">
+이는 ifconfig 와는 달리
+네트워크의 직접적인 이름 및 타입, 장치 등을 볼 수 있다.
+
+여기에 나오는 네트워크의 이름을 활용하여
+명령어를 진행할 수 있다.
+
+
+
+내 호스트 ip주소의 게이트웨이를 알아야
+가상머신에서 게이트웨이 설정을 해줄 수 있다.
+
+가상머신에서의 리눅스 터미널이 아닌
+실제 맥북의 터미널에서 명령어를 진행한다
+
+<span class="mini-caution">netstat -nr | grep default</span>
+
+<img class="image" src="/contents/imgs/server_3/3.png">
+
+다음과 같이 내 호스트 ip의 게이트웨이를 확인했으면
+nmcli 명령어를 통해 게이트웨이를 맞춰주고
+원하는 정적 ipv4 주소를 입력하면 된다.
+
+아래는 nmcli 명령어를 모아놓은 코드들이다.
+
+<script src="https://gist.github.com/dasfef/d95ac5532faca95ed14dc6b706285bec.js"></script>
+</p>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>
