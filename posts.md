@@ -113,8 +113,8 @@ title:  "POSTS"
     <input type="checkbox" id="menu08">
     <label for="menu08">[ OS ]<em></em></label>
     <div>
-        <li><a href="/WSL/2" title="2023.04.12 작성">[WSL2] 무작정 JAVA 와 eclipse 설치하고 구동해보기</a></li>
-        <li><a href="/WSL/1" title="2023.04.11 작성">[WSL2] 무작정 Ubuntu 설치하기</a></li>
+        <li><a href="/OS/2" title="2023.04.12 작성">[WSL2] 무작정 JAVA 와 eclipse 설치하고 구동해보기</a></li>
+        <li><a href="/OS/1" title="2023.04.11 작성">[WSL2] 무작정 Ubuntu 설치하기</a></li>
         <hr>
     </div>
     <input type="checkbox" id="menu09">

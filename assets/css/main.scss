@@ -179,8 +179,15 @@ input[id*="menu"]:checked + label + div {
 }
 .mini-sub {
   display: inline-block;
-  font-size: 20px;
+  font-size: 24px;
   background-color:blue;
+  color: white;
+}
+
+.mini-caution {
+  display: inline-block;
+  font-size: 24px;
+  background-color: #ba0000;
   color: white;
 }
 
