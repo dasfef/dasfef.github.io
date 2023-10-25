@@ -52,10 +52,10 @@
 <loc>http://localhost:4000/java/2</loc>
 </url>
 <url>
-<loc>http://localhost:4000/wsl/1</loc>
+<loc>http://localhost:4000/OS/1</loc>
 </url>
 <url>
-<loc>http://localhost:4000/wsl/2</loc>
+<loc>http://localhost:4000/OS/2</loc>
 </url>
 <url>
 <loc>http://localhost:4000/chungbuk_univ/3</loc>
@@ -92,6 +92,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/database/4</loc>
+</url>
+<url>
+<loc>http://localhost:4000/OS/3</loc>
 </url>
 <url>
 <loc>http://localhost:4000/404</loc>

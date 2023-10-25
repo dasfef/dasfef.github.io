@@ -1,16 +1,69 @@
----
-layout: default
-permalink:  /OS/3
-permalink_name: /posts
-title:  "[OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기" 
-description: "M1 맥북에서의 VMWare을 활용하기 위해선 fusion 13 버전(무료)이 필요하다. Virtual Box를 활용하는 방법도 있지만 회사에서도 VMWare를 활용하고 있기에 나 또한 연습해보려 한다. 하나는 서버를 위한 가상머신 구축, 하나는 해킹 공격을 위한 환경으로 구축하려 한다."
----
+<!DOCTYPE html>
+<html>
 
-<p class="date">2023.10.25</p>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기 | dasfef</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="[OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="M1 맥북에서의 VMWare을 활용하기 위해선 fusion 13 버전(무료)이 필요하다. Virtual Box를 활용하는 방법도 있지만 회사에서도 VMWare를 활용하고 있기에 나 또한 연습해보려 한다. 하나는 서버를 위한 가상머신 구축, 하나는 해킹 공격을 위한 환경으로 구축하려 한다." />
+<meta property="og:description" content="M1 맥북에서의 VMWare을 활용하기 위해선 fusion 13 버전(무료)이 필요하다. Virtual Box를 활용하는 방법도 있지만 회사에서도 VMWare를 활용하고 있기에 나 또한 연습해보려 한다. 하나는 서버를 위한 가상머신 구축, 하나는 해킹 공격을 위한 환경으로 구축하려 한다." />
+<link rel="canonical" href="http://localhost:4000/OS/3" />
+<meta property="og:url" content="http://localhost:4000/OS/3" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"M1 맥북에서의 VMWare을 활용하기 위해선 fusion 13 버전(무료)이 필요하다. Virtual Box를 활용하는 방법도 있지만 회사에서도 VMWare를 활용하고 있기에 나 또한 연습해보려 한다. 하나는 서버를 위한 가상머신 구축, 하나는 해킹 공격을 위한 환경으로 구축하려 한다.","headline":"[OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기","url":"http://localhost:4000/OS/3"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기</li>
+<li><a href="/home">/HOME</a></li>
+<li><a href="/posts">/POSTS</a></li>
+<li><a href="/portfolio">/PORTFOLIO</a></li>
+<li><a href="/about">/ABOUT</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <p class="date">2023.10.25</p>
 
 <p class="caution">개인 기록용 입니다 :)
 오타, 수정 등 피드백 환영</p>
-<br>
+<p><br></p>
 <p style="text-align:center;">
 인프라 구축 및 운영을 하고 있는 회사에 취업했다.
 처음에 IT 인프라라고 해서 무슨 일을 하는지도 몰랐고
@@ -112,10 +165,10 @@ VMWare 를 실행하면 위와 같은 화면을 볼 수 있다.
 <img class="image" src="/contents/imgs/os_3/9.png">
 <span class="mini-sub">① 프로세서 및 메모리 세팅</span>
 
-<< 2개 프로세서 / 4GB 이상의 메모리 / 20GB or 40GB 이상의 하드디스크 >>
+&lt;&lt; 2개 프로세서 / 4GB 이상의 메모리 / 20GB or 40GB 이상의 하드디스크 &gt;&gt;
 로 세팅하는 것이 좋은데
 최소 세팅으로는
-<< 1개 프로세서 / 2GB 이상의 메모리 / 20GB 이상의 하드디스크>>
+&lt;&lt; 1개 프로세서 / 2GB 이상의 메모리 / 20GB 이상의 하드디스크&gt;&gt;
 정도가 좋다고 한다
 
 
@@ -144,3 +197,18 @@ VMWare 가상머신 내 리눅스 설치는 끝이다.
 
 이어서는 정적 IP 할당에 대한
 개인적으로 이해한 것을 정리하려고 한다.
+</p>
+
+
+    <footer>
+
+  dasfef/posts
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  
+
+</footer>
+
+
+  </body>
+</html>
