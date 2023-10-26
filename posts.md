@@ -106,6 +106,7 @@ title:  "POSTS"
     <input type="checkbox" id="menu07">
     <label for="menu07">[ SERVER ]<em></em></label>
     <div>
+        <li><a href="/server/3" title="2023.10.25 작성">[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기</a></li>
         <li><a href="/server/2" title="2023.06.13 작성">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2)</a></li>
         <li><a href="/server/1" title="2023.06.02 작성">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(1)</a></li>
         <hr>
