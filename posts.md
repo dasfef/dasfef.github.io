@@ -76,14 +76,7 @@ title:  "POSTS"
         <hr>
     </div>
     <input type="checkbox" id="menu04">
-    <label for="menu04">[ JAVA ]<em></em></label>
-    <div>
-        <li><a href="/java/3" title="2023.05.03 작성">[Android] 안드로이드 스튜디오 설치 및 개발환경 구성(AMD CPU)</a></li>
-        <li><a href="/java/2" title="2023.04.06 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (2) 배열 및 참조 호출</a></li>
-        <li><a href="/java/1" title="2023.04.04 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (1)</a></li>
-    </div>
-    <input type="checkbox" id="menu05">
-    <label for="menu05">[ DATABASE ]<em></em></label>
+    <label for="menu04">[ DATABASE ]<em></em></label>
     <div>
         <li><a href="/database/4" title="2023.08.05 작성">[MSSQL] M1 맥북에 MSSQL 설치 및 Azure Data Studio 활용하기</a></li>
         <li><a href="/database/3" title="2023.03.23 작성">[Oracle]PL/SQL 활용 procedure, trigger, 사용자 정의 함수</a></li>
@@ -91,8 +84,20 @@ title:  "POSTS"
         <li><a href="/database/1" title="2023.03.19 작성">[Oracle] database 접속 실패 오류 해결</a></li>
         <hr>
     </div>
+    <input type="checkbox" id="menu05">
+    <label for="menu05">[ JAVA ]<em></em></label>
+    <div>
+        <li><a href="/java/3" title="2023.05.03 작성">[Android] 안드로이드 스튜디오 설치 및 개발환경 구성(AMD CPU)</a></li>
+        <li><a href="/java/2" title="2023.04.06 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (2) 배열 및 참조 호출</a></li>
+        <li><a href="/java/1" title="2023.04.04 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (1)</a></li>
+    </div>
     <input type="checkbox" id="menu06">
-    <label for="menu06">[ PYTHON ]<em></em></label>
+    <label for="menu06">[ LINUX ]<em></em></label>
+    <div>
+        <li><a href="/linux/1" title="2023.10.25 작성">[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기</a></li>
+    </div>
+    <input type="checkbox" id="menu07">
+    <label for="menu07">[ PYTHON ]<em></em></label>
     <div>
         <li><a href="/python/5" title="2023.06.13 작성">[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기
 </a></li>
@@ -103,24 +108,23 @@ title:  "POSTS"
         <li><a href="/python/1" title="2023.03.12 작성">Python 클래스와 객체</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu07">
-    <label for="menu07">[ SERVER ]<em></em></label>
+    <input type="checkbox" id="menu08">
+    <label for="menu08">[ SERVER ]<em></em></label>
     <div>
-        <li><a href="/server/3" title="2023.10.25 작성">[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기</a></li>
         <li><a href="/server/2" title="2023.06.13 작성">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(2)</a></li>
         <li><a href="/server/1" title="2023.06.02 작성">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(1)</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu08">
-    <label for="menu08">[ OS ]<em></em></label>
+    <input type="checkbox" id="menu09">
+    <label for="menu09">[ OS ]<em></em></label>
     <div>
         <li><a href="/OS/3" title="2023.10.25 작성">[OS]VMWare fusion 활용하여 Mac OS에서 가상머신 구축하기</a></li>
         <li><a href="/OS/2" title="2023.04.12 작성">[WSL2] 무작정 JAVA 와 eclipse 설치하고 구동해보기</a></li>
         <li><a href="/OS/1" title="2023.04.11 작성">[WSL2] 무작정 Ubuntu 설치하기</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu09">
-    <label for="menu09">[ 충북대학교 공동훈련센터 ]<em></em></label>
+    <input type="checkbox" id="menu10">
+    <label for="menu10">[ 충북대학교 공동훈련센터 ]<em></em></label>
     <div>
         <li><a href="/chungbuk_univ/4" title="2023.05.01 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[충북대학교 오창캠퍼스 가는길]</a></li>
         <li><a href="/chungbuk_univ/3" title="2023.04.23 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정[JAVA 개인 공부 및 미니프로그램 발표]</a></li>
@@ -128,8 +132,8 @@ title:  "POSTS"
         <li><a href="/chungbuk_univ/1" title="2023.03.02 작성">충북대학교 공동훈련센터 IoT기반 스마트 솔루션 개발자 양성과정(2023.02.13 ~ 2023.07.05)</a></li>
         <hr>
     </div>
-    <input type="checkbox" id="menu10">
-    <label for="menu10">[ ETC ]<em></em></label>
+    <input type="checkbox" id="menu11">
+    <label for="menu11">[ ETC ]<em></em></label>
     <div>
         <li><a href="/etc/2" title="2023.05.01 작성">[git] push 시 기억해야할 점 기록 master 와 main</a></li>
         <li><a href="/etc/1" title="2023.03.25 작성">[jekyll] ~ does not have a valid date in the YAML front matter. 오류 해결</a></li>
