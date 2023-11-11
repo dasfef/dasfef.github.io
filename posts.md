@@ -100,6 +100,8 @@ title:  "POSTS"
     <input type="checkbox" id="menu07">
     <label for="menu07">[ PYTHON ]<em></em></label>
     <div>
+        <li><a href="/python/6" title="2023.06.20 작성">[딥러닝] PyTorch 설치 후 GPU 활용하여 yolo v8 custom data 학습시키기
+</a></li>
         <li><a href="/python/5" title="2023.06.13 작성">[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기
 </a></li>
         <li><a href="/python/4" title="2023.05.01 작성">[데이터 분석] numpy random.rand에 관하여
