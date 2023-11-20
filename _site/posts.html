@@ -22,7 +22,33 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <script type="text/javascript" src=""></script>
-
+  
+  <!-- iframe 관련 함수 -->
+  <script>
+    // iframe img 태그에서 url 받아오기
+    function showFrame(url){
+        var img = new Image();
+        img.onload = function(){
+            var iframe = document.getElementById('iframe');
+            var container = document.getElementById('iframeContainer');
+            
+            // 이미지 사이즈 계산
+            iframe.style.width = this.width + 'px';
+            iframe.style.height = this.height + 'px';
+            iframe.src = url;
+            
+            // 컨테이너 나타내기
+            container.style.display = 'block';
+        };
+        img.src = url;
+    }
+    
+    // iframe 외의 영역 클릭시 iframe 숨기기
+    function hideIframe() {
+        var container = document.getElementById('iframeContainer');
+        container.style.display = 'none';
+    }
+</script> 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>POSTS | dasfef</title>
 <meta name="generator" content="Jekyll v3.9.3" />
@@ -42,6 +68,9 @@
 
 
 </head>
+<div id="iframeContainer" onclick="hideIframe();">
+  <iframe id="iframe"></iframe>
+</div>
 
 
   <body class="small">
@@ -148,12 +177,15 @@
     <input type="checkbox" id="menu06">
     <label for="menu06">[ LINUX ]<em></em></label>
     <div>
+        <li><a href="/linux/3" title="2023.11.20 작성">[Linux]cgroup 활용하여 cpu 활용량 제어하기</a></li>
         <li><a href="/linux/2" title="2023.10.30 작성">[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행</a></li>
         <li><a href="/linux/1" title="2023.10.25 작성">[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기</a></li>
     </div>
     <input type="checkbox" id="menu07">
     <label for="menu07">[ PYTHON ]<em></em></label>
     <div>
+        <li><a href="/python/6" title="2023.06.20 작성">[딥러닝] PyTorch 설치 후 GPU 활용하여 yolo v8 custom data 학습시키기
+</a></li>
         <li><a href="/python/5" title="2023.06.13 작성">[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기
 </a></li>
         <li><a href="/python/4" title="2023.05.01 작성">[데이터 분석] numpy random.rand에 관하여

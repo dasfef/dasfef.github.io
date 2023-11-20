@@ -22,7 +22,33 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <script type="text/javascript" src=""></script>
-
+  
+  <!-- iframe 관련 함수 -->
+  <script>
+    // iframe img 태그에서 url 받아오기
+    function showFrame(url){
+        var img = new Image();
+        img.onload = function(){
+            var iframe = document.getElementById('iframe');
+            var container = document.getElementById('iframeContainer');
+            
+            // 이미지 사이즈 계산
+            iframe.style.width = this.width + 'px';
+            iframe.style.height = this.height + 'px';
+            iframe.src = url;
+            
+            // 컨테이너 나타내기
+            container.style.display = 'block';
+        };
+        img.src = url;
+    }
+    
+    // iframe 외의 영역 클릭시 iframe 숨기기
+    function hideIframe() {
+        var container = document.getElementById('iframeContainer');
+        container.style.display = 'none';
+    }
+</script> 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[딥러닝] 윈도우 CUDA, cuDNN 설치하여 GPU 활용하기 | dasfef</title>
 <meta name="generator" content="Jekyll v3.9.3" />
@@ -42,6 +68,9 @@
 
 
 </head>
+<div id="iframeContainer" onclick="hideIframe();">
+  <iframe id="iframe"></iframe>
+</div>
 
 
   <body class="small">

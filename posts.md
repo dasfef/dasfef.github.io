@@ -94,6 +94,7 @@ title:  "POSTS"
     <input type="checkbox" id="menu06">
     <label for="menu06">[ LINUX ]<em></em></label>
     <div>
+        <li><a href="/linux/3" title="2023.11.20 작성">[Linux]cgroup 활용하여 cpu 활용량 제어하기</a></li>
         <li><a href="/linux/2" title="2023.10.30 작성">[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행</a></li>
         <li><a href="/linux/1" title="2023.10.25 작성">[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기</a></li>
     </div>

@@ -22,7 +22,33 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <script type="text/javascript" src=""></script>
-
+  
+  <!-- iframe 관련 함수 -->
+  <script>
+    // iframe img 태그에서 url 받아오기
+    function showFrame(url){
+        var img = new Image();
+        img.onload = function(){
+            var iframe = document.getElementById('iframe');
+            var container = document.getElementById('iframeContainer');
+            
+            // 이미지 사이즈 계산
+            iframe.style.width = this.width + 'px';
+            iframe.style.height = this.height + 'px';
+            iframe.src = url;
+            
+            // 컨테이너 나타내기
+            container.style.display = 'block';
+        };
+        img.src = url;
+    }
+    
+    // iframe 외의 영역 클릭시 iframe 숨기기
+    function hideIframe() {
+        var container = document.getElementById('iframeContainer');
+        container.style.display = 'none';
+    }
+</script> 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행 | dasfef</title>
 <meta name="generator" content="Jekyll v3.9.3" />
@@ -42,6 +68,9 @@
 
 
 </head>
+<div id="iframeContainer" onclick="hideIframe();">
+  <iframe id="iframe"></iframe>
+</div>
 
 
   <body class="small">
@@ -59,34 +88,7 @@
 </header>
 
 
-    <script>
-    function openImage(url){
-        var img = new Image();
-    
-        img.onload = function() {
-            // 이미지 원본 너비 / 높이 계산
-            var width = this.width;
-            var height = this.height;
-    
-            // 사용자 화면 해상도 계산
-            var screenW = window.screen.width;
-            var screenH = window.screen.height;
-
-            // 화면 배치를 위한 좌표 계산
-            var screenLeft = (screenW / 2) - (width / 2);
-            var screenTop = (screenH / 2) - (height / 2);
-
-            // 결과 도출 및 설정
-            var result = 'width=' + width + ',height=' + height + ',resizable=yes';
-            result += ',top=' + screenTop + ',left=' + screenLeft;
-            
-            window.open(url, 'Image', result);
-        };
-        img.src = url;
-    }
-</script>
-
-<p class="date">2023.10.30</p>
+    <p class="date">2023.10.30</p>
 
 <p class="caution">개인 기록용 입니다 :)
 오타, 수정 등 피드백 환영</p>
@@ -118,7 +120,7 @@ apt-get을 통해 패키지 설치하는 것을
 
 해당 명령어를 통해 확인해보자
 
-<img class="image" src="/contents/imgs/linux_2/1.png" alt="Clickable Image" onclick="openImage(this.src);">
+<img class="image" src="/contents/imgs/linux_2/1.png" alt="Clickable Image" onclick="showFrame(this.src);">
 
 약간의 시간이 소요된 뒤
 목록과 일치하는 꾸러미가 없다고 나온다
@@ -128,8 +130,8 @@ CentOS 에서는 yum을 활용해
 
 <span class="codes">$ yum install httpd</span>
 
-<img class="image" src="/contents/imgs/linux_2/2.png" onclick="openImage(this.src)">
-<img class="image" src="/contents/imgs/linux_2/3.png" onclick="openImage(this.src)">
+<img class="image" src="/contents/imgs/linux_2/2.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_2/3.png" onclick="showFrame(this.src)">
 
 y를 눌러 설치를 진행하면
 설치 완료 메세지가 나온다
@@ -145,7 +147,7 @@ y를 눌러 설치를 진행하면
 
 
 
-<img class="image" src="/contents/imgs/linux_2/4.png" onclick="openImage(this.src)">
+<img class="image" src="/contents/imgs/linux_2/4.png" onclick="showFrame(this.src)">
 
 이미지와 같이 active가 뜬다면
 정상적으로 서버 작동이 완료되었다
@@ -175,7 +177,7 @@ internal / nm-shared / public
 trusted / work
 
 등의 존의 종류들이 나온다
-<img class="image" src="/contents/imgs/linux_2/5.png" onclick="openImage(this.src)">
+<img class="image" src="/contents/imgs/linux_2/5.png" onclick="showFrame(this.src)">
 
 지금까지 공부한 것은
 
@@ -230,7 +232,7 @@ ex)
 kali linux 에서 CentOS로 부여한 IP로 접속을 해보면
 웹 접속을 잘 할수 있음을 알 수 있다
 
-<img class="image" src="/contents/imgs/linux_2/6.png" onclick="openImage(this.src)">
+<img class="image" src="/contents/imgs/linux_2/6.png" onclick="showFrame(this.src)">
 
 
 <span class="mini-title">리눅스 명령어 모음</span>
