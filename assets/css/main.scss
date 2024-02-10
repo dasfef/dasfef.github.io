@@ -133,24 +133,10 @@ div.error_box h1 { font-size: 2em; }
   
 // }
 
-input[id*="menu"] {
-  display: none;
-}
-
-input[id*="menu"]:hover + label {
-  cursor: pointer;
-  background-color:darkblue;
-}
-
-input[id*="menu"] + label + div {
-  max-height: 0;
-  transition: all .35s;
-  overflow: hidden;
-}
-
-input[id*="menu"]:checked + label + div {
-  max-height: 300px;
-}
+input[id*="menu"] {display: none;}
+input[id*="menu"]:hover + label {cursor: pointer; background-color:darkblue;}
+input[id*="menu"] + label + div {max-height: 0; transition: all .35s; overflow: hidden;}
+input[id*="menu"]:checked + label + div {max-height: 300px;}
 
 .accordion div li a:hover{
   transition:all .35s;
