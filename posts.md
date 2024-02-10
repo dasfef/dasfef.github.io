@@ -5,7 +5,7 @@ permalink_name: POSTS
 title:  "POSTS"
 ---
 <head>
-    <script src="contents.js"></script>
+    <script src="/contents.js"></script>
 </head>
 <!-- #b85c00 -->
 <p style="text-align:center;"><span style="font-weight:bold; background-color:#ff0010; color:#000000">글 제목에 마우스를 올려두면 잠시 후 작성일자가 나타납니다</span></p>
@@ -55,8 +55,10 @@ title:  "POSTS"
 
 
 <div class="accordion">
-    <input type="checkbox" id="menu_container">
-    <label for="menu_container">Check All</label>
+    <div class="m_container">
+        <input type="checkbox" id="m_container">
+        <label for="m_container" id="content">목록 한번에 보기</label>
+    </div>
     <input type="checkbox" class="menus" id="menu01">
     <label for="menu01">[ Arduino ]</label>
     <div>

@@ -138,11 +138,12 @@ input[id*="menu"]:hover + label {cursor: pointer; background-color:darkblue;}
 input[id*="menu"] + label + div {max-height: 0; transition: all .35s; overflow: hidden;}
 input[id*="menu"]:checked + label + div {max-height: 300px;}
 
-.accordion div li a:hover{
-  transition:all .35s;
-  color:#fff;
-  background-color: darkblue;
-}
+.accordion div li a:hover{transition:all .35s; color:#fff; background-color: darkblue;}
+.accordion #m_container {display:none; text-align:right;}
+.accordion #m_container :hover + label {cursor:pointer; background-color: mediumaquamarine;}
+
+.m_container {display:block; text-align:right;}
+.m_container :hover {cursor:s-resize; color:mediumaquamarine}
 
 /* IMG_FIGURE */
 .fig{text-align:center;}
