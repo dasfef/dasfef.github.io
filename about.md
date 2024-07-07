@@ -10,12 +10,12 @@ title: ABOUT
     </div>
     <div>
         <h1>就業亂中日記</h1>
-        <h1>NAME: 최연웅(Choi Yeon Woong)<h1><br>
+        <h1>최연웅(Choi Yeon Woong)</h1><br>
         <!-- <a href="https://www.instagram.com/das_fef" target="_blank" style="margin-left:8px;"><img src="https://img.shields.io/badge/Instagram-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:100px;"></a>  <a href="https://www.instagram.com/das_fef" target="blank">das_fef</a><br> <img src="https://img.shields.io/badge/Gmail.com-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:100px;">  <a>mealhouse3377@gmail.com</a> -->
-        <a href="https://www.instagram.com/das_fef" target="_blank" style="margin-left:8px;"><img src="https://img.shields.io/badge/-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:30px;"></a>  <a href="https://www.instagram.com/das_fef" target="blank">das_fef</a><br> <img src="https://img.shields.io/badge/-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:30px;">  <a>mealhouse3377@gmail.com</a>
-    </div>  
+        <a href="https://www.instagram.com/das_fef" target="_blank" style=""><img src="https://img.shields.io/badge/-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:30px;"></a><a href="https://www.instagram.com/das_fef" target="blank">das_fef</a><br>
+        <img src="https://img.shields.io/badge/-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:30px;"><a>mealhouse3377@gmail.com</a>
+    </div>
 </div>
-
 <!-- <br>
 
 **= CONTACT =**

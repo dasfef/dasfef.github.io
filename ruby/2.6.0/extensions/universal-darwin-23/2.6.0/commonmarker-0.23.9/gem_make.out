@@ -1,5 +1,5 @@
 current directory: /Users/dasfef/Desktop/HTML/dasfef.github.io/ruby/2.6.0/gems/commonmarker-0.23.9/ext/commonmarker
-/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20240210-3606-6cy2m6.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20240707-1990-b5s0fj.rb extconf.rb
 creating Makefile
 
 current directory: /Users/dasfef/Desktop/HTML/dasfef.github.io/ruby/2.6.0/gems/commonmarker-0.23.9/ext/commonmarker

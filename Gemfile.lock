@@ -5,7 +5,7 @@ PATH
       jekyll (>= 3.8.5)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     activesupport (7.0.4.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
