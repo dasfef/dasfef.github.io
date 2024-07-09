@@ -9,43 +9,36 @@ title: ABOUT
         <img class="profile" src="assets/profile_pic.jpeg">
     </div>
     <div>
-        <h1>就業亂中日記</h1>
-        <h1>최연웅(Choi Yeon Woong)</h1><br>
+        <h1>就業亂中日記<br>
+        최연웅(Choi Yeon Woong)</h1><br>
         <!-- <a href="https://www.instagram.com/das_fef" target="_blank" style="margin-left:8px;"><img src="https://img.shields.io/badge/Instagram-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:100px;"></a>  <a href="https://www.instagram.com/das_fef" target="blank">das_fef</a><br> <img src="https://img.shields.io/badge/Gmail.com-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:100px;">  <a>mealhouse3377@gmail.com</a> -->
-        <a href="https://www.instagram.com/das_fef" target="_blank" style=""><img src="https://img.shields.io/badge/-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:30px;"></a><a href="https://www.instagram.com/das_fef" target="blank">das_fef</a><br>
-        <img src="https://img.shields.io/badge/-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:30px;"><a>mealhouse3377@gmail.com</a>
+        <a href="https://www.instagram.com/das_fef" target="_blank" style=""><img src="https://img.shields.io/badge/-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:30px;"></a><a href="https://www.instagram.com/das_fef" target="blank"> @das_fef</a><br>
+        <img src="https://img.shields.io/badge/-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:30px;"><a> mealhouse3377@gmail.com</a>
     </div>
 </div>
-<!-- <br>
 
-**= CONTACT =**
-
----
-
-
-<br>
-
-**= PURPOSE =**
+**= INTRODUCE =**
 
 --- 
 
-- Being most helpful person to anyone
-- The best coffee of the world
-- Window shopping -->
+IT분야의 모든것에 관심이 많은 사람입니다.
 
 <br>
 
-**= PROCESS =**
+
+**= EDU PROCESS =**
 
 ---
 
-2023.02.16 ~ 2023.07.05
-- 충북대학교 공동훈련센터 : IoT기반 스마트솔루션 개발자 양성 과정 수료 (完)<br>
+충북대학교 공동훈련센터 : IoT기반 스마트솔루션 개발자 양성 과정 수료 (完)
+(2023.02.16 ~ 2023.07.05)
 
-2022.08.22 ~ 2023.02.15
-- 한국IT전문학원 : 빅데이터 분석 지역형 인재 양성 과정 수료 (完)
+한국IT전문학원 : 빅데이터 분석 지역형 인재 양성 과정 수료 (完)
+(2022.08.22 ~ 2023.02.15)
 
-<br>
+
+**= RESUME` =**
+
 
 **= STACK =**
 
