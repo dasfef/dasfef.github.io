@@ -22,16 +22,19 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <script type="text/javascript" src=""></script>
-  
-  <!-- iframe 관련 함수 -->
-  <script>
-    // iframe img 태그에서 url 받아오기
-    function showFrame(url){
-        var img = new Image();
-        img.onload = function(){
-            var iframe = document.getElementById('iframe');
-            var container = document.getElementById('iframeContainer');
-            
+
+<!-- iframe 관련 함수 -->
+<script>
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+      var img = new Image();
+      img.onload = function(){
+          var iframe = document.getElementById('iframe');
+          var container = document.getElementById('iframeContainer');
+          
+          if(container.style.display === 'block'){
+            container.style.display = 'none';
+          } else {
             // 이미지 사이즈 계산
             iframe.style.width = this.width + 'px';
             iframe.style.height = this.height + 'px';
@@ -39,16 +42,33 @@
             
             // 컨테이너 나타내기
             container.style.display = 'block';
-        };
-        img.src = url;
-    }
-    
-    // iframe 외의 영역 클릭시 iframe 숨기기
-    function hideIframe() {
-        var container = document.getElementById('iframeContainer');
-        container.style.display = 'none';
-    }
-</script> 
+          }
+      };
+      img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+//iframe 외의 영역 클릭시 iframe 숨기기
+function hideIframe() {
+    var container = document.getElementById('iframeContainer');
+    container.style.display = 'none';
+}
+
+</script>   
+  
+</head>
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>ABOUT | dasfef</title>
 <meta name="generator" content="Jekyll v3.9.3" />
@@ -67,10 +87,6 @@
 <!-- End Jekyll SEO tag -->
 
 
-</head>
-<div id="iframeContainer" onclick="hideIframe();">
-  <iframe id="iframe"></iframe>
-</div>
 
 
   <body class="small">
@@ -133,11 +149,35 @@
 
 <p><span class="mini-title">Career</span></p>
 
-<p>충북대학교 공동훈련센터 : IoT기반 스마트솔루션 개발자 양성 과정 수료 (完)
-(2023.02.16 ~ 2023.07.05)</p>
+<div>
+    <span class="date_2"> 2023.10 -ﾠﾠ</span><br>
+    <span style="font-size:20px;">(주)코스메카코리아</span><br>
+    <span>- 인프라 운영 관리</span><br>
+    <span>- 영림원 ERP K-System 운영 관리</span><br>
+    <span>- Web Application PLM 구축, Migration 및 Interface 구성</span><br>
+    <span>- CentOS Server PHP 기반 Help Desk 개발 내재화</span><br>
+    <span>- MySQL/MSSQL 데이터베이스 유지보수 및 관리</span><br>
+    
+</div>
 
-<p>한국IT전문학원 : 빅데이터 분석 지역형 인재 양성 과정 수료 (完)
-(2022.08.22 ~ 2023.02.15)</p>
+<p><br></p>
+
+<p><span class="mini-title">Projects</span></p>
+<div>
+    <span class="date_2"> 1. PHP 기반 Help Desk 개발 내재화</span><br>
+    <span class="about_title">◎ ERP 사용자 Interface 연동 구성(MSSQL → MySQL)</span><br>
+    <span>ﾠﾠ: 최초 Help Desk 서버인 CentOS 에서 Shell script 및 ODBC를 활용하여 MSSQL View를 조회 하려 시도</span><br>
+    <span>ﾠﾠ: CentOS 서버의 MSSQL 라이센스 현황 정보가 정확하지 않아 ERP DB(MSSQL) 측에서 OpenQuery 활용으로 방법 전환</span><br>
+    <span class="about_title">◎ CMS 게시판 운영 및 유지보수</span><br>
+    <span class="about_title">◎ 연결 법인별 게시판 페이지 별도 구성</span><br>
+    <span class="about_title">◎ 게시글 통계 페이지 별도 구성</span><br>
+    <span>ﾠﾠ: 기존 운영중이던 Help Desk 분석 및 자체 운영 관리 화환</span><br>
+</div>
+<p><br></p>
+
+<div>
+    <span class="date_2"> 2. TEST</span>
+</div>
 
 <!-- <div class="middle">
     <h1>STACK</h1>

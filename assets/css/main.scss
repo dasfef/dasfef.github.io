@@ -153,6 +153,23 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
   text-align: right;
   font-weight: bold;
 }
+
+.date_2 {
+  font-size: 26px;
+  font-weight: bold;
+  background-color: grey;
+  color: white;
+  border-radius: 5px;
+}
+
+.about_title{
+  font-size: 18px;
+  font-weight: bold;
+  background-color: brown;
+  color: white;
+
+}
+
 .mini-title {
   font-size: 45px;
   font-weight: bold;

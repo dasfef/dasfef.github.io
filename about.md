@@ -46,15 +46,38 @@ IT분야의 모든것에 관심이 많은 사람입니다.
 
 <br>
 
+
 <span class="mini-title">Career</span>
 
+<div>
+    <span class="date_2"> 2023.10 -ﾠﾠ</span><br>
+    <span style="font-size:20px;">(주)코스메카코리아</span><br>
+    <span>- 인프라 운영 관리</span><br>
+    <span>- 영림원 ERP K-System 운영 관리</span><br>
+    <span>- Web Application PLM 구축, Migration 및 Interface 구성</span><br>
+    <span>- CentOS Server PHP 기반 Help Desk 개발 내재화</span><br>
+    <span>- MySQL/MSSQL 데이터베이스 유지보수 및 관리</span><br>
+    
+</div>    
 
+<br>
 
-충북대학교 공동훈련센터 : IoT기반 스마트솔루션 개발자 양성 과정 수료 (完)
-(2023.02.16 ~ 2023.07.05)
+<span class="mini-title">Projects</span>
+<div>
+    <span class="date_2"> 1. PHP 기반 Help Desk 개발 내재화</span><br>
+    <span class="about_title">◎ ERP 사용자 Interface 연동 구성(MSSQL → MySQL)</span><br>
+    <span>ﾠﾠ: 최초 Help Desk 서버인 CentOS 에서 Shell script 및 ODBC를 활용하여 MSSQL View를 조회 하려 시도</span><br>
+    <span>ﾠﾠ: CentOS 서버의 MSSQL 라이센스 현황 정보가 정확하지 않아 ERP DB(MSSQL) 측에서 OpenQuery 활용으로 방법 전환</span><br>
+    <span class="about_title">◎ CMS 게시판 운영 및 유지보수</span><br>
+    <span class="about_title">◎ 연결 법인별 게시판 페이지 별도 구성</span><br>
+    <span class="about_title">◎ 게시글 통계 페이지 별도 구성</span><br>
+    <span>ﾠﾠ: 기존 운영중이던 Help Desk 분석 및 자체 운영 관리 화환</span><br>
+</div>
+<br>
 
-한국IT전문학원 : 빅데이터 분석 지역형 인재 양성 과정 수료 (完)
-(2022.08.22 ~ 2023.02.15)
+<div>
+    <span class="date_2"> 2. TEST</span>
+</div>
 
 
 
