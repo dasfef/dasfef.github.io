@@ -158,16 +158,45 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
   font-size: 26px;
   font-weight: bold;
   background-color: grey;
-  color: white;
+  color: rgb(251, 251, 251);
   border-radius: 5px;
 }
 
-.about_title{
-  font-size: 18px;
+.about-title{
+  font-size: 26px;
+  font-weight: bold;
+  // background-color: grey;
+  color: rgb(81, 133, 170);
+  border-radius: 5px;
+}
+
+.about-date {
+  line-height: 20px;
+  margin: 10px 0px 0px 0px;
+}
+
+.about-mini-title{
   font-weight: bold;
   background-color: brown;
   color: white;
+}
 
+.about-skills-p {
+  text-align: right;
+  margin-right: 3px;
+  line-height: 20px;
+}
+
+.about-skills{
+  font-weight: bold;
+  border-radius: 3px;
+  background-color: rgb(141, 93, 5);
+}
+
+.about-skills-detail{
+  background-color:#007433;
+  border-radius: 3px;
+  margin: 0px 3px 0px 0px;
 }
 
 .mini-title {
