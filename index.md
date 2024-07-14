@@ -8,13 +8,11 @@ description: "dasfef(코드 심문자)의 개발취업난중일기"
 
 <!-- # detail_image: assets/theme_logo.svg -->
 
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="dasfef(코드 심문자)의 개발취업난중일기">
-    <meta name="title" content="dasfef">
+    <meta name="title" content="dasfef"> -->
     <style>
         ::selection {
             background: #505050;
@@ -52,5 +50,3 @@ description: "dasfef(코드 심문자)의 개발취업난중일기"
     <script src="donut.js"></script>
     
 </body>
-
-</html>
