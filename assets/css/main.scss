@@ -162,6 +162,12 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
   border-radius: 5px;
 }
 
+.latest-date {
+  background-color: grey;
+  color: white;
+  border-radius: 3px;
+}
+
 .about-title{
   font-size: 26px;
   font-weight: bold;
@@ -188,6 +194,7 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
 }
 
 .about-skills{
+  margin-right: 3px;
   font-weight: bold;
   border-radius: 3px;
   background-color: rgb(141, 93, 5);
