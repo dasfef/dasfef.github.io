@@ -11,11 +11,11 @@
 
 :root {
 
-  --main-color: white;
-  --bg-color: black;
+  --main-color: black;
+  --bg-color: white;
 
-  --text-color: #909090;
-  --pop-color: white;
+  --text-color: #5a5a5a;
+  --pop-color: black;
   --alt-color: #2ed573;
   --light-alt-color: rgba(46, 213, 115);
 
@@ -286,9 +286,9 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
 }
 
 .dkmodeBtn{
-  border-radius: 5px;
-  display: block;
-  position: fixed;
-  text-align: right;
-  left: 80%;
-}
+    border-radius: 5px;
+    display: block;
+    position: fixed;
+    text-align: right;
+    left: 80%;
+  }

@@ -7,6 +7,13 @@ title: ABOUT
 
 
 <script>
+    const root = document.documentElement;
+
+    document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
     function clickAlert() {
         var email = document.getElementById('e-mail');
         var context = email.textContent;
@@ -15,6 +22,39 @@ title: ABOUT
         }).catch(function(error) {
             console.error("복사에 실패했습니다.", error);
         });
+    }
+
+    function darkMode(){
+        // let root = document.documentElement;
+        let btn = document.getElementById("dkBtn");
+
+        console.log(root);
+        if(root.style.getPropertyValue('--main-color') === 'white'){
+            console.log("if --main-color is white");
+            root.style.setProperty('--main-color', 'black');
+            root.style.setProperty('--bg-color', 'white');
+        } else{
+            console.log("if --main-color is black");
+            root.style.setProperty('--main-color', 'white');
+            root.style.setProperty('--bg-color', 'black');
+        }
+
+        if(btn.innerText === "Night Mode"){
+            btn.innerText = "Day Mode";
+        } else{
+            btn.innerText = "Night Mode";
+        }
+
+        // let newLink = document.createElement("link");
+        // newLink.setAttribute("rel", "stylesheet");
+        // newLink.setAttribute("href", "/assets/css/dark-mode.scss");
+
+        // document.head.appendChild(newLink);
+
+        // let oldLink = document.querySelectorAll("link")[0];
+        // if(oldLink){
+        //     oldLink.parentNode.removeChild(oldLink);
+        // }
     }
 </script>
 
@@ -26,6 +66,7 @@ title: ABOUT
         overflow: hidden;
         float: left;
         margin-right: 20px;
+        display: block;
     }
     .profile{
         width: 100%;
@@ -34,7 +75,7 @@ title: ABOUT
     }
     .top {
         width: 100%;
-        height: 160px;
+        height: 150px;
     }
     .middle{
         width: 100%;
@@ -49,13 +90,14 @@ title: ABOUT
 </style>
 
 
+<button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
 <div class="top">
     <div class="box" style="background: #BDBDBD;">
         <img class="profile" src="assets/profile_pic.jpeg">
     </div>
-    <div>
-        <h1>就業亂中日記<br>
-        최연웅(Choi Yeon Woong)</h1><br>
+    <div class="profile">
+        <span>就業亂中日記<br>
+        최연웅(Choi Yeon Woong)</span><br>
         <!-- <a href="https://www.instagram.com/das_fef" target="_blank" style="margin-left:8px;"><img src="https://img.shields.io/badge/Instagram-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:100px;"></a>  <a href="https://www.instagram.com/das_fef" target="blank">das_fef</a><br> <img src="https://img.shields.io/badge/Gmail.com-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:100px;">  <a>mealhouse3377@gmail.com</a> -->
         <a href="https://www.instagram.com/das_fef" target="_blank" style=""><img src="https://img.shields.io/badge/-E4405F?style=plastic&logo=Instagram&logoColor=white" style="width:30px;"></a><a href="https://www.instagram.com/das_fef" target="blank"> @das_fef</a><br>
         <img src="https://img.shields.io/badge/-EA4335?style=plastic&logo=Gmail&logoColor=white" style="width:30px;"><a id="e-mail" onclick="clickAlert();"> mealhouse3377@gmail.com</a>
