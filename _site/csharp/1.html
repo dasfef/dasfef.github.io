@@ -25,6 +25,14 @@
 
 <!-- iframe 관련 함수 -->
 <script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
   // iframe img 태그에서 url 받아오기
   function showFrame(url){
       var img = new Image();
@@ -55,15 +63,38 @@
       });
   });
   
-//iframe 외의 영역 클릭시 iframe 숨기기
-function hideIframe() {
-    var container = document.getElementById('iframeContainer');
-    container.style.display = 'none';
-}
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
 
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
 </script>   
   
 </head>
+
 <div id="iframeContainer" onclick="hideIframe()";>
   <iframe id="iframe"></iframe>
 </div>
@@ -103,7 +134,7 @@ function hideIframe() {
   </div>
 </header>
 
-
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
     <p style="text-align:right; font-weight:bold;">2023.03.23</p>
 
 <p><br>

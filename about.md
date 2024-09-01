@@ -7,12 +7,12 @@ title: ABOUT
 
 
 <script>
-    const root = document.documentElement;
+    // const root = document.documentElement;
 
-    document.addEventListener("DOMContentLoaded", function(){
-        root.style.setProperty('--main-color', 'white');
-        root.style.setProperty('--bg-color', 'black');
-    })
+    // document.addEventListener("DOMContentLoaded", function(){
+    //     root.style.setProperty('--main-color', 'white');
+    //     root.style.setProperty('--bg-color', 'black');
+    // })
 
     function clickAlert() {
         var email = document.getElementById('e-mail');
@@ -24,26 +24,26 @@ title: ABOUT
         });
     }
 
-    function darkMode(){
-        // let root = document.documentElement;
-        let btn = document.getElementById("dkBtn");
+    // function darkMode(){
+    //     // let root = document.documentElement;
+    //     let btn = document.getElementById("dkBtn");
 
-        console.log(root);
-        if(root.style.getPropertyValue('--main-color') === 'white'){
-            console.log("if --main-color is white");
-            root.style.setProperty('--main-color', 'black');
-            root.style.setProperty('--bg-color', 'white');
-        } else{
-            console.log("if --main-color is black");
-            root.style.setProperty('--main-color', 'white');
-            root.style.setProperty('--bg-color', 'black');
-        }
+    //     console.log(root);
+    //     if(root.style.getPropertyValue('--main-color') === 'white'){
+    //         console.log("if --main-color is white");
+    //         root.style.setProperty('--main-color', 'black');
+    //         root.style.setProperty('--bg-color', 'white');
+    //     } else{
+    //         console.log("if --main-color is black");
+    //         root.style.setProperty('--main-color', 'white');
+    //         root.style.setProperty('--bg-color', 'black');
+    //     }
 
-        if(btn.innerText === "Night Mode"){
-            btn.innerText = "Day Mode";
-        } else{
-            btn.innerText = "Night Mode";
-        }
+    //     if(btn.innerText === "Night Mode"){
+    //         btn.innerText = "Day Mode";
+    //     } else{
+    //         btn.innerText = "Night Mode";
+    //     }
 
         // let newLink = document.createElement("link");
         // newLink.setAttribute("rel", "stylesheet");
@@ -55,7 +55,7 @@ title: ABOUT
         // if(oldLink){
         //     oldLink.parentNode.removeChild(oldLink);
         // }
-    }
+    // }
 </script>
 
 <style>
@@ -90,7 +90,6 @@ title: ABOUT
 </style>
 
 
-<button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
 <div class="top">
     <div class="box" style="background: #BDBDBD;">
         <img class="profile" src="assets/profile_pic.jpeg">
@@ -140,7 +139,7 @@ IT분야의 모든것에 관심이 많은 사람입니다.
 
 <div>
     <span class="date_2">ﾠ2023.10 -ﾠﾠ</span><br>
-    <span style="font-size:20px;">(주)코스메카코리아</span> <span style="color: grey;">사원</span><br>
+    <span style="font-size:20px;">(주)코스메카코리아</span> <span style="color: grey;">IT/사원</span><br>
     <span>- 인프라 운영 관리</span><br>
     <span>- 영림원 ERP K-System 운영 관리</span><br>
     <span>- Web Application PLM 구축, Migration 및 Interface 구성</span><br>
@@ -151,7 +150,7 @@ IT분야의 모든것에 관심이 많은 사람입니다.
 <br>
 <div>
     <span class="date_2">ﾠ2022.03 - 2022.06ﾠ</span><br>
-    <span style="font-size: 20px;">서울포장(주)</span>  <span style="color: grey;">사원</span><br>
+    <span style="font-size: 20px;">서울포장(주)</span>  <span style="color: grey;">인사총무/사원</span><br>
     <span>- 전사 급여 관리</span><br>
     <span>- 인사 업무 총괄</span><br>
     <span>- 시설 운영 및 관리, 전사 총무 관련 업무</span>    
@@ -159,7 +158,7 @@ IT분야의 모든것에 관심이 많은 사람입니다.
 <br>
 <div>
     <span class="date_2">ﾠ2018.10 - 2021.02ﾠ</span><br>
-    <span style="font-size: 20px;">(주)하룹</span>  <span style="color: grey;">과장</span><br>
+    <span style="font-size: 20px;">(주)하룹</span>  <span style="color: grey;">온라인마케팅/과장</span><br>
     <span>- 팀별 온라인 마케팅 기획 및 총괄</span><br>
     <span>- 기타 회사 법무 사항 처리</span><br>
     <span>- 인사 • 총무 업무 전반 관리</span>
@@ -207,6 +206,21 @@ IT분야의 모든것에 관심이 많은 사람입니다.
     <p class="about-skills-p"><span class="about-skills">ﾠSkillﾠ</span>
     <span class="about-skills-detail">MSSQL</span></p>
 </div>
+<div>
+    <span class="about-title"> 4. D-Bugging 곤충 객체 인식 및 사육 환경 조정 모듈</span><br>
+    <p class="about-date"><span class="latest-date"> 2023.06 - 2023.07 </span></p><br>
+    <span class="about-mini-title">◎ ESP32 웹소켓 서버 구성</span><br>
+    <span> : ESP32 내에서 촬영하는 이미지 데이터 프레임 별 전송 목적</span><br>
+    <span class="about-mini-title">◎ Node.js 웹소켓 서버 구성</span><br>
+    <span> : 촬영 이미지 딥러닝 모델 적용 및 좌표 생성 목적</span><br>
+    <span> : 접속하는 클라이언트 개수 제한, 서버 접속 시 통신 목적</span><br>
+    <span class="about-mini-title">◎ 딥러닝 모델 학습 및 적용</span><br>
+    <span> : 최초 가장 최신 학습 모델인 YOLOv8 적용 후 웹 페이지 표현 목적</span><br>
+    <span> : WebGL 과부하로 인한 YOLOv8 적용 실패</span><br>
+    <span> : Roboflow 3.0 객체 인식 모델 학습 및 적용</span><br>
+    <p class="about-skills-p"><span class="about-skills"> Skill </span>
+    <span class="about-skills-detail">Node.js</span><span class="about-skills-detail">Javascript</span><span class="about-skills-detail">Python</span><span class="about-skills-detail">Tensorflow</span><span class="about-skills-detail"> C </span><span class="about-skills-detail">PHP</span><span class="about-skills-detail">MySQL</span>
+<div>
 
 
 <br>
@@ -214,11 +228,19 @@ IT분야의 모든것에 관심이 많은 사람입니다.
 
 <span class="mini-title">Presentations</span>
 <div>
-    <span class="about-title"> <a href="assets/클라우드 서비스와 가상화 플랫폼.pdf" target="_blank">1) 클라우드 서비스와 가상화 플랫폼</a></span><br>
+    <span class="about-title"> <a href="assets/D-Bugging.pdf" target="_blank">1) 딥러닝 모델 활용 곤충 객체인식</a></span><br>
+    <span class="about-mini-title">◎ 충북대학교 IoT기반 스마트솔루션 개발자 양성과정 최종 프로젝트</span><br>
+    <span class="about-mini-title">◎ 프로젝트 참여 : 총 3명 / 기간 : 2023.06-07 약 1개월</span><br>
+    <span class="about-mini-title">◎ C#, Android, Node.js, yolo 등 활용</span><br>
+    <span class="about-mini-title">◎ 기여 : Node.js 웹소켓 서버 구성, yolov8 활용 딥러닝 모델 학습</span><br>
+    <span class="about-mini-title">◎ 기여 : ESP32 캠 모듈 이진데이터 내 모델 적용 및 객체 인식 좌표 구성</span><br>
+    <span class="about-mini-title">◎ github :</span><a href="https://github.com/dasfef/PJ_D-Bugging" target="_blank"> https://github.com/dasfef/PJ_D-Bugging</a><br>
+    <p class="about-skills-p"><span class="latest-date"> 2023.07.06 </span></p>
+<div>
+    <span class="about-title"> <a href="assets/클라우드 서비스와 가상화 플랫폼.pdf" target="_blank">2) 클라우드 서비스와 가상화 플랫폼</a></span><br>
     <span class="about-mini-title">◎ 당사 클라우드 서비스 도입을 위한 개념 및 가상화 플랫폼 소개</span><br>
     <span class="about-mini-title">◎ Docker 설명, 당사 운영 서비스 내 Docker 이용 솔루션 소개</span><br>
     <span class="about-mini-title">◎ k8s 설명, Docker 연계 서비스 활용 소개</span><br>
     <span class="about-mini-title">◎ 당사 IDC 운영 히스토리 및 클라우드 서비스와의 차이점 소개</span><br>
     <p class="about-skills-p"><span class="latest-date">ﾠ2023.12.06ﾠ</span></p>
-
 </div>    
