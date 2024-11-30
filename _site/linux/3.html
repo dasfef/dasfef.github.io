@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[Linux]cgroup 활용하여 cpu 활용량 제어하기 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[Linux]cgroup 활용하여 cpu 활용량 제어하기" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="AWS 클라우드에 서버를 열었다(Ubuntu/EC2). 그리고 해당 서버 내에서 특정 프로세스가 활용하는 CPU의 양을 cgroup을 활용하여 제어해보았다." />
@@ -125,12 +125,7 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[Linux]cgroup 활용하여 cpu 활용량 제어하기</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[Linux]cgroup 활용하여 cpu 활용량 제어하기</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
@@ -159,11 +154,11 @@ vscode의 extension에 remote 혹은 ssh를 검색하면
 해당 extension을 설치하면
 vscode 좌측 메뉴에 새로운 메뉴가 생긴다.
 
-<img class="image" src="/contents/imgs/linux_3/1.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/1.png" onclick="showFrame(this.src)" />
 
 그리고 해당 메뉴로 들어가보면
 
-<img class="image" src="/contents/imgs/linux_3/2.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/2.png" onclick="showFrame(this.src)" />
 그림과 달리 alias 밖에 없을텐데
 EC2를 생성하며 받은 키페어(.pem 파일)을
 연동하여 ssh 접속을 연동해주는 것이다.
@@ -174,7 +169,7 @@ MacOS 에서는 '/Users/사용자명' 경로에
 .ssh 폴더가 숨겨져 있다(Shift + Command + . 으로 볼 수 있음)
 
 
-<img class="image" src="/contents/imgs/linux_3/3.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/3.png" onclick="showFrame(this.src)" />
 
 해당 폴더로 들어가서
 본인이 AWS EC2를 개설하면서 받은 pem 파일에 대해
@@ -182,7 +177,7 @@ MacOS 에서는 '/Users/사용자명' 경로에
 config 파일을 열어 수정하면 된다.
 
 
-<img class="image" src="/contents/imgs/linux_3/4.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/4.png" onclick="showFrame(this.src)" />
 
 Host Name 에는 개설하면서 받은 퍼블릭 IPv4 주소
 User 에는 인스턴스의 플랫폼
@@ -194,10 +189,10 @@ IdentifyFile 에는 본인의 pem 키 파일 경로를 넣어주면 된다.
 
 SSH로 접속을 하기 위해선 config 에서 설정을 마치고
 1) vscode Remote Explorer 에서 새로고침
-<img class="image" src="/contents/imgs/linux_3/5.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/5.png" onclick="showFrame(this.src)" />
 
 2) 터미널을 통해 ssh 접속 명령
-<img class="image" src="/contents/imgs/linux_3/6.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/6.png" onclick="showFrame(this.src)" />
 <span>① ssh 키 파일 있는 곳으로 경로 이동</span>
 <span>② pem 파일 확인</span>
 <span>③ ssh "플랫폼명"@"public ipv4 주소" -i "pem 파일명"</span>
@@ -217,7 +212,7 @@ SSH로 접속을 하기 위해선 config 에서 설정을 마치고
 vscode에서 remote 연결을 해준 뒤
 새로운 터미널을 열어보면 아래 그림과 같이 나온다.
 
-<img class="image" src="/contents/imgs/linux_3/7.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/7.png" onclick="showFrame(this.src)" />
 
 root 계정으로 접속한 뒤 다음 경로로 들어가본다.
 /sys/fs/cgroup/cpu
@@ -225,7 +220,7 @@ root 계정으로 접속한 뒤 다음 경로로 들어가본다.
 해당 경로에서 새로운 폴더를 만들어
 하나의 프로세스를 생성해준다.
 
-<img class="image" src="/contents/imgs/linux_3/8.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/8.png" onclick="showFrame(this.src)" />
 
 필자는 해당 경로에서 utils라는 폴더를 만들었고
 utils 경로로 들어가 ls를 해보았더니
@@ -244,10 +239,10 @@ quota 를 활용해 프로세스의 전체 100ms 중
 각각 무슨 값을 가지고 있는지 살펴보자.
 
 [ cpu.cfs_period_us ]
-<img class="image" src="/contents/imgs/linux_3/9.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/9.png" onclick="showFrame(this.src)" />
 
 [ cpu.cfs_quota_us ]
-<img class="image" src="/contents/imgs/linux_3/10.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/10.png" onclick="showFrame(this.src)" />
 
 기본적으로 quota는 -1 값을 가지고 있어 제한이 없다.
 각각의 값은 us 라는 이름으로 파악되듯이
@@ -259,7 +254,7 @@ stress 를 활용해 cpu 가동을 높이고
 (stress 가 없다면 sudo apt install -y stress 로 설치)
 새로운 터미널을 열어 top 로 cpu 가동율을 확인해보면,
 
-<img class="image" src="/contents/imgs/linux_3/11.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/11.png" onclick="showFrame(this.src)" />
 
 cpu 가동율이 마구 치솟는 걸 확인할 수 있다.
 
@@ -267,7 +262,7 @@ cpu 가동율이 마구 치솟는 걸 확인할 수 있다.
 다시 해당 프로세스에서 quota 값을 원하는 값으로 지정하면
 ex: 10000us = 10ms = 10%
 
-<img class="image" src="/contents/imgs/linux_3/12.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_3/12.png" onclick="showFrame(this.src)" />
 
 위와 같이 원하는 프로세스의 cpu 최대 가동률을
 10%로 제한하는 것을 확인할 수 있다.
@@ -277,8 +272,9 @@ ex: 10000us = 10ms = 10%
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

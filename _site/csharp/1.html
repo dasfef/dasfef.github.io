@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[미니 프로젝트]유튜브 미니플레이어 + C# 웹브라우저 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[미니 프로젝트]유튜브 미니플레이어 + C# 웹브라우저" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="dasfef의 개발취업난중일기" />
@@ -125,19 +125,14 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[미니 프로젝트]유튜브 미니플레이어 + C# 웹브라우저</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[미니 프로젝트]유튜브 미니플레이어 + C# 웹브라우저</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
     <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
     <p style="text-align:right; font-weight:bold;">2023.03.23</p>
 
-<p><br>
+<p><br />
 유튜브를 C# 미니플레이어에서 실행하고 
 C# 폼 안에서 유튜브 + 웹브라우저를 실행해보자
 <!-- <br> -->
@@ -156,7 +151,7 @@ C# 강의에서 개인 미니 프로젝트로
 집에 가서도 할 생각으로
 만들고 싶은걸 만들어보자 라는 마인드로 시작했다
 <!-- <br> --></p>
-<p style="font-size:20px; font-weight:bold"><span style=" background-color:#007433;">1. 로또 번호 추첨기<br>2. 나만의 유튜브 플레이어<br>3. 시한 폭탄 게임</span></p>
+<p style="font-size:20px; font-weight:bold"><span style=" background-color:#007433;">1. 로또 번호 추첨기<br />2. 나만의 유튜브 플레이어<br />3. 시한 폭탄 게임</span></p>
 <!-- <br> -->
 <p>대략적으로 3가지 아이디어를 생각중이었는데
 최대한 빠르고 간단하게 만들 수 있는건
@@ -171,7 +166,7 @@ C# 강의에서 개인 미니 프로젝트로
 <p>뜨끔한 나는 바로 다른 아이디어를 수행하기로 했다</p>
 
 <p>그렇게 결정된 나만의 유튜브 플레이어 😅
-<br></p>
+<br /></p>
 <p style="font-size:24px; font-weight:bold"><span style="background-color:#007433; color:#ffd300;">① 폼 구상</span></p>
 
 <p>어떤 기능을 넣을까 하다가
@@ -182,7 +177,7 @@ C# 강의에서 개인 미니 프로젝트로
 오른쪽에 바로 실행되게끔 하고 싶었다</p>
 
 <figure style="text-align:center;">
-<img class="image" src="../contents/imgs/csharp_1/1.png">
+<img class="image" src="../contents/imgs/csharp_1/1.png" />
 <figcaption>​최초 폼 구상</figcaption>
 </figure>
 <p>▶ textBox 에 검색하고 싶은 내용을 넣고
@@ -191,28 +186,28 @@ C# 강의에서 개인 미니 프로젝트로
 ▶ 아래 listView 영역에 결과를 넣고
 ▶ 우측 미디어 플레이어에서 영상을 재생
 의 결과로 만들고 싶었다
-<br></p>
+<br /></p>
 
 <p style="font-size:24px; font-weight:bold"><span style="background-color:#ffd300; color:#007433;">② 유튜브 API 키 할당</span></p>
-<p><br>
+<p><br />
 ​검색결과를 유튜브에서 긁어오기 위해선
 유튜브의 API 를 활용하여 검색결과를 호출할 수 있다
-<br>
+<br />
 ​<a href="https://developers.google.com/youtube/v3/getting-started?hl=ko" target="_blank">https://developers.google.com/youtube/v3/getting-started?hl=ko</a></p>
 
 <p>위 링크를 통해 개발자들이 api 를 호출할 때의 가이드라인을 살펴볼 수 있다
-<br>
+<br />
 프로젝트를 만들고
 ▶ api 신청을 하고
 ▶ 발급되는 api 키 값을 잘 복사하고
 ▶ 제공하는 목록을 살피고
 ▶ 필요한 정보를 요청 받는다
-<br>
+<br />
 아직 api 에 대해선 구체적으로 배운건 없지만
 써봤기도 하고 쓸줄만 알기에
 추후에 디테일한 부분까지 알게 되거나
 공유할 부분이 있으면 포스트 예정
-<br></p>
+<br /></p>
 <p style="font-size:24px; font-weight:bold"><span style="background-color:#ffd300; color:#007433;">③ 코드 구성</span></p>
 
 <p>🤯 방황 : 미디어 플레이어에서 온라인 링크의 영상 재생법
@@ -264,9 +259,9 @@ VideoLibrary 라는 패키지를 활용하는데
 ​브라우저를 띄울거였으면
 그냥 브라우저로 유튜브 들어가서 봤지
 프로그램 자체에서 실행 시키고 싶었다
-<br>
+<br />
 <span style="font-weight:bold; font-size:24px; color:#ffd300; background-color:#007433">④ C# 내 WebBrowser 이용</span>
-<br>
+<br />
 WebBrowser 툴을 활용해서
 우측 창에 유튜브 링크를 띄우자!</p>
 
@@ -278,7 +273,7 @@ WebBrowser 툴을 활용해서
 <p style="text-align:center; font-size:16px;">[ 실행 ]</p>
 
 <figure style="text-align:center;">
-<img class="image" src="../contents/imgs/csharp_1/2.png">
+<img class="image" src="../contents/imgs/csharp_1/2.png" />
 <figcaption>실험용 웹브라우저 시행</figcaption>
 </figure>
 
@@ -297,12 +292,12 @@ navigate 명령을 통해 웹브라우저 영역에 넣어줬다</p>
 
 <p>그리고 이대로
 유튜브 영상 링크를 넣어주면!!
-<br></p>
+<br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/csharp_1/3.png">
+<img class="image" src="../contents/imgs/csharp_1/3.png" />
 <figcaption>?????</figcaption>
 </figure>
-<p><br>
+<p><br />
 왜 재생이 안되지?</p>
 
 <p>여기서 알게 된 것이
@@ -311,7 +306,7 @@ c# 폼에서의 웹 브라우저는
 
 <p>이젠 구시대의 유물이 되어버린 익스플로러에는
 유튜브 재생이 지원되지 않는것이다 😢
-<br>
+<br />
 다시 생각을 바꾸어 크롬을 띄우기로 했다
 그런데 크롬을 띄우기 위해선
 너겟 패키지 + 호출이 필요했다</p>
@@ -319,9 +314,9 @@ c# 폼에서의 웹 브라우저는
 <p>CefSharp 을 통해
 chromiumWebBrowser 를 불러주어야
 해당 영역에 크롬을 불러올 수 있었다
-<br>
+<br />
 ​<span style="font-weight:bold; font-size:24px; color:#ffd300; background-color:#007433">⑤ chromiumWebBrowser</span>
-<br>
+<br />
 <a href="https://luckygg.tistory.com/339" target="_blank">https://luckygg.tistory.com/339</a>
 ​
 우선 웹브라우저를 불러들일 pictureBox 를 불러주고
@@ -340,20 +335,20 @@ chromiumWebBrowser 를 불러주어야
 라는데 해제를 해버리면
 아예 영역 자체가 사라져
 더이상 사이트를 나타낼 영역도 없어지는 것이었다 😂
-<br>
+<br />
 ​그래서 최종적으로 알아본 것이
 panel 영역을 주고
 다른 주소로 이동할 때마다
 컨트롤로 clear 와 add 를 넣어주면
 다른 주소로의 이동도 가능하지 않을까 했는데
 역시나 가능한 방법이었다
-<br></p>
+<br /></p>
 <p style="text-align:center; font-size:16px;">[ 최종 폼 ]</p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/csharp_1/4.png">
+<img class="image" src="../contents/imgs/csharp_1/4.png" />
 <figcaption>최종 폼</figcaption>
 </figure>
-<p><br>
+<p><br />
 기존에 있던 버튼은 살리고
 유튜브 검색 결과를 나타내는 버튼으로 진행,
 이동하고 싶은 웹사이트를 입력할 textBox 2개를 추가하고
@@ -369,12 +364,12 @@ c#에 대해 심도있게 배운 부분이 많이 모자라
 static, async, 변수 타입 등등
 여러 상황에 직면했을 때
 어떻게 대응해야 할지 감이 잘 안온다는 것이다
-<br>
+<br />
 복잡하고 반복되는 코드들로 구성되어서
 많이 너저분하지만
 앞으로 이러한 간단한 프로그램들도
 효율적이고 성능 좋은 코드로 구성해봐야겠다
-<br></p>
+<br /></p>
 <p style="text-align:center; font-size:16px;">[ 최종 실행 결과 ]</p>
 <div class="extensions extensions--video">
     <iframe src="https://www.youtube.com/embed/a2CwCs_Le3M?rel=0&amp;showinfo=0" frameborder="0" scrolling="no" allowfullscreen="" style="width:100%; height:500px;"></iframe>
@@ -384,8 +379,9 @@ static, async, 변수 타입 등등
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

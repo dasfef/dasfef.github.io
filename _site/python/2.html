@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="matplotlib 그래프 컨트롤을 통한 각종 예제 연습" />
@@ -125,12 +125,7 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[데이터 분석] 데이터 오픈 + matplotlib 그래프 컨트롤</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
@@ -139,9 +134,9 @@
 
 <p class="caution">개인 기록용 입니다 :)
 오타, 수정 등 피드백 환영</p>
-<p><br>
+<p><br />
 <span class="mini-title">1. 데이터 오픈</span>
-<br>
+<br />
 DATA : 국가기후데이터</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
@@ -158,7 +153,7 @@ DATA : 국가기후데이터</p>
 <p>f.close()
 next(data) 를 통해
 가장 첫 줄의 헤더부분(ex.열 이름) 건너뜀
-<br></p>
+<br /></p>
 <ul>
   <li>출력결과 -</li>
 </ul>
@@ -172,9 +167,9 @@ next(data) 를 통해
 [‘\t1907-10-03’, ‘108’, ‘16.2’, ‘13.1’, ‘21.3’]
 …
 ​
-<br>
+<br />
 <span class="mini-title">2. matplotlib 그래프 컨트롤</span>
-<br></p>
+<br /></p>
 <div class="mini-sub">1) 그래프 색 바꾸기</div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">그래프</span> <span class="n">선</span> <span class="n">색</span> <span class="n">바꾸기</span>
@@ -188,22 +183,22 @@ next(data) 를 통해
 </code></pre></div></div>
 
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/1.png">
+<img class="image" src="../contents/imgs/python_2/1.png" />
 </figure>
 <p>color = 색상
-옵션으로 색상을 변경할 수 있다<br>
+옵션으로 색상을 변경할 수 있다<br />
 혹은 “pink” 등과 같이
 옵션에 알맞는 색상 값을 넣어주면
-해당 색상으로 색을 변경할 수 있다<br>
+해당 색상으로 색을 변경할 수 있다<br />
 color 속성에는 수많은 색상값이 있는데
 이럴때 원문을 참조하면 좋다</p>
 
 <p><a class="post_link" href="https://matplotlib.org/stable/gallery/color/named_colors.html">matplotlib colors</a></p>
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/2.jpg">
+<img class="image" src="../contents/imgs/python_2/2.jpg" />
 </figure>
 
-<p><br></p>
+<p><br /></p>
 <div class="mini-sub">2) 그래프 선 모양 바꾸기</div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">그래프</span> <span class="n">선</span> <span class="n">모양</span> <span class="n">바꾸기</span>
@@ -214,17 +209,17 @@ color 속성에는 수많은 색상값이 있는데
 <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/3.png">
+<img class="image" src="../contents/imgs/python_2/3.png" />
 </figure>
 
 <p>linestyle 속성으로 선 모양을 바꿀 수 있다
 줄여서 ls 속성으로 쓸 수도 있으며
-옵션 값은 아래 링크 참조<br>
+옵션 값은 아래 링크 참조<br />
 ​<a class="post_link" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html#linestyles">matplotlib linestyle</a></p>
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/4.jpg">
+<img class="image" src="../contents/imgs/python_2/4.jpg" />
 </figure>
-<p><br></p>
+<p><br /></p>
 
 <div class="mini-sub">3) 마커모양 바꾸기</div>
 
@@ -237,20 +232,20 @@ color 속성에는 수많은 색상값이 있는데
 </code></pre></div></div>
 
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/5.png">
+<img class="image" src="../contents/imgs/python_2/5.png" />
 </figure>
 <p>‘r.–’ / ‘g^:’
 등으로 표기된 옵션은 각각
 color = red
 marker = .
-linestyle = –<br>
+linestyle = –<br />
 color = green
 marker = ^
 linestyle = :
-를 뜻한다<br>
+를 뜻한다<br />
 <a class="post_link" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_star_poly.html">matplotlib marker</a></p>
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/6.jpg">
+<img class="image" src="../contents/imgs/python_2/6.jpg" />
 </figure>
 <p>​</p>
 
@@ -273,10 +268,10 @@ linestyle = :
 <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/7.png">
+<img class="image" src="../contents/imgs/python_2/7.png" />
 </figure>
 
-<p>​<br></p>
+<p>​<br /></p>
 
 <p>​</p>
 
@@ -307,15 +302,16 @@ linestyle = :
 </code></pre></div></div>
 
 <figure class="fig">
-<img class="image" src="../contents/imgs/python_2/8.png">
+<img class="image" src="../contents/imgs/python_2/8.png" />
 </figure>
 
 
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

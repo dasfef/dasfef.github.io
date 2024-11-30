@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[MSSQL] M1 맥북에 MSSQL 설치 및 Azure Data Studio 활용하기 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[MSSQL] M1 맥북에 MSSQL 설치 및 Azure Data Studio 활용하기" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="M1 맥북에서의 Docker 활용 그리고 Azure Data Studio로 SQL 작성해보기. 추가로 SQL server 업그레이드 시켜 azure-sql-edge가 아닌 mssql 이미지로 실행시켜보자." />
@@ -125,12 +125,7 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[MSSQL] M1 맥북에 MSSQL 설치 및 Azure Data Studio 활용하기</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[MSSQL] M1 맥북에 MSSQL 설치 및 Azure Data Studio 활용하기</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
@@ -139,7 +134,7 @@
 
 <p class="caution">개인 기록용 입니다 :)
 오타, 수정 등 피드백 환영</p>
-<p><br></p>
+<p><br /></p>
 <p style="text-align:center">
 M1 맥북은 시작함에 어려움을 많이 겪는다
 이번에 실습을 진행하면서 MSSQL을 처음 써봤는데
@@ -208,7 +203,7 @@ brew를 통한 설치는 다른 정보를 참고 바랍니다.
 
 위 링크로 접속하여 파일을 dmg파일 다운로드
 
-<img class="image" src="/contents/imgs/database_4/1.png">
+<img class="image" src="/contents/imgs/database_4/1.png" />
 
 해당 파일로 설치를 진행한다(설정은 모두 기본값으로 진행함)
 
@@ -217,7 +212,7 @@ brew를 통한 설치는 다른 정보를 참고 바랍니다.
 
 [ $docker --version ]
 
-<img class="image" src="/contents/imgs/database_4/2.png">
+<img class="image" src="/contents/imgs/database_4/2.png" />
 
 잡히지 않는다면 본인이 쓰고 있는 shell 에서
 환경변수를 잡아줘야 한다
@@ -225,7 +220,7 @@ brew를 통한 설치는 다른 정보를 참고 바랍니다.
 필자는 bash 를 쓰고 있기 때문에
 bash_profile 내에서 export 해주었다
 
-<img class="image" src="/contents/imgs/database_4/3.png">
+<img class="image" src="/contents/imgs/database_4/3.png" />
 [ $vi ~/.bash_profile ]
 [ i를 눌러 insert 모드 ]
 [ export PATH=$HOME/.docker/bin:$PATH ]
@@ -237,7 +232,7 @@ bash_profile 내에서 export 해주었다
 
 <a href="https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15&amp;tabs=redhat-install%2Credhat-uninstall#download-azure-data-studio">Azure Data Studio 다운로드</a>
 
-<img class="image" src="/contents/imgs/database_4/4.png">
+<img class="image" src="/contents/imgs/database_4/4.png" />
 해당하는 zip 파일 다운로드 (설치 파일이 아닌 실행 파일임)
 
 
@@ -265,7 +260,7 @@ bash_profile 내에서 export 해주었다
 Docker 를 실행하여 Images 목록에
 잘 pull 되었는지 확인한다
 
-<img class="image" src="/contents/imgs/database_4/5.png">
+<img class="image" src="/contents/imgs/database_4/5.png" />
 
 
 
@@ -307,7 +302,7 @@ Docker run 이 모두 완료되었으면
 해당 단계에서 자동으로 다운로드 진행할 수 있음)
 아래와 같이 컨테이너가 작동하고 있는지 확인할 수 있다.
 
-<img class="image" src="/contents/imgs/database_4/6.png">
+<img class="image" src="/contents/imgs/database_4/6.png" />
 
 
 
@@ -316,13 +311,13 @@ Docker run 이 모두 완료되었으면
 필자는 알집을 풀고
 실행 파일을 Dock 으로 옮겨 두었다
 
-<img class="image" src="/contents/imgs/database_4/7.png">
+<img class="image" src="/contents/imgs/database_4/7.png" />
 
 
 
 <span class="mini-title">6. MSSQL 접속</span>
 
-<img class="image" src="/contents/imgs/database_4/8.png">
+<img class="image" src="/contents/imgs/database_4/8.png" />
 
 위 이미지와 같이 Azure Data Studio 창이 뜨고
 아무것도 뜨지 않는다면 New Connection 혹은
@@ -342,7 +337,7 @@ Docker run 이 모두 완료되었으면
 
 <span class="mini-title">7. TEST</span>
 
-<img class="image" src="/contents/imgs/database_4/9.png">
+<img class="image" src="/contents/imgs/database_4/9.png" />
 
 간단하게 데이터베이스 하나를 만들어주면
 왼쪽의 영역에 내가 만든 데이터베이스가 만들어진다.
@@ -354,9 +349,9 @@ docker run 명령을 시행할 때
 내 맥북 폴더 내의 파일들을 볼 수 있고
 이를 통해 복원시킬 수 있다
 
-<img class="image" src="/contents/imgs/database_4/10.png">
+<img class="image" src="/contents/imgs/database_4/10.png" />
 
-<img class="image" src="/contents/imgs/database_4/11.png">
+<img class="image" src="/contents/imgs/database_4/11.png" />
 
 </p>
 
@@ -367,7 +362,7 @@ docker run 명령을 시행할 때
 
 <p>버전이 맞지 않아 백업 파일을 불러올 수 없었고</p>
 
-<p><img class="image" src="/contents/imgs/database_4/12.png"></p>
+<p><img class="image" src="/contents/imgs/database_4/12.png" /></p>
 
 <p>SQL server 를 업그레이드 해야 했다</p>
 
@@ -380,7 +375,7 @@ docker run 명령을 시행할 때
 맞지 않는 부분을 하나하나 고치고 있었는데
 눈에 띄는 녀석이 있었다</p>
 
-<p><img class="image" src="/contents/imgs/database_4/13.png"></p>
+<p><img class="image" src="/contents/imgs/database_4/13.png" /></p>
 
 <p>관리자 비밀번호가 충분히 복잡하지 않으니
 좀더 복잡하게 만들어라 라는 뜻이었다</p>
@@ -397,8 +392,9 @@ docker run 명령을 시행할 때
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

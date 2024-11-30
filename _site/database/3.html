@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[Oracle] PL/SQL 활용 procedure, trigger, 사용자 정의 함수 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[Oracle] PL/SQL 활용 procedure, trigger, 사용자 정의 함수" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="dasfef의 개발취업난중일기" />
@@ -125,23 +125,18 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[Oracle] PL/SQL 활용 procedure, trigger, 사용자 정의 함수</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[Oracle] PL/SQL 활용 procedure, trigger, 사용자 정의 함수</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
     <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
     <p style="text-align:right; font-weight:bold;">2023.03.23</p>
-<p><br>
+<p><br />
 sql 에는 pl/sql 이란것이 있다
 procedural language 란 것인데
 이전 교육에는 배우지 못한 것이 나오니
 당황스럽기도 하고 새롭기도 했다
-<br></p>
+<br /></p>
 <p style="font-size:24px; font-weight:bold"><span style="background-color:#007433; color:#ffd300;">1. PROCEDURE</span></p>
 <!-- ​<br> -->
 <p>구문만 보자면 아래와 같다</p>
@@ -185,7 +180,7 @@ procedural language 란 것인데
 insert 구문을 begin 하라는 것이다</p>
 
 <p>영어를 해석만 하면 얼추 내용이 이해가 간다
-<br>
+<br />
 procedure 의 실행은 아래와 같다</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">exec</span> <span class="n">insertbook</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'스포츠과학'</span><span class="p">,</span> <span class="s1">'과학서적'</span><span class="p">,</span> <span class="mi">25000</span><span class="p">);</span>
@@ -237,7 +232,7 @@ set serveroutput on; 을 꼭 실행해주어야 한다
 DBMS_OUTPUT.PUT_LINE 을 실행해보면</p>
 
 <p>​<figure style="text-align:center;">
-<img class="image" src="../contents/imgs/oracle_3/1.png">
+<img class="image" src="../contents/imgs/oracle_3/1.png" />
 </figure></p>
 
 <p>이런식으로 우리가 직접 
@@ -254,7 +249,7 @@ select ~ 어쩌구 해서 평균값을 구해주지 않아도
 오류 없이 넘어간다 한들</p>
 
 <p>​<figure style="text-align:center;">
-<img class="image" src="../contents/imgs/oracle_3/2.png">
+<img class="image" src="../contents/imgs/oracle_3/2.png" />
 </figure></p>
 
 <p>요 에서 원하는 책값 평균에는
@@ -264,7 +259,7 @@ select ~ 어쩌구 해서 평균값을 구해주지 않아도
 in 은 ‘안’에서 자료 정리를 원할 때 쓴다</p>
 
 <p><span style="color:orange">* in out 을 같이 써주면 모두 가능</span>
-<br></p>
+<br /></p>
 <p style="font-size:24px; font-weight:bold"><span style="background-color:#007433; color:#ffd300;">2. CURSOR</span></p>
 
 <p>파이썬에서 DB에 접속하고
@@ -308,7 +303,7 @@ cursor.fetchall()</p>
 <span class="k">set</span> <span class="n">serveroutput</span> <span class="k">on</span><span class="p">;</span>
 <span class="k">exec</span> <span class="n">interest</span><span class="p">;</span>
 </code></pre></div></div>
-<p><br></p>
+<p><br /></p>
 <p style="font-size:24px; font-weight:bold;"><span style="background-color:#007433; color:#ffd300">3. TRIGGER</span></p>
 
 <p>트리거는 어떤 구문이 수행 되었을 때
@@ -343,7 +338,7 @@ after 를 통한 로그 자료 기입 구문을 살펴보자</p>
 <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">book</span> <span class="k">where</span> <span class="n">bookid</span> <span class="o">=</span> <span class="s1">'16'</span><span class="p">;</span>                                <span class="o">//</span> <span class="err">트리거</span> <span class="err">수행</span> <span class="err">여부</span> <span class="err">확인</span>
 <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">book_log</span> <span class="k">where</span> <span class="n">bookid_1</span><span class="o">=</span><span class="s1">'16'</span><span class="p">;</span>
 </code></pre></div></div>
-<p><br></p>
+<p><br /></p>
 
 <p style="font-size:24px; font-weight:bold;"><span style="background-color:#007433; color:#ffd300;">4. 사용자 정의 함수</span></p>
 
@@ -380,8 +375,9 @@ after 를 통한 로그 자료 기입 구문을 살펴보자</p>
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

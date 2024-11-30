@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(1) | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(1)" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="안드로이드는 보안상의 이유로 외부 DB연동이 되지 않는다. 때문에 웹서버를 따로 구축하고 해당 서버와 DB를 연결, 다시 웹서버와 안드로이드를 연결 후 php를 활용해 DB를 불러오는 것을 구현한다." />
@@ -125,12 +125,7 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(1)</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[Apache]아파치 서버 설치 후 PHP 및 MySQL 연동(1)</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
@@ -139,7 +134,7 @@
 
 <p class="caution">개인 기록용 입니다 :)
 오타, 수정 등 피드백 환영</p>
-<p><br></p>
+<p><br /></p>
 
 <p style="text-align:center">
 본문 하단에 해당 블로그 링크 참조
@@ -158,7 +153,7 @@ PHP를 통해 DB 데이터를 받아와야 한다
 
 <a href="https://www.apachelounge.com/download/#google_vignette" target="_blank">아파치 프로그램 다운로드</a>
 
-<img class="image" src="/contents/imgs/server_1/1.png">
+<img class="image" src="/contents/imgs/server_1/1.png" />
 
 
 <span class="mini-sub">2) 다운로드 파일 압축 해제 후 Apache24 폴더 원하는 곳으로 이동</span>
@@ -166,7 +161,7 @@ PHP를 통해 DB 데이터를 받아와야 한다
 C:\Program Files
 경로로 옮겼습니다
 
-<img class="image" src="/contents/imgs/server_1/2.png">
+<img class="image" src="/contents/imgs/server_1/2.png" />
 PHP 연동을 위해 Apache24 폴더 내에서
 수정해야 할 사항이 있습니다
 
@@ -186,7 +181,7 @@ PHP 연동을 위해 Apache24 폴더 내에서
 Thread Safe(TS) 버전의 zip 파일로 다운로드 했다
 </span>
 
-<img class="image" src="/contents/imgs/server_1/3.png">​
+<img class="image" src="/contents/imgs/server_1/3.png" />​
 <span class="caution">
 Thread Safe(TS) 와 Non-Thread Safe(NTS) 의 차이는
 php 다운로드 사이트 좌측에 설명 되어 있다
@@ -213,7 +208,7 @@ NTS는 싱글스레드
 
 <span class="mini-sub">2) Apache24 &gt; httpd.conf 파일 수정</span>
 
-<img class="image" src="/contents/imgs/server_1/4.png">
+<img class="image" src="/contents/imgs/server_1/4.png" />
 <code>
 C:\Program Files\Apache24\conf
 </code>
@@ -221,7 +216,7 @@ C:\Program Files\Apache24\conf
 해당 파일을 메모장으로 열고
 수정사항 적용
 
-<img class="image" src="/contents/imgs/server_1/5.png">
+<img class="image" src="/contents/imgs/server_1/5.png" />
 37번째 줄
 
 필자는 Apache24 폴더를
@@ -235,7 +230,7 @@ Define SRVROOT "c:\Apache24"
 Define SRVROOT "c:\Program Files\Apache24"
 ​</code>
 
-<img class="image" src="/contents/imgs/server_1/6.png">
+<img class="image" src="/contents/imgs/server_1/6.png" />
 227번째 줄
 
 해당 내용을 보면
@@ -265,7 +260,7 @@ Listen 80
 
 <span class="mini-sub">4) directoryIndex 설정</span>
 
-<img class="image" src="/contents/imgs/server_1/7.png">
+<img class="image" src="/contents/imgs/server_1/7.png" />
 286번째 줄
 
 우리는 html 파일이 아닌
@@ -297,14 +292,14 @@ Apache에 연동하기 위함이다
 MySQL 연동을 위해선 php.ini​ 파일에도 수정이 필요하다
 파일을 열어 아래 내용을 수정한다
 
-<img class="image" src="/contents/imgs/server_1/8.png">
+<img class="image" src="/contents/imgs/server_1/8.png" />
 최초 실행시 위 두 구문은 주석처리가 되어 있는데
 주석을 풀어 해당 모듈을 사용하겠다고 선언한다
 
 MySQL 연동에는 mysqli 라는 모듈이 필요하기 때문에
 사용하겠다고 선언하는 것이라 생각하면 이해가 편하다
 
-<img class="image" src="/contents/imgs/server_1/9.png">
+<img class="image" src="/contents/imgs/server_1/9.png" />
 extension_dir 부분을 찾아
 본인의 php 설치 경로 내에 있는 ext 폴더를 찾아
 해당 경로를 넣어준다
@@ -316,7 +311,7 @@ extension_dir 부분을 찾아
 ② Apache24\bin 이 있는 폴더로 이동
 ③ Apache 서비스 설치 및 시작해보기
 
-<img class="image" src="/contents/imgs/server_1/10.png">
+<img class="image" src="/contents/imgs/server_1/10.png" />
 <code style="text-align:left">
 httpd -k install    // Apache 서비스 설치
 httpd -k start      // Apache 서비스 시작
@@ -327,14 +322,14 @@ httpd -k uninstall  // Apache 서비스 제거
 
 ④ 웹브라우저 주소창에 localhost/index.html 로 접속 후 성공시 아래와 같은 결과가 나온다
 
-<img class="image" src="/contents/imgs/server_1/11.png">
+<img class="image" src="/contents/imgs/server_1/11.png" />
 ⑤ phpinfo 창 만들기
 메모장을 열어 아래 내용을 기입 후 저장한다
 
 <code>
- php
+<? php
 phpinfo();
-?&gt;
+?>
 </code>
 
 이름은 아무거나 상관없지만 확장자는 .php 가 되도록 해야하며
@@ -348,7 +343,7 @@ SRVROOT 의 경우 우리가 수정했던
 Apache24 가 들어있는 경로이고
 htdocs 는 해당 경로 내의 htdocs 폴더를 가리킨다
 
-<img class="image" src="/contents/imgs/server_1/12.png">
+<img class="image" src="/contents/imgs/server_1/12.png" />
 어쨌든 
 C:\Program Files\Apache24\htdocs
 이 경로에 있는 파일을 읽어 온다는 말이니
@@ -356,7 +351,7 @@ C:\Program Files\Apache24\htdocs
 
 웹 브라우저 주소창에 localhost/phpinfo.php 를 입력해보자
 
-<img class="image" src="/contents/imgs/server_1/13.png">
+<img class="image" src="/contents/imgs/server_1/13.png" />
 이런 php 관련 정보가 나온다면 성공이다
 
 참고 링크)
@@ -376,8 +371,9 @@ LoadModule php_module “C:\Program Files\PHP/php8apache2_4.dll”
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

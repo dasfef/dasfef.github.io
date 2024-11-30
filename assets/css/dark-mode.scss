@@ -11,13 +11,19 @@
 
 :root {
 
-  --main-color: black;
-  --bg-color: white;
+  // --main-color: black;
+  --main-color: orange;
+  // --bg-color: white;
+  --bg-color: grey;
 
-  --text-color: #5a5a5a;
-  --pop-color: black;
-  --alt-color: #2ed573;
-  --light-alt-color: rgba(46, 213, 115);
+  // --text-color: #5a5a5a;
+  --text-color: purple;
+  // --pop-color: black;
+  --pop-color: red;
+  // --alt-color: #2ed573;
+  --alt-color: brown;
+  // --light-alt-color: rgba(46, 213, 115);
+  --light-alt-color: blue;
 
 }
 /* FONT 종류 */
@@ -54,6 +60,8 @@ ul :not(.menu) > ul { list-style: none; padding-left: 3em; margin-top: 0.5em; ma
 :not(.menu) > ul { list-style-type: none; }
 :not(.menu) > ul > li:before { content: "-";  margin-right: 9px; }
 ul :not(.menu) > ul > li:before { content: "*";  margin-right: 9px; }
+
+.center_title { font-weight:bold; background-color:#ff0010; color:white;}
 
 /* NAVIGATION */
 .menu { border-top: dashed 1px rgba(219, 219, 219, 0.9);  border-bottom: dashed 1px rgba(219, 219, 219, 0.9);  margin-bottom: 25px; }
@@ -134,11 +142,12 @@ div.error_box h1 { font-size: 2em; }
 // }
 
 input[id*="menu"] {display: none;}
-input[id*="menu"]:hover + label {cursor: pointer; background-color:darkblue;}
+input[id*="menu"]:hover + label {cursor: pointer; background-color:darkblue; color:white;}
 input[id*="menu"] + label + div {max-height: 0; transition: all .35s; overflow: hidden;}
 input[id*="menu"]:checked + label + div {max-height: 300px;}
 
 .accordion div li a:hover{transition:all .35s; color:#fff; background-color: darkblue;}
+.accordion label:hover{color:#fff;}
 .accordion #m_container {display:none; text-align:right;}
 .accordion #m_container :hover + label {cursor:pointer; background-color: mediumaquamarine;}
 

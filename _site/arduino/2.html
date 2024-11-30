@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>dht 센서를 활용한 온도, 습도 lcd에 나타내기 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="dht 센서를 활용한 온도, 습도 lcd에 나타내기" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="dasfef의 개발취업난중일기" />
@@ -125,85 +125,80 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">dht 센서를 활용한 온도, 습도 lcd에 나타내기</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">dht 센서를 활용한 온도, 습도 lcd에 나타내기</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
     <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
     <p style="text-align:right; font-weight:bold;">2023.03.20</p>
 
-<p><br>
+<p><br />
 온도, 습도를 탐지하는
 dht11 센서가 있다
-<br>
+<br />
 이 센서를 활용하여
 시리얼 모니터와
 LCD 모니터에 함께 나타내보도록 하자
-<br>
+<br />
 ​DHT와 LCD 활용을 위해
 라이브러리 추가가 필요하다
-<br></p>
+<br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/arduino_2/1.png">
+<img class="image" src="../contents/imgs/arduino_2/1.png" />
 <figcaption>라이브러리 관리</figcaption>
 </figure>
-<p><br>
+<p><br />
 위 화면과 같이 아두이노 IDE에서
 스케치 ▶ 라이브러리 포함 ▶ 라이브러리 관리
 를 눌러주면
-<br></p>
+<br /></p>
 
 <figure style="text-align:center;">
-<img class="image" src="../contents/imgs/arduino_2/2.png">
+<img class="image" src="../contents/imgs/arduino_2/2.png" />
 <figcaption>liquidcrystal_i2c</figcaption>
 </figure>
 
-<p><br>
+<p><br />
 위 화면과 같이
 라이브러리 매니저가 왼쪽에 나타나고
 검색창에서 liquidcrystal_i2c 를 검색하면
 by Frank de Brabander
 와 같은 라이브러리를 발견할 수 있다
-<br>
+<br />
 필자는 먼저 설치가 되어있기 때문에
 설치됨이라고 뜨는데
 설치가 안 된 사람은
 해당 부분에 설치하기가 뜰 것이다
-<br>
+<br />
 <span style="color:orange">클릭 후 설치!</span>
-<br>
+<br />
 이제 LCD 활용을 위한
 라이브러리 준비가 된 것이고
 간단한 코드를 작성해보자
-<br></p>
+<br /></p>
 
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/arduino_2/3.png">
+<img class="image" src="../contents/imgs/arduino_2/3.png" />
 <figcaption>간편한 라이브러리 호출</figcaption>
 </figure>
 
-<p><br>
+<p><br />
 스케치 ▶ 라이브러리 포함 ▶ 공헌된 라이브러리들
 목록을 살펴보면
 내가 설치한 별도의 라이브러리들이 존재하는데,
 이 라이브러리를 눌러주기만 해도</p>
 
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/arduino_2/4.png">
+<img class="image" src="../contents/imgs/arduino_2/4.png" />
 <figcaption>호출된 라이브러리</figcaption>
 </figure>
-<p><br></p>
+<p><br /></p>
 
 <p>이렇게 바로 자동으로 타이핑을 쳐준다
 이 상태에서 
-<br></p>
+<br /></p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;LiquidCrystal_I2C.h&gt;
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;LiquidCrystal_I2C.h&gt;</span><span class="cp">
 </span>
 <span class="n">LiquidCrystal_I2C</span> <span class="nf">lcd</span><span class="p">(</span><span class="mh">0x27</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>   <span class="c1">// LiquidCrystal_I2C 변수설정(주소, 셀개수, 열개수)</span>
 
@@ -218,60 +213,60 @@ by Frank de Brabander
 <p><span style="text-align:center">LCD 셋업을 시켜준다(초기화면)</span>
 <span style="color:orange">* LiquidCrystal_I2C 이 부분의 주소가 0x27, 0x3f, 0x20 등으로 들어가는데
 제조사마다 다르니 본인의 주소를 먼저 체크해봐야 한다</span>
-<br></p>
+<br /></p>
 
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/arduino_2/5.png">
+<img class="image" src="../contents/imgs/arduino_2/5.png" />
 <figcapture>LCD 셋업 확인용</figcapture>
 </figure>
-<p><br>
+<p><br />
 loop() 측에는 
 공란으로 두어도 실행이 된다
 LCD에 잘 나타나는지 시험해보면
-<br></p>
+<br /></p>
 
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/arduino_2/6.jpg">
+<img class="image" src="../contents/imgs/arduino_2/6.jpg" />
 <figcapture>LCD 시험</figcapture>
 </figure>
 
 <p>다행히 잘 나타나준다
-<br>
+<br />
 초기화면은 본인이 꾸미고 싶은대로 꾸며보자
 16자로 2열씩이니
 잘 분배해서 꾸며보면 멋진 텍스트들이 나온다
-<br>
+<br />
 다만 이때 주의할 점은
 마지막에 꼭 lcd.clear()를 해주어야 한다
-<br>
+<br />
 그렇지 않으면 계속해서
 초기화면으로만 나오기 때문에
 내가 원하는 온도, 습도 값은
 영영 볼 수 없다 😢
-<br>
+<br />
 dht 센서의 라이브러리도
 마찬가지로 설치해주자
-​<br>
-<br></p>
+​<br />
+<br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/arduino_2/7.png">
+<img class="image" src="../contents/imgs/arduino_2/7.png" />
 <figcapture>simpledht 검색</figcapture>
 </figure>
-<p><br>
+<p><br />
 SimpleDHT 라이브러리를 검색 후 설치해주고
 호출해준다
-<br>
-​<br></p>
+<br />
+​<br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/arduino_2/8.png">
+<img class="image" src="../contents/imgs/arduino_2/8.png" />
 <figcapture>simpleDHT 라이브러리 호출</figcapture>
 </figure>
-<p>​<br>​
-<br></p>
+<p>​<br />​
+<br /></p>
 
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="cp">#include &lt;SimpleDHT.h&gt;
-#include &lt;LiquidCrystal_I2C.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;SimpleDHT.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;LiquidCrystal_I2C.h&gt;</span><span class="cp">
 </span>
 <span class="n">LiquidCrystal_I2C</span> <span class="nf">lcd</span><span class="p">(</span><span class="mh">0x27</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 
@@ -283,25 +278,25 @@ SimpleDHT 라이브러리를 검색 후 설치해주고
 
 </code></pre></div></div>
 
-<p><br></p>
+<p><br /></p>
 
 <p>lcd 주소, 셀, 열
 dht 핀 번호
 객체 생성
 전역 변수 설정</p>
 
-<p><br></p>
+<p><br /></p>
 
 <p>등을 끝낸 뒤의
 코드 작성은 아래와 같다
 (자세한 설명은 주석으로)</p>
 
-<p><br></p>
+<p><br /></p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="cp">#include &lt;SimpleDHT.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;SimpleDHT.h&gt;</span><span class="cp">
 </span>
-<span class="cp">#include &lt;LiquidCrystal_I2C.h&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;LiquidCrystal_I2C.h&gt;</span><span class="cp">
 </span>
 <span class="n">LiquidCrystal_I2C</span> <span class="nf">lcd</span><span class="p">(</span><span class="mh">0x27</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>   <span class="c1">// LiquidCrystal_I2C 변수설정(모델번호, 셀개수, 열개수)</span>
 
@@ -325,7 +320,7 @@ dht 핀 번호
   <span class="n">lcd</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">err</span> <span class="o">=</span> <span class="n">dht11</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">temp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">humi</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>   <span class="c1">// dht11센서에서 받는 temp, humi 의 주소값 read</span>
                                               <span class="c1">// 값 = 0으로 반환된다</span>
   <span class="k">if</span><span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="n">SimpleDHTErrSuccess</span><span class="p">)</span> <span class="p">{</span>            <span class="c1">// dht11 에서 에러가 발생한다면(read의 값이 0이 아니라면)</span>
@@ -354,32 +349,32 @@ dht 핀 번호
 
 </code></pre></div></div>
 
-<p><br>
+<p><br />
 계속 찾아보면서 이해하려 했던 부분이
 에러 발생 및 dht11.read() 이 부분에 대한 점이었는데
 dht11.read(&amp;temp, &amp;humi, NULL)
 이 read 함수의 반환값은 0이 되는것으로 확인된다
-<br>
+<br />
 정확한 설명은 잘 모르겠으나
 0으로 반환되는 이 값을 err 변수로 설정하고
 SimpleDHTErrSuccess 와 err(0)의 값이 같지 않을때를
 에러 발생 상황으로 두고 표현한다
-<br>
+<br />
 추측하자면
 SimpleDHTErrSuccess 는 1이나 0이 아닌 값으로 반환시키고
 그 의미는 DHT 센서가 정상 작동함을 알리는 역할을 한다는 것이다
-<br>
+<br />
 따라서 err != SimpleDHTErrSuccess 가 에러가 되는것이고
 그 즉시 if 절의 아래와 같은 코드들을 불러
 에러 발생과 함께 메세지를 띄운다
-<br>
+<br />
 ​+++
 처음 string 으로의 변환 없이
 (char)0xDF 를 출력하려 했더니
 이상한 문자 혹은 아예 읽어들이지 못했는데
 LCD 출력에서는 한글 출력을 위한 라이브러리가 별도로 존재하고
 숫자 값과 동시에 문자를 출력할 수 없다는 것을 알았다
-<br>
+<br />
 때문에 String으로 받아들이는
 temp, humi의 값을 문자로 변환하고
 0xDF 와 함께 출력해주면
@@ -393,8 +388,9 @@ temp, humi의 값을 문자로 변환하고
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[Oracle] database 접속 실패 오류 해결 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[Oracle] database 접속 실패 오류 해결" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="dasfef의 개발취업난중일기" />
@@ -125,48 +125,43 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[Oracle] database 접속 실패 오류 해결</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[Oracle] database 접속 실패 오류 해결</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
     <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
     <p style="text-align:right; font-weight:bold;">2023.03.19</p>
 
-<p><br>
+<p><br />
 SQL Developer 를 통해 DB 접속시 
 나타나는 오류들에 여러 종류가 많다
-<br>
+<br />
 그 중 직접 겪었던 허무맹랑한 오류를 다뤄보려 한다
-<br>
+<br />
 <span style="font-weight:bold; font-size:24px; font-color:#ba0000; background-color:#ba0000;">​1. the network adapter could not establish the connection</span>
-<br>
+<br />
 원인을 알 수 없는 오류
 분명 교육시간에 배운대로 오라클을 설치하고
 SQL Developer까지 설치했는데도 불구,
 위와 같은 오류와 함께 접속 자체가 불가했다
-​<br>
+​<br />
 여러 구글링을 통해 해결과정을 따라해봤다
-<br>
-<br></p>
+<br />
+<br /></p>
 
-<hr>
+<hr />
 <p style="text-align:center; font-size:20px; font-weight:bold;"><span style="background-color:#ba0000">실패</span></p>
 
-<hr>
-<p><br>
-<br></p>
+<hr />
+<p><br />
+<br /></p>
 
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/1.png">
+<img class="image" src="../contents/imgs/oracle_1/1.png" />
 </figure>
 <p>위 이미지와 같이
 서비스 관리창에서 oracle 관련된 서비스들의 재시작
-<br></p>
+<br /></p>
 
 <blockquote>
   <blockquote>
@@ -183,15 +178,15 @@ SQL Developer까지 설치했는데도 불구,
 <blockquote>
   <blockquote>
     <p>▶ 목록 중 oracle로 시작하는 파일들 우클릭 후 다시 시작 or 시작
-<br>
-<br></p>
+<br />
+<br /></p>
   </blockquote>
 </blockquote>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/2.png" style="width:49%">
-<img class="image" src="../contents/imgs/oracle_1/3.png" style="width:49%">
+<img class="image" src="../contents/imgs/oracle_1/2.png" style="width:49%" />
+<img class="image" src="../contents/imgs/oracle_1/3.png" style="width:49%" />
 </figure>
-<p><br></p>
+<p><br /></p>
 
 <blockquote>
   <blockquote>
@@ -229,117 +224,117 @@ SQL Developer까지 설치했는데도 불구,
   </blockquote>
 </blockquote>
 
-<p><br></p>
+<p><br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/4.png">
+<img class="image" src="../contents/imgs/oracle_1/4.png" />
 </figure>
 <p>등의 작업을 하나씩 수행해보면서
 오라클의 접속을 재시도 했지만
 그래도 실패
-<br>
+<br />
 ​방화벽 인바운드 규칙 새규칙 설정
 검색 : 방화벽</p>
 
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/5.png">
+<img class="image" src="../contents/imgs/oracle_1/5.png" />
 <figcaption>고급 설정 클릭</figcaption>
 </figure>
 
-<p><br></p>
+<p><br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/6.png">
+<img class="image" src="../contents/imgs/oracle_1/6.png" />
 <figcaption>인바운드 규칙 클릭 후 새규칙</figcaption>
 </figure>
 
-<p><br></p>
+<p><br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/7.png">
+<img class="image" src="../contents/imgs/oracle_1/7.png" />
 <figcaption>포트 설정 후 다음</figcaption>
 </figure>
 
-<p><br></p>
+<p><br /></p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/8.png">
+<img class="image" src="../contents/imgs/oracle_1/8.png" />
 <figcaption>특정 로컬 포트 : 1521 - 1550 설정</figcaption>
 </figure>
 
-<p><br></p>
+<p><br /></p>
 <p style="font-size:24px; text-align:center">&lt;&lt; 위와 같은 방법 모두 실패했다 &gt;&gt;</p>
-<p><br>
+<p><br />
 <span style="font-weight:bold; font-size:24px; font-color:#ba0000; background-color:#ba0000;">2. TNS-12560 어댑터 프로토콜 오류</span>
-​<br></p>
+​<br /></p>
 
 <p>왜인지 모르겠지만 
 이전에 3일에 걸쳐 해결법을 찾다가 해결 한 접속 문제가
 다시 시작되면서
 위의 해결법을 모두 시행하고도 오류가 발생했다
-<br>
+<br />
 cmd 창에서 lsnrctl 명령을 활용한
 여러가지 명령어를 쳐보다가
 start를 시켰는데 
 TNS-12560 오류가 발생한단 사실을 알았다
-<br>
+<br />
 ​리스너의 시작에 앞서
 서비스창에서의 tnslister 실행 자체가 안된다는걸 확인했다
-<br>
+<br />
 ​</p>
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/9.png">
+<img class="image" src="../contents/imgs/oracle_1/9.png" />
 <figcaption>TNS Lister</figcaption>
 </figure>
-<p><br>
+<p><br />
 바로 요놈이다
 이놈을 자꾸 실행 시키려는데
 갑자기 작동이 멈추면서
 오류창이 뜨기 시작했다
-<br>
+<br />
 ​대체 뭐지 하고 lsnrctl start 명령에 대한 오류도 찾아보니
 단순히 cmd 창에 대한 권한이 부족해서였다
-<br></p>
+<br /></p>
 
-<hr>
+<hr />
 <p style="text-align:center; font-size:20px; font-weight:bold;"><span style="background-color:#54b800">해결</span></p>
 
-<hr>
+<hr />
 
-<p><br>
+<p><br />
 cmd 창을 우클릭해서
 관리자 권한으로 실행한 후
 lsnrctl start 명령어를 입력하자
 다른 오류메시지가 등장했다
-<br>
+<br />
 ​
 <span style="font-weight:bold; font-size:24px; font-color:#ba0000; background-color:#ba0000;">3. TNS-01150: 지정된 리스너명의 주소가 틀립니다</span>
-​<br>
+​<br />
 위와 같은 오류의 아래에는
 더 자세한 오류 내용을 보여주었는데,
-<br>
+<br />
 <span style="font-color:#ba0000;">TNS-01153: 프로세스 문장이 실패했습니다: (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=WOONG(PORT = 1521)))</span>
-<br>
+<br />
 이 내용이었다..
-<br>
+<br />
 뭔가.. 내가 ora 파일을 손보던 중에..
 괄호를 하나 빼먹은것 같았다…
 분명 전에 잘 시행 됐는데..
 왜 괄호가 하나 빠져있지..?
-<br>
+<br />
 <span style="font-color:#54b800">시행되어야 할 내용</span> : (HOST=WOONG)(PORT=1521)</p>
 
 <p><span style="font-color:#ba0000;">오류</span> : (HOST=WOONG(PORT=1521))
-<br>
+<br />
 이렇게 어이없는 오류 하나를 잡자고
 별의 별 짓을 다했다..
-<br>
+<br />
 그래도 결국 SQL Developer 실행에 앞서
 어떤 부분들이 충족되어야 하는지
 확연하게 배운것 같아 뿌듯하다..!
-<br>
+<br />
 나와 같은 내용의 오류를 가진 분들에겐
 큰 도움이 되었으면 하는 바람에 :)
-<br></p>
+<br /></p>
 
 <figure style="text-align:center">
-<img class="image" src="../contents/imgs/oracle_1/10.png">
+<img class="image" src="../contents/imgs/oracle_1/10.png" />
 <figcaption>수행 성공!</figcaption>
 </figure>
 
@@ -347,8 +342,9 @@ lsnrctl start 명령어를 입력하자
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>

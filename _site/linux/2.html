@@ -102,7 +102,7 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행 | dasfef</title>
-<meta name="generator" content="Jekyll v3.9.3" />
+<meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="M1 맥북에서 두 개의 가상머신에 각각 CentOS와 Kali linux를 설치했다. CentOS에서 Apache 설치를 하고 서버 구동을 확인하고 다른 리눅스 가상머신 Kali linux에서 CentOS Server로 접속이 가능한지 시험해보자. 모든 준비를 마치고 해킹해보면서 리눅스에 대한 친밀감을 높이고자 한다." />
@@ -125,12 +125,7 @@
     <header>
   <div class="menu">
     <ul>
-      <li class="page_title">[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행</li>
-<li><a href="/home">/HOME</a></li>
-<li><a href="/posts">/POSTS</a></li>
-<li><a href="/portfolio">/PORTFOLIO</a></li>
-<li><a href="/about">/ABOUT</a></li>
-</ul>
+      <li class="page_title">[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
   </div>
 </header>
 
@@ -167,7 +162,7 @@ apt-get을 통해 패키지 설치하는 것을
 
 해당 명령어를 통해 확인해보자
 
-<img class="image" src="/contents/imgs/linux_2/1.png">
+<img class="image" src="/contents/imgs/linux_2/1.png" />
 
 약간의 시간이 소요된 뒤
 목록과 일치하는 꾸러미가 없다고 나온다
@@ -177,8 +172,8 @@ CentOS 에서는 yum을 활용해
 
 <span class="codes">$ yum install httpd</span>
 
-<img class="image" src="/contents/imgs/linux_2/2.png" onclick="showFrame(this.src)">
-<img class="image" src="/contents/imgs/linux_2/3.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_2/2.png" onclick="showFrame(this.src)" />
+<img class="image" src="/contents/imgs/linux_2/3.png" onclick="showFrame(this.src)" />
 
 y를 눌러 설치를 진행하면
 설치 완료 메세지가 나온다
@@ -194,7 +189,7 @@ y를 눌러 설치를 진행하면
 
 
 
-<img class="image" src="/contents/imgs/linux_2/4.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_2/4.png" onclick="showFrame(this.src)" />
 
 이미지와 같이 active가 뜬다면
 정상적으로 서버 작동이 완료되었다
@@ -224,7 +219,7 @@ internal / nm-shared / public
 trusted / work
 
 등의 존의 종류들이 나온다
-<img class="image" src="/contents/imgs/linux_2/5.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_2/5.png" onclick="showFrame(this.src)" />
 
 지금까지 공부한 것은
 
@@ -257,18 +252,18 @@ drop : 특정 ip 차단을 위한 존
 방화벽 자체에 이러한 명령을 추가할 수 있다
 
 ex)
-</p><p class="codes">$ sudo firewall-cmd --zone=public --add-source=192.168.100.1/24        <span class="comment">// 특정 IP 접속 가능</span>
+<p class="codes">$ sudo firewall-cmd --zone=public --add-source=192.168.100.1/24        <span class="comment">// 특정 IP 접속 가능</span>
 $ sudo firewall-cmd --zone=public --add-service=ssh     <span class="comment">// ssh 추가 정책</span>
-$ sudo firewall-cmd --zone=public --add-port=80/tcp     <span class="comment">// 80/tcp 포트 추가</span></p><br>
+$ sudo firewall-cmd --zone=public --add-port=80/tcp     <span class="comment">// 80/tcp 포트 추가</span></p><br />
 
 그런데 drop 존에 해당 포트 혹은 특정 IP를 add 함으로써
-차단시킬 수 있는 기능도 있다<br>
-<br>
+차단시킬 수 있는 기능도 있다<br />
+<br />
 ex)
 <p class="codes">$ sudo firewall-cmd --zone=drop --add-source=192.168.100.1     <span class="comment">// 192.168.100.1 IP 차단</span></p>
 
 <p class="codes">$ sudo firewall-cmd --zone=drop --add-port=80/tcp      <span class="comment">// 80번 포트 차단</span></p>
-
+</p>
 
 <p style="text-align:center;">
 
@@ -279,7 +274,7 @@ ex)
 kali linux 에서 CentOS로 부여한 IP로 접속을 해보면
 웹 접속을 잘 할수 있음을 알 수 있다
 
-<img class="image" src="/contents/imgs/linux_2/6.png" onclick="showFrame(this.src)">
+<img class="image" src="/contents/imgs/linux_2/6.png" onclick="showFrame(this.src)" />
 
 
 <span class="mini-title">리눅스 명령어 모음</span>
@@ -291,8 +286,9 @@ kali linux 에서 CentOS로 부여한 IP로 접속을 해보면
     <footer>
 
   dasfef/posts
-  <br><br>
-   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/dasfef">@dasfef</a> 
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
   
 
 </footer>
