@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [회고록] IT 직무 전환에 대한 회고 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[회고록] IT 직무 전환에 대한 회고 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[회고록] IT 직무 전환에 대한 회고" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="2022년 여름부터 2023년 여름까지, 약 1년여 간의 교육을 통해 직무 변환을 시도했고, 현재는 부여받은 업무와 직무에 만족하며 IT 회사생활을 만끽하고 있습니다. 이 회고록을 통해 비슷한 상황에 처한 인원들에게 응원이 되었으면 좋겠습니다." />
+<meta property="og:description" content="2022년 여름부터 2023년 여름까지, 약 1년여 간의 교육을 통해 직무 변환을 시도했고, 현재는 부여받은 업무와 직무에 만족하며 IT 회사생활을 만끽하고 있습니다. 이 회고록을 통해 비슷한 상황에 처한 인원들에게 응원이 되었으면 좋겠습니다." />
+<link rel="canonical" href="http://localhost:4000/reminiscence/1" />
+<meta property="og:url" content="http://localhost:4000/reminiscence/1" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[회고록] IT 직무 전환에 대한 회고" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"2022년 여름부터 2023년 여름까지, 약 1년여 간의 교육을 통해 직무 변환을 시도했고, 현재는 부여받은 업무와 직무에 만족하며 IT 회사생활을 만끽하고 있습니다. 이 회고록을 통해 비슷한 상황에 처한 인원들에게 응원이 되었으면 좋겠습니다.","headline":"[회고록] IT 직무 전환에 대한 회고","url":"http://localhost:4000/reminiscence/1"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[회고록] IT 직무 전환에 대한 회고</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2024.12.24</p>
+
+<p class="caution">큰 결심에 대한 회고(IT로의 직무변경)</p>
+<p><br />
+<span class="mini-title">1. 퇴사</span>
+나는 30대가 넘은 나이에 직무를 변경했다.
+“중고신입” 으로써 새로운 회사 생활에 도전했다.
+많이들 도전하기 무섭고 이제까지 쌓아온 경력이 아까워
+도전하지 못하는 시도였다.</p>
+
+<p>하지만 내게는 애초에 경력이란게 없었다.
+부모님의 뒷바라지를 받으며 공무원 준비만 몇 년을 하다가
+부모님 몰래 집 근처 온라인 마케팅 회사에 취직했다.</p>
+
+<p>인원은 적었지만 직원들 월급은 꼬박꼬박 챙겨줄 정도의 수익은 보고 있던 회사였다.</p>
+<figure class="fig">
+<img src="/contents\imgs\reminiscence_1\x-coperation.jpg" class="image" />
+<figcaption class="figcap">≪ 2018년 첫 회사에서 동료와 ≫</figcaption>
+</figure>
+
+<p>믿음에 배신하는 큰 행위였지만
+그래도 혼자 먹고 살려고 회사라도 취직했으니 다행이라 생각했다.</p>
+
+<p>비교적 화술이 좋았던 터라
+영업에 자신이 있었고,
+인하우스 영업에 대해 많은 성과를 보였다.</p>
+
+<p>업무에 대해 신뢰를 얻은 탓인지
+영업과 동시에 총괄마케팅 관리, 인사 업무, 총무 등
+다양한 직무를 맡으며
+빠르게 임원들의 눈에 띄며 과장까지 진급했다.</p>
+
+<p>성과를 많이 내야 많은 월급을 받을 수 있었으므로
+기본적으로는 박봉을 받으며 약 2년 4개월 정도 회사에 근무했다.
+어느덧 일에도 익숙해지고
+인간 관계에도 익숙해지니,
+주변과 내가 처한 상황이 눈에 들어왔다.</p>
+
+<p>고등학교 동창들의 소식이 SNS를 통해 들려왔고,
+다들 잘 나가는 기업, 은행, 미술, 교육 등 
+여러 분야에서의 전문가로서 성장하고 있었다.</p>
+
+<p>남과 비교하기 시작하면 행복할 수 없다는 걸 알고 있었지만
+내 상황은 그저 하루 벌어 하루 먹고 사는 형태였다.</p>
+
+<p>좀 더 제대로 된 직장을 잡아야겠다 생각이 들었고,
+전문직일수록 내가 더 주요한 인재 취급을 받을 수 있고
+연봉도 높일 수 있을거라 판단 됐다.</p>
+
+<p><br />
+<span class="mini-caution">그렇게 2021년 2월, 20대 후반이었던 나는 퇴사를 결정했다.</span>
+<br /></p>
+
+<p>미래를 고려하지 않은 퇴사였다.
+그저 맹목적으로 일이 하고 싶지 않았고,
+퇴직금과 청년내일채움공제 만기금을 지급받아 여윳돈이 있었다.</p>
+
+<p>그렇게 1년을 부모님 집에서 생활하며
+놀고 먹고를 반복했다.</p>
+
+<p>“전문직으로 직무 변경을 하고 싶다”라는 생각만 가득했을 뿐,
+어느것도 시도하거나 배우려 하지 않았다.
+한마디로 엄청나게 게을렀다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title">2. 결심</span>
+2021년 12월, 부모님이 퇴직하셨다.
+퇴직 선물로 부모님께 제주도 한 달 여행을 선물해 드렸다.
+백수였던 나도 같이.</p>
+
+<p>자차를 끌고 오랜 시간 배를 타 제주도로 가본다거나,
+미술관을 처음 들러보거나,
+고등어 낚시를 나가보거나,
+제주도의 웬만한 오름을 올라보거나
+등의 다양한 경험을 하면서 생활했다.</p>
+
+<p>2022년 1월 1일, 
+새해를 맞이해 일출을 맞이하고 싶었다.
+날씨가 변덕스러운 제주도에서
+굉장히 깔끔한 일출을 지켜보았다.</p>
+<div class="extensions extensions--video">
+    <figure class="fig">
+    <iframe src="https://youtu.be/d_L5HGtAAfQ" frameborder="0" scrolling="no" allowfullscreen="" style="width:100%; height:500px;"></iframe>
+    <figcaption class="figcap">≪ 2022년 1월 1일, 광치기 해변 ≫</figcaption>
+    </figure>
+</div>
+<p><br /></p>
+
+<p>감회가 새로웠고,
+내 인생에 이런 일출을 본 적이 있나 싶을 정도로
+해가 정말 둥그렇게 떠주었다.</p>
+
+<p>제주도 폭설 이후 한라산에 올라
+내 생에 두 번은 보기 힘든 설경도 직접 보고 
+책과 사진으로만 보던 백록담을 두 눈에 담는 경험을 했다.</p>
+
+<figure class="fig">
+    <div class="grid">
+        <img class="image" src="/contents/imgs/reminiscence_1/halla_01.JPG" style="width:100%; height:auto;" />
+        <img class="image" src="/contents/imgs/reminiscence_1/halla_02.JPG" style="width:100%; height:auto;" />
+        <img class="image" src="/contents/imgs/reminiscence_1/halla_03.JPG" style="width:100%; height:auto;" />
+        <img class="image" src="/contents/imgs/reminiscence_1/halla_04.JPG" style="width:100%; height:auto;" />
+    </div>
+    <figcaption class="figcap">≪ 2022년 1월 6일, 한라산 등반 ≫</figcaption>
+</figure>
+<p>자연의 경이로움을 느꼈고,
+제주도는 정말 아름다운 곳이란 것을 다시금 느끼게 되었다.
+많은 곳을 돌아다녔고,
+많은 경험을 하기도 했다.</p>
+
+<p>그렇게 인생에 두 번은 경험하기 힘들
+제주도 한 달 살이를 경험해서 였을까.
+2022년 새해가 밝고 생각만 했던 도전을 
+실천으로 옮겨야겠다고 마음 먹게 되었다.</p>
+
+<hr />
+
+<p><br />
+<span class="mini-title">3. 실천</span>
+평범한 인문계 고졸 출신에 
+대학 중퇴인 나를 받아주는 곳이 없었다.</p>
+
+<p>이전 회사에서의 다양한 업무 경험을 기반으로
+이력서를 써내려 갔다.
+지원하는 족족 서류 전형에서 탈락하게 되었고
+스스로 낙심을 하던 중,
+거주지 근처 작은 회사에서 인사/총무 업무를 볼 수 있는 기회가 생겼다.
+집에서도 가까웠고 인사 업무를 배울 수 있다는 점에 만족감이 컸다.</p>
+
+<p>하지만 현실은 달랐다.</p>
+
+<p>인사 업무에 대한 전문성을 살릴 수 있을거라 생각했던 것과 달리
+총무 업무에 직무가 치중되어 있었다.
+굳이 따지자면 인사나 총무 모두 동일한 직무라 볼 수도 있겠지만
+인사 업무에 대한 지식 갈망이 컸던 터라
+개인적으로는 업무 분장이 너무나도 아쉬웠다.</p>
+
+<p>그러던 중 회사의 웹사이트를 관리하는 책임 분을 알게 됐다.
+정확히 어떤 업무를 보고 계시는지 확인할 순 없었지만
+웹사이트 운영/관리를 하신다고만 들었다.</p>
+
+<p>그 당시엔 IT 직무에 대해 지식이 전무했던 터라
+코드를 만지는 것만 보면 다 프로그래머라고 생각했던것 같다.</p>
+
+<p>업무에 대해 물어보고 싶은 것이 많았지만 친분이 그렇게 두터운 편이 아니었다.
+같이 게임할 사람이 없으면 간단하게 게임만 같이 하고 마는 정도였다.</p>
+
+<p>웹사이트 운영/관리를 하시는 분은 그 분 단 한명이었고, 
+전문직이기에 페이가 비교적 더 쎄고 주요 위치에 있는 것임이 많이 느껴졌다.</p>
+
+<p>내가 생각했던 전문직이 저런 느낌이라는 것을 그 때 느끼게 되었다.
+나는 전문직을 준비해야겠다고 마음을 먹고 첫 회사를 퇴사했던 것인데,
+지금은 전문적인 지식이 없어도 업무를 볼 수 있는 위치에 있다고 느껴졌다.</p>
+
+<p>다행히 회사 채용 계약은 3개월 간 수습 기간이었고,
+나는 3개월을 마치는 달, 퇴직 의사를 표현했다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title">4. 변화</span>
+<span class="mini-sub">1) S/W개발 및 빅데이터응용 과정</span>
+IT직무로의 변경을 위해선 공대를 다니거나 독학하는 방법이 있었다.
+대학은 시간이 너무 오래 소요될 것 같아 내 나이로는 무리라 생각하던 중,
+채용 사이트에서 IT 직무 교육을 국비로 진행하는 광고를 보게 되었다.</p>
+
+<p>서슴지 않고 바로 신청하였고,
+간단한 면접 후 빅데이터 관련 교육 과정에 돌입했다.</p>
+
+<p>2022.08 ~ 2023.02 까지 교육 과정이었고,
+프로그래밍에 대한 지식이나 CS 지식이 전무한 상태로 교육을 듣기 시작했다.
+다행히도 해당 프로그램은 나와 같은 사람을 위한 교육 프로세스여서 그런지
+처음부터 차근차근 교육을 진행했다.</p>
+
+<p>파이썬과 R을 활용해 빅데이터 분석 및 QT로 간단한 프로그램을 짜는 커리큘럼이었고
+중간에 낙오자도 있었지만 같은 교육을 들은 인원 모두
+결과적으로 프로젝트까지 만들어 내며 좋은 마무리를 짓게 되었다.</p>
+
+<p>이 과정에서 AI에 대한 얕지만 중요한 지식들을 습득했고,
+회귀분석과 빅데이터 통계 분석 방법 등이 결국엔 AI 모델을 만들어 낼 수 있다는 것을 깨달았다.</p>
+
+<p>프로젝트 내용으로는 실시간 온도 분석을 통해
+냉장고의 온도가 특정 온도 위로 올라가게 되면 경고를 발생시키고
+LSTM 시계열 분석을 통해 이슈가 발생된 시점을 분석해 
+예지보전이 필요한 때를 알려줄 수 있는 프로그램을 제작했다.</p>
+
+<p>다른 프로젝트로는 기상청 날씨 데이터를 API로 받아와
+실시간 날씨에 따른 이미지 변화(맑음, 흐림, 비, 눈 등)를 표현하고
+원하는 지역을 콤보박스로 선택해 해당 지역의 실시간 날씨 정보를
+Python QT를 활용해 보여주는 프로젝트를 진행했다.
+<a href="https://github.com/dasfef/Weather.project" target="_blank">Weather Project 보러가기</a></p>
+
+<p><br />
+<span class="mini-sub">2) IoT 스마트솔루션 전문 인재 양성 과정</span>
+2023년 02월 앞서 받은 빅데이터응용 과정을 수료한 후 구직 활동에 나섰다.
+단 6개월 간의 교육을 받은 인원을 필요로 하는 회사는 적었다.
+더군다나 IT 직무로의 길이 협소한 지방의 경우 더욱 어려웠다.</p>
+
+<p>계속해서 구직 활동을 하던 중, 충북대학교 측에서 먼저 연락이 왔다.
+이력서를 보고 IT관련 다른 교육이 진행중인데 들어볼 생각이 없냐는 내용이었다.
+이전 교육 과정에서는 파이썬과 R만 배웠던 터라
+다른 CS 지식이나 프로그래밍 언어에 대한 지식이 있으면 구직 활동에 도움이 되겠다 싶어 승낙했다.</p>
+
+<p>다시금 2023년 02월부터 08월까지 약 6개월간의 교육을 진행했고,
+결과적으로 모두 프로젝트도 성공적으로 마치고 수월한 구직 활동을 펼칠 수 있었다.</p>
+
+<p>프로젝트 내용으로는 객체 인식 AI(Yolo v8)을 활용해
+굉장히 작은 객체인 벌레 유충을 인식하여 움직임 파악과
+자동으로 벌레를 육성하는 스마트팜을 제작했다.</p>
+
+<p>IoT 과정이었기에 모듈 및 배터리 연결, 모듈에 인식되는 모델 생성,
+백엔드 연결, 모니터링 화면 생성 등 모든 과정을 3명이서 한 달간 작업하여 진행했다.
+<a href="https://github.com/dasfef/PJ_D-Bugging" target="_blank">D-Bugging Project 보러가기</a></p>
+
+<p><br />
+프로젝트를 진행하며 나는 고뇌에 잠겨 프로그래밍에 몰두하는 집중력을 발견했고,
+그렇게 고수하던 이슈가 해결되었을 때, 살면서 경험해보지 못한 “성취감” 이라는 것을 느꼈다.
+내가 고민하고 수없이 수정하던 코드가 제대로 작동이 될 때
+엄청난 희열을 느꼈고 앞으로도 이런 일을 직업으로 삼는 직무를 맡았으면 하는 소원이 생겼다.</p>
+<figure class="fig">
+    <div class="grid">
+        <img class="image" src="/contents/imgs/reminiscence_1/iot_01.JPG" style="width:100%; height:auto;" />
+        <img class="image" src="/contents/imgs/reminiscence_1/iot_02.JPG" style="width:100%; height:auto;" />
+    </div>
+    <figcaption class="figcap">≪ 좌 : IoT과정중 / 우 : 최종프로젝트 발표 후 ≫</figcaption>
+</figure>
+<hr />
+
+<p><br />
+<span class="mini-title">5. 결론</span>
+힘든 구직활동중에 단비같은 최종합격 소식을 듣게 되었다.
+현재 근무중인 화장품 제조 공정의 IT 팀으로 근무하게 되었다.</p>
+
+<p>남들과 비교하면 늦은 나이에 원하던 직무 변경의 꿈을 이루었지만,
+무엇보다도 현 시점까지 내가 맡은 직무에 대한 만족도가 상당히 높은 편이다.
+어릴적부터 컴퓨터가 친구가 될 수 있겠냐 라는 질문에
+나는 친구보다도 같이 생활을 하는 존재로 컴퓨터를 생각했다.
+세상의 남자아이라면 누구나 친근하다 생각할 수 있는 컴퓨터를 통해 
+일을 한다는 것은 나에게 큰 즐거움으로 다가왔다.
+그러한 점들이 나의 직무 만족도에 영향을 주고 있는 것은 아닐까.</p>
+
+<p>1년이 조금 지난 지금, 맡은 업무에는 어느정도 익숙함을 보이고 있다.
+이제는 세밀한 직무에 있어 전문성을 보유해야 할 차례라고 생각한다.
+전문성 선택에 앞서 다양한 직무 경험을 하며 내가 키워나가고 싶은 전문성에 대해
+더 많은 지식을 선수집할 수 있는 경험을 하고 있는 것 같아 기쁘다.</p>
+
+<p>늦었다 생각할수록 제법 아직 이른 시기이고,
+불가능하다 생각할수록 제법 쉽게 해결 되는 일들이 많다.</p>
+
+<p>나와 같은 상황에 처한 친구들에게 응원이 되었으면 좋겠고
+자신이 선택한 상황에 후회하지 않았으면 좋겠다.</p>
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>

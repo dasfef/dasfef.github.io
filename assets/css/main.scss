@@ -106,6 +106,12 @@ div.error_box h1 { font-size: 2em; }
   transform: scale(1.15);
 }
 
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap : 10px;
+}
+
 /* POST_LINKS */
 .post_link{font-size: 14px; transition:all 0.35s}
 
@@ -141,7 +147,7 @@ div.error_box h1 { font-size: 2em; }
 input[id*="menu"] {display: none;}
 input[id*="menu"]:hover + label {cursor: pointer; background-color:darkblue;}
 input[id*="menu"] + label + div {max-height: 0; transition: all .35s; overflow: hidden;}
-input[id*="menu"]:checked + label + div {max-height: 300px;}
+input[id*="menu"]:checked + label + div {max-height: 1000px;}
 
 .accordion div li a:hover{transition:all .35s; color:#fff; background-color: darkblue;}
 .accordion div li span{display:block; text-align:left; margin-left:22px; line-height:20px; color:grey;}
@@ -233,7 +239,7 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
 
 .mini-caution {
   // display: inline-block;
-  font-size: 24px;
+  font-size: 18px;
   background-color: #ba0000;
   color: white;
 }
@@ -254,8 +260,8 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
 
 /* FIGCAPTION */
 .figcap {
-  color:#ffd300;
-  font-size: 20px;
+  color:#ffffffb2;
+  font-size: 14px;
 }
 
 .codes{
@@ -284,8 +290,8 @@ input[id*="menu"]:checked + label + div {max-height: 300px;}
   display: block;
   position: fixed;
   z-index: 1500;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 1200px;
+  max-height: 960px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

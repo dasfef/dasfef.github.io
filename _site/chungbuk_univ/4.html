@@ -35,24 +35,36 @@
 
   // iframe img 태그에서 url 받아오기
   function showFrame(url){
-      var img = new Image();
-      img.onload = function(){
-          var iframe = document.getElementById('iframe');
-          var container = document.getElementById('iframeContainer');
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
           
-          if(container.style.display === 'block'){
-            container.style.display = 'none';
-          } else {
-            // 이미지 사이즈 계산
-            iframe.style.width = this.width + 'px';
-            iframe.style.height = this.height + 'px';
-            iframe.src = url;
-            
-            // 컨테이너 나타내기
-            container.style.display = 'block';
-          }
-      };
-      img.src = url;
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
   };
 
   document.addEventListener('DOMContentLoaded', function(){

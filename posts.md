@@ -8,7 +8,7 @@ title:  "POSTS"
     <script src="/contents.js"></script>
 </head>
 <!-- #b85c00 -->
-<p style="text-align:center;"><span class="center_title">글 제목에 마우스를 올려두면 잠시 후 작성일자가 나타납니다</span></p>
+<p style="text-align:center;"><span class="center_title">교육과 직장 생활을 하며 겪은 오류, 지식 등을 정리하고 있습니다</span></p>
 
 <!-- **[ ARDUINO ]**
 
@@ -59,6 +59,12 @@ title:  "POSTS"
         <input type="checkbox" id="m_container">
         <label for="m_container" id="content">목록 한번에 보기</label>
     </div>
+    <input type="checkbox" class="menus" id="menu12">
+    <label for="menu12">[ 회고록 ]<em></em></label>
+    <div>
+        <li><a href="/reminiscence/1" title="2024.12.24 작성">IT 직무 전환에 대한 회고</a><span>2024.12.24</span></li>
+        <hr>
+    </div>
     <input type="checkbox" class="menus" id="menu01">
     <label for="menu01">[ Arduino ]</label>
     <div>
@@ -97,6 +103,7 @@ title:  "POSTS"
         <li><a href="/java/3" title="2023.05.03 작성">[Android] 안드로이드 스튜디오 설치 및 개발환경 구성(AMD CPU)</a><span>2023.05.03</span></li>
         <li><a href="/java/2" title="2023.04.06 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (2) 배열 및 참조 호출</a><span>2023.04.06</span></li>
         <li><a href="/java/1" title="2023.04.04 작성">할아버지도 쉽게 이해하는 JAVA 클래스 (1)</a><span>2023.04.04</span></li>
+        <hr>
     </div>
     <input type="checkbox" class="menus" id="menu06">
     <label for="menu06">[ LINUX ]<em></em></label>
@@ -104,6 +111,7 @@ title:  "POSTS"
         <li><a href="/linux/3" title="2023.11.20 작성">[Linux]cgroup 활용하여 cpu 활용량 제어하기</a><span>2023.11.20</span></li>
         <li><a href="/linux/2" title="2023.10.30 작성">[Linux]두 개의 가상머신 네트워크 연결 및 Apache 서버 실행</a><span>2023.10.30</span></li>
         <li><a href="/linux/1" title="2023.10.25 작성">[Linux]nmcli 활용 가상머신 내 리눅스 네트워크 설정하기</a><span>2023.10.25</span></li>
+        <hr>
     </div>
     <input type="checkbox" class="menus" id="menu07">
     <label for="menu07">[ PYTHON ]<em></em></label>
