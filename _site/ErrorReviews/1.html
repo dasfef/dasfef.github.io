@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    PHP, MySQL, Apache를 활용한 컨테이너 배포 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>PHP, MySQL, Apache를 활용한 컨테이너 배포 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="PHP, MySQL, Apache를 활용한 컨테이너 배포" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="2022년 여름부터 2023년 여름까지, 약 1년여 간의 교육을 통해 직무 변환을 시도했고, 현재는 부여받은 업무와 직무에 만족하며 IT 회사생활을 만끽하고 있습니다. 이 회고록을 통해 비슷한 상황에 처한 인원들에게 응원이 되었으면 좋겠습니다." />
+<meta property="og:description" content="2022년 여름부터 2023년 여름까지, 약 1년여 간의 교육을 통해 직무 변환을 시도했고, 현재는 부여받은 업무와 직무에 만족하며 IT 회사생활을 만끽하고 있습니다. 이 회고록을 통해 비슷한 상황에 처한 인원들에게 응원이 되었으면 좋겠습니다." />
+<link rel="canonical" href="http://localhost:4000/ErrorReviews/1" />
+<meta property="og:url" content="http://localhost:4000/ErrorReviews/1" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="PHP, MySQL, Apache를 활용한 컨테이너 배포" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"2022년 여름부터 2023년 여름까지, 약 1년여 간의 교육을 통해 직무 변환을 시도했고, 현재는 부여받은 업무와 직무에 만족하며 IT 회사생활을 만끽하고 있습니다. 이 회고록을 통해 비슷한 상황에 처한 인원들에게 응원이 되었으면 좋겠습니다.","headline":"PHP, MySQL, Apache를 활용한 컨테이너 배포","url":"http://localhost:4000/ErrorReviews/1"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">PHP, MySQL, Apache를 활용한 컨테이너 배포</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2024.12.30</p>
+
+<p class="caution">자사 서비스 테스트 서버 구축</p>
+<p><br />
+<span class="mini-title">1. 개발 내재화</span>
+현재 재직중인 곳은 헬프데스크를 운영중에 있다.
+엄청나게 큰 시스템은 아니지만
+cms 게시판을 보유하고 있고,
+cms 통제를 통해 사이트 개설, 사용자 등록, 게시글 수정 등 각종 기능을 제공하고 있다.
+인프라 운영/관리 직무이기 때문에
+이러한 시스템을 직접 개발하지는 않지만
+운영에 있어 문제되는 사항을 파악하고 유지보수 업체와 소통하여 기능 수정을 진행한다.</p>
+
+<p>근무를 시작하고 1개월이 거의 되었을 무렵,
+헬프데스크의 간단한 수정 사항을 유지보수 업체에 요청했다.
+PHP 코드 단 한 줄만 변경하면 되는 사항이었는데
+터무니 없는 공수 견적서가 도착했다.
+유지보수 업체는 타당한 견적서라 주장하였고,
+나는 팀장님에게 코드 한 줄만 변경하면 되는 간단한 업무라고 보고드렸다.</p>
+
+<p>운영중인 시스템 중에 비교적 간단한 웹 애플리케이션이니
+유지보수 계약을 해지하고 내가 직접 개발을 진행하라는 의견이 제시되었다.
+IT 직무 신입 사원으로서 부담스럽기도 했고,
+처음부터 개발하는 것이 아니라 잘 짜여진 코드를 보고 유지보수를 하는 것이니
+쉬울 것이라 생각도 했다.</p>
+
+<p>뭐가 됐든 도전해야 성장한다 생각했고, 겸허히 팀장님의 의견을 받아들였다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title">2. 테스트 서버 필요성 인지</span>
+기존에 업무 분장을 받았던 ERP 파트의 업무와 PLM 구축 등을 병행하며
+약 2주에 걸쳐 코드 분석을 진행했다.
+완벽한 분석은 아니지만 MVC 패턴을 띄고 있다는 것과
+컨트롤러의 구성 및 위치, 각 클래스의 역할 등 주요 부분을 파악했다.</p>
+
+<p>드문드문 코드 및 기능 수정을 직접 진행했고
+스스로 새로운 페이지 생성 및 각종 기능들을 추가하며 개발 내재화에 성공했다.</p>
+
+<p>이때까지는 직접 운영 서버에 수정된 코드를 적용시키면서
+오류가 나면 롤백하고 다시 코드 수정을 하는 식으로 진행했다.
+그러나 날이 갈수록 테스트 서버가 있다면 좀더 자유롭게 수정하고
+더 많은 기능을 사용해볼 수 있을텐데 하고 생각이 들었고,
+PLM 구축이 끝나고 안정화도 끝나갈 무렵부터
+테스트 서버를 컨테이너로 배포하고자 했다.</p>
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">3. 버전 체크</span>
+우선 현재 서버와 PHP 버전 등 호환하고 있는 버전 체크가 필요했다.
+CentOS 7.9 버전 위에서 Apache 2.4.6 웹서버가 구동되고 있었고</p>
+
+<p>PHP 는 5.6.40 버전이었다.</p>
+
+<p>위 호환 버전을 참고하여 컨테이너로 배포를 하고자 했다.</p>
+
+<p>1) 도커 설치</p>
+
+<p><img src="" class="image" /></p>
+
+<p>바로 고비가 찾아왔다.
+현재 CentOS 는 서비스를 중단했고,
+CentOS를 사용하던 사람들은 Rocky Linux로 대체하고 있었다.</p>
+
+<p>한마디로 yum 명령어로 다운로드 받을 수 있는 패키지가 제한적이었다.
+이 구간에서 꽤나 헤맸다.
+이전에 Docker를 사용해봐서 컨테이너 이미지를 불러오고
+해당 이미지로 서비스를 올리는 것 자체는 익숙해서 알고 있었으나,
+서비스를 중단한 OS에서 패키지를 어떻게 관리하는지는 전혀 무지했다.</p>
+
+<p>결국 여러 방면으로 찾아 본 결과,
+CentOS의 경우 /etc/yum.repos.d 에서 레포지터리를 관리하고 있는 것을 알았다.
+그리고 이 repos 에서 패키지를 다운로드 받을 사이트 주소를 관리했고,
+이 주소에 더 이상 활성화되지 않은 패키지를 제공해주는 아카이브인
+vault repo로 지정해주면 해결 가능하다.</p>
+
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">4. PHP 모듈 필요성 확인</span>
+<span class="mini-title">5. 로그인 화면 띄우기 성공</span>
+<span class="mini-title">6. 알 수 없는 오류</span>
+<span class="mini-title">1. 버전 체크</span>
+<span class="mini-title">1. 버전 체크</span>
+<span class="mini-title">1. 버전 체크</span>
+<span class="mini-title">1. 버전 체크</span>
+<span class="mini-title">1. 버전 체크</span>
+<span class="mini-title">1. 버전 체크</span></p>
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>

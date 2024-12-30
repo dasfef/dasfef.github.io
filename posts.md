@@ -59,6 +59,13 @@ title:  "POSTS"
         <input type="checkbox" id="m_container">
         <label for="m_container" id="content">목록 한번에 보기</label>
     </div>
+    <input type="checkbox" class="menus" id="menu13">
+    <label for="menu13">[ ErrorReviews ]<em></em></label>
+    <div>
+        <li><a href="/ErrorReviews/2" title="2024.12.30 작성">[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기</a><span>2024.12.30</span></li>
+        <!-- <li><a href="/ErrorReviews/1" title="2024.12.30 작성">IT 직무 전환에 대한 회고</a><span>2024.12.24</span></li> -->
+        <hr>
+    </div>
     <input type="checkbox" class="menus" id="menu12">
     <label for="menu12">[ 회고록 ]<em></em></label>
     <div>

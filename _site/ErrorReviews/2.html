@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다." />
+<meta property="og:description" content="ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다." />
+<link rel="canonical" href="http://localhost:4000/ErrorReviews/2" />
+<meta property="og:url" content="http://localhost:4000/ErrorReviews/2" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다.","headline":"[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기","url":"http://localhost:4000/ErrorReviews/2"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2024.12.30</p>
+
+<p class="caution">[Virtual Box] 고정IP 내에서 Virtual Box 네트워크 설정하기</p>
+<p><br />
+Docker 컨테이너 구축 실습을 위해
+윈도우 호스트OS 위에 VirtualBox를 실행시키고
+리눅스 OS를 올리던 중, 네트워크 설정에 대한 이해가 필요하여 정리합니다.
+<br /></p>
+
+<p><span class="mini-title">1. 우리집 개인 네트워크 현황</span>
+우리집은 통신사에서 설치한 메인 공유기가 있고,
+해당 공유기에 iptime 공유기를 이어서 내부망으로 활용하고 있다.
+메인 공유기에서 DHCP를 할당 받지만
+고정 IP를 설정하여 192.168.0.2 를 메인 PC에 연결하여 사용중에 있다.</p>
+
+<figure class="fig">
+<img src="/contents\imgs\TechReviews_2\01_NetworkSetting.png" class="image" />
+<figcaption class="figcap">사용중인 개인 네트워크</figcaption>
+</figure>
+<hr />
+
+<p><br />
+<br />
+<span class="mini-title">2. Virtual Box 이미지 마운트</span>
+Virtual Box 자체의 설치는 다른 곳을 살펴봐도 친절히 설명되어 있기 때문에 생략.</p>
+
+<p>구성할 메인 PC는 Windows OS이다.
+호스트 OS를 Windows로 두고 Virtual Box를 구성하여
+해당 Virtual Box 안에 Linux OS(CentOS 7.9)를 구성할 계획이다.</p>
+
+<p><a href="https://vault.centos.org/centos/7.9.2009/isos/x86_64/" target="_blank">CentOS 7.9 iso 다운로드</a></p>
+
+<figure class="fig">
+<img src="/contents\imgs\TechReviews_2\02_CentOS.png" class="image" />
+<figcaption class="figcap">CentOS 이미지 종류</figcaption>
+</figure>
+<p><br /></p>
+
+<p>해당 링크에는 여러 iso 버전이 있으니 원하는 것으로 택한다.
+필자는 컨테이너를 올릴 예정이기 때문에 minimal 선택.</p>
+
+<p>Virtual Box를 실행하고
+가상 머신 만들기로 다운로드 한 iso 파일을 대상으로 설정한다.</p>
+
+<figure class="fig">
+<img src="/contents\imgs\TechReviews_2\03_VBSetting.png" class="image" />
+<figcaption class="figcap">이름 &gt; [무인 설치] 이름 및 비밀번호 &gt; [하드웨어] CPU 코어 및 RAM 용량 &gt; [하드 디스크] 용량</figcaption>
+</figure>
+<p><br /></p>
+
+<figure class="fig">
+<img src="/contents\imgs\TechReviews_2\04_VBStart.png" class="image" />
+<figcaption class="figcap">가상환경 시작을 눌러 구성된 이미지를 시작한다</figcaption>
+</figure>
+<p><br /></p>
+
+<figure class="fig">
+<img src="/contents\imgs\TechReviews_2\05_mount.png" class="image" />
+</figure>
+
+<p>위와 같이 마운트 실패 경고가 뜰 수 있는데,
+다운로드 한 iso 파일을 골라 마운트 후 재실행을 눌러주면 정상적으로 설치를 시작한다.</p>
+
+<p>여느 OS 설치와 마찬가지로 GUI 환경이 뜨고
+기타 설정등을 해주라고 하는데, 기본값으로 두고 설치를 진행한다.</p>
+
+<hr />
+
+<p><br />
+<br />
+<span class="mini-title">3. CentOS repo 설정</span></p>
+
+<p><img src="/contents\imgs\TechReviews_2\06_CentOS Execute Complete.png" class="image" />
+모든 설치가 완료되면 이와 같이 로그인 유저 계정과 비밀번호를 기입하라고 뜬다.
+첫 설정(이미지 마운트 시) 설정한 이름과 비밀번호로 접속한 후,
+바로 도커를 설치해주자</p>
+
+<iframe src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&amp;t=seti&amp;wt=none&amp;l=application%2Fx-sh&amp;width=680&amp;ds=true&amp;dsyoff=20px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=56px&amp;ph=56px&amp;ln=false&amp;fl=1&amp;fm=Hack&amp;fs=14px&amp;lh=133%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=yum%2520install%2520-y%2520docker" style="width: 100%; height: 188px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+</iframe>
+<p><br /></p>
+
+<p><img src="/contents\imgs\TechReviews_2\07_error in yum.png" class="image" />
+뭔진 모르지만 엄청난 오류가 떴다.
+“Could not resolve host: mirrorlist.centos.org; Unknown error”
+해당 오류는 현재 CentOS에 기본적으로 패키지를 가져오는 repository가
+서비스를 중단했기 때문에 기본 repository에 접속할 수 없다는 오류이다.</p>
+
+<p>이미 CentOS 7 버전의 EOL은 2024년 6월 30일로 
+CentOS 7 버전에 대한 패키지를 제공받을 수 없다.
+하지만 아주 없는 것이 아니라, repository 사이트를 제공해주고 있는 사이트로 바꿔주면
+해당 CentOS 버전의 패키지를 제공 받을 수 있는 방법이 있다.</p>
+
+<p>리눅스는 모두 파일 시스템으로 이루어져 있다.
+때문에 해당 사이트를 설정해주고 있는 파일 설정을 변경해주면 된다.
+sed 명령어로 다음과 같이 입력한다.</p>
+
+<iframe src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&amp;t=seti&amp;wt=none&amp;l=application%2Fx-sh&amp;width=680&amp;ds=true&amp;dsyoff=20px&amp;dsblur=68px&amp;wc=true&amp;wa=true&amp;pv=56px&amp;ph=56px&amp;ln=false&amp;fl=1&amp;fm=Hack&amp;fs=14px&amp;lh=133%25&amp;si=false&amp;es=2x&amp;wm=false&amp;code=%252F%252F%2520%25EB%25AA%25A8%25EB%2593%25A0%2520CentOS-*%2520%25ED%258C%258C%25EC%259D%25BC%25EC%2597%2590%2520%25EB%258C%2580%25ED%2595%25B4%25EC%2584%259C%2520mirrorlist%2520%25EC%25A3%25BC%25EC%2584%259D%2520%25EC%25B2%2598%25EB%25A6%25AC%250Ased%2520-i%2520%27s%252Fmirrorlist%252F%2523mirrorlist%252Fg%27%2520%252Fetc%252Fyum.repos.d%252FCentOS-*%2520%250A%250A%252F%252F%2520%25EB%25AA%25A8%25EB%2593%25A0%2520CentOS-*%2520%25ED%258C%258C%25EC%259D%25BC%25EC%2597%2590%2520%25EB%258C%2580%25ED%2595%25B4%25EC%2584%259C%2520baseurl%2520%25EB%25B3%2580%25EA%25B2%25BD%250Ased%2520-i%2520%27s%257C%2523baseurl%253Dhttp%253A%252F%252Fmirror.centos.org%257Cbaseurl%253Dhttp%253A%252F%252Fvault.centos.org%257Cg%27%2520%252Fetc%252Fyum.repos.d%252FCentOS-*%2520" style="width: 100%; height: 262px; border:0; transform: scale(1); overflow:hidden;" sandbox="allow-scripts allow-same-origin">
+</iframe>
+<p><br /></p>
+
+<p>위와 같이 변경해주면 기본 repository 사이트를 변경해주게 된다.
+그리고 다시 yum install 을 통해 도커를 설치하면 된다.</p>
+
+<p><br />
+<span class="caution">고정IP를 사용하는 경우, 동일한 오류가 발생한다.</span></p>
+
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">4. 가상머신 네트워크 설정</span>
+“공인IP &gt; 공유기 &gt; 고정IP 설정”
+우리집은 이렇게 네트워크 구성이 되어 있고,
+본래라면 공인IP를 바로 사용하여 해당 IP에서 DHCP를 부여받아
+Virtual Box 내의 네트워크에서도 부여 받은 공인IP에서 내부 네트워크로 DHCP를 활용해야 한다.</p>
+
+<p>실제로 Virtual Box 안에서는 DHCP를 부여 받은 상태이지만
+실제 IP 주소가 어떤 것인지를 몰라 네트워크 구성에 오류가 생긴 것이다.</p>
+
+<p>따라서 호스트OS와 포트포워딩을 통해 자신의 IP를 알려주면
+네트워크 설정에 문제없이 진행할 수 있다.
+(이해는 이렇게 하였지만 지식에 오류가 있을 수 있으니 오류 수정에 대한 피드백은 환영입니다.)
+<br /></p>
+
+<p><img src="/contents\imgs\TechReviews_2\08_virtualbox_setting.png" class="image" />
+<img src="/contents\imgs\TechReviews_2\08-1_virtualbox_setting(2).png" class="image" />
+위 이미지와 같이 Virtual Box 의 가상 머신 설정 안에서
+네트워크 세팅 &gt; 포트포워딩 설정
+이후 자신의 고정IP를 호스트IP로 넣고, SSH 포트포워딩 설정을 해준다.
+가상 머신의 내부 네트워크는 10.0.2~ 를 기본적으로 사용하고 있으니
+게스트IP 쪽에 해당 네트워크 주소를 넣어주면 된다.</p>
+
+<p>22번 포트를 통해 SSH 포트포워딩을 하고 있지만
+이렇게 함으로써 가상 머신의 내부 네트워크는 실제 어떤 것을 쓰고 있는지 알려주게 된다.
+이 내부 네트워크 IP주소를 통해 외부와 통신하려 할 것이며,
+이를 통해 인터넷 외부 접속이 되고
+외부 repository 사이트에서 해당 패키지를 불러올 수 있게 된다.</p>
+
+<p>이후 가상 머신으로 들어가 DHCP 활성화를 시켜주어야 한다.
+ip addr 명령어로 현재 부여되어 있는 네트워크 장치 이름을 파악한 후,
+dhclient “장치 이름” 을 입력하면 해당 장치에 DHCP 활성화를 시켜준다.</p>
+
+<p><br />
+그리고 다시 ip addr 명령어를 기입하면
+<img src="/contents\imgs\TechReviews_2\09_ip_setting_complete.png" class="image" />
+첫 번째 ip addr 에서는 보이지 않던 IP주소가
+아래쪽 두 번째 ip addr 에서는 10.0.2.15 로 IP주소가 할당되었다.</p>
+
+<p><br />
+그리고 다시 yum 명령어를 통해 도커를 설치해주면
+<img src="/contents\imgs\TechReviews_2\10_docker installing.png" class="image" />
+<img src="/contents\imgs\TechReviews_2\11_docker_installed.png" class="image" />
+정상적으로 설치됨을 확인할 수 있다.</p>
+
+<ul>
+  <li>인터넷을 뒤지며 혼자 공부한 개념을 바탕으로
+실습과 함께 정리한 글입니다.
+오류에 대한 피드백은 언제나 환영입니다 :)</li>
+</ul>
+
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>
