@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [PHP] 제공하지 않는 서비스 PHP 5.6 버전 설치 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[PHP] 제공하지 않는 서비스 PHP 5.6 버전 설치 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[PHP] 제공하지 않는 서비스 PHP 5.6 버전 설치" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다." />
+<meta property="og:description" content="ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다." />
+<link rel="canonical" href="http://localhost:4000/InBusiness/4" />
+<meta property="og:url" content="http://localhost:4000/InBusiness/4" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[PHP] 제공하지 않는 서비스 PHP 5.6 버전 설치" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다.","headline":"[PHP] 제공하지 않는 서비스 PHP 5.6 버전 설치","url":"http://localhost:4000/InBusiness/4"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[PHP] 제공하지 않는 서비스 PHP 5.6 버전 설치</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2025.01.05</p>
+
+<p class="caution">더이상 배포되지 않는 PHP 5.6 설치하기</p>
+<p><br />
+<span class="mini-title">PHP 5.6을 설치하는 이유</span>
+IT 실무를 접한지 1년밖에 안된 새내기라 잘은 모르지만
+히스토리상 CentOS 7.9와 PHP5.6의 호환이 잘 맞아
+많은 회사에서 애용한 것으로 알고 있다.</p>
+
+<p>현재 우리 회사 내에서도 해당 OS와 PHP 버전의 사용으로
+테스트 서버 구축에 필요함이 있어 PHP 5.6 버전을 설치하려고 한다.</p>
+
+<p>설치 과정에서 CentOS 7.9 버전에 대한 컨테이너 구축과
+repos 경로 설정 등 많은 것을 배우고 익혔다.
+<a href="/InBusiness/2/#ImageMount">리눅스 CentOS 7.9 Virtual Box 구축하기</a>
+<a href="/InBusiness/2/#CentOSReposSetting" target="_blank">리눅스 CentOS 7.9 yum 서비스 실행하기</a></p>
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">필요 release 설치</span></p>
+
+<p><span class="mini-sub">1) yum epel-release 설치</span>
+<span class="codes">yum install -y epel-release</span></p>
+
+<p><span class="mini-sub">2) yum remi-release 설치</span>
+<span class="codes">yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm</span></p>
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>

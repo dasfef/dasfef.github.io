@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [Docker]PHP, MySQL, Apache를 활용한 컨테이너 배포 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Docker]PHP, MySQL, Apache를 활용한 컨테이너 배포 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[Docker]PHP, MySQL, Apache를 활용한 컨테이너 배포" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="실제 현재 회사에서 쓰고있는 헬프데스크 서버의 코드를 활용한다. Virtual Box를 활용해 게스트 OS를 구축하고, 호스트-게스트의 경우 브릿지 네트워크로 연결한다. 이후 게스트OS에 도커를 구성해 해당 환경 내에서 테스트 서버를 구축한다. 현장에선 리눅스 서버라 이렇게까지 할 필요가 없지만, 자택이라서 위와 같이 환경 구성 후 테스트 서버를 구축했다." />
+<meta property="og:description" content="실제 현재 회사에서 쓰고있는 헬프데스크 서버의 코드를 활용한다. Virtual Box를 활용해 게스트 OS를 구축하고, 호스트-게스트의 경우 브릿지 네트워크로 연결한다. 이후 게스트OS에 도커를 구성해 해당 환경 내에서 테스트 서버를 구축한다. 현장에선 리눅스 서버라 이렇게까지 할 필요가 없지만, 자택이라서 위와 같이 환경 구성 후 테스트 서버를 구축했다." />
+<link rel="canonical" href="http://localhost:4000/InBusiness/1" />
+<meta property="og:url" content="http://localhost:4000/InBusiness/1" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Docker]PHP, MySQL, Apache를 활용한 컨테이너 배포" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"실제 현재 회사에서 쓰고있는 헬프데스크 서버의 코드를 활용한다. Virtual Box를 활용해 게스트 OS를 구축하고, 호스트-게스트의 경우 브릿지 네트워크로 연결한다. 이후 게스트OS에 도커를 구성해 해당 환경 내에서 테스트 서버를 구축한다. 현장에선 리눅스 서버라 이렇게까지 할 필요가 없지만, 자택이라서 위와 같이 환경 구성 후 테스트 서버를 구축했다.","headline":"[Docker]PHP, MySQL, Apache를 활용한 컨테이너 배포","url":"http://localhost:4000/InBusiness/1"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[Docker]PHP, MySQL, Apache를 활용한 컨테이너 배포</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2024.12.30</p>
+
+<p class="caution">자사 서비스 테스트 서버 구축</p>
+<p><br />
+<span class="mini-title">1. 개발 내재화</span>
+현재 재직중인 곳은 헬프데스크를 운영중에 있다.
+엄청나게 큰 시스템은 아니지만
+cms 게시판을 보유하고 있고,
+cms 통제를 통해 사이트 개설, 사용자 등록, 게시글 수정 등 각종 기능을 제공하고 있다.
+인프라 운영/관리 직무이기 때문에
+이러한 시스템을 직접 개발하지는 않지만
+운영에 있어 문제되는 사항을 파악하고 유지보수 업체와 소통하여 기능 수정을 진행한다.</p>
+
+<p>근무를 시작하고 1개월이 거의 되었을 무렵,
+헬프데스크의 간단한 수정 사항을 유지보수 업체에 요청했다.
+PHP 코드 단 한 줄만 변경하면 되는 사항이었는데
+터무니 없는 공수 견적서가 도착했다.
+유지보수 업체는 타당한 견적서라 안내하였고,
+나는 팀장님에게 코드 한 줄만 변경하면 되는 간단한 업무라고 보고드렸다.</p>
+
+<p>운영중인 시스템 중에 비교적 간단한 웹 애플리케이션이니
+유지보수 계약을 해지하고 내가 직접 개발을 진행하라는 의견이 제시되었다.
+IT 직무 신입 사원으로서 부담스럽기도 했고,
+처음부터 개발하는 것이 아니라 잘 짜여진 코드를 보고 유지보수를 하는 것이니
+쉬울 것이라 생각도 했다.</p>
+
+<p>뭐가 됐든 도전해야 성장한다 생각했고, 겸허히 팀장님의 의견을 받아들였다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title">2. 테스트 서버 필요성 인지</span>
+기존에 업무 분장을 받았던 ERP 파트의 업무와 PLM 구축 등을 병행하며
+약 2주에 걸쳐 코드 분석을 진행했다.
+완벽한 분석은 아니지만 MVC 패턴을 따르고 있다는 것과
+컨트롤러의 구성 및 위치, 각 클래스의 역할 등 주요 부분을 파악했다.</p>
+
+<p>드문드문 코드 및 기능 수정을 직접 진행했고
+스스로 새로운 페이지 생성 및 각종 기능들을 추가하며 개발 내재화에 성공했다.</p>
+
+<p>이때까지는 직접 운영 서버에 수정된 코드를 적용시키면서
+오류가 나면 롤백하고 다시 코드 수정을 하는 식으로 진행했다.
+그러나 날이 갈수록 테스트 서버가 있다면 좀더 자유롭게 수정하고
+더 많은 기능을 사용해볼 수 있을텐데 하고 생각이 들었고,
+PLM 구축이 끝나고 안정화도 끝나갈 무렵부터
+테스트 서버를 컨테이너로 배포하고자 했다.</p>
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">3. 버전 체크</span>
+우선 현재 서버와 PHP 버전 등 호환하고 있는 버전 체크가 필요했다.
+CentOS 7.9 버전 위에서 Apache 2.4.6 웹서버가 구동되고 있었고 PHP 는 5.6.40 버전이었다.
+위 호환 버전을 참고하여 컨테이너로 배포를 하고자 했다.</p>
+
+<p><img src="/contents\imgs\InBusiness_1\01_version_check.png" class="image" /></p>
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">4. 도커 설치</span></p>
+
+<p>바로 고비가 찾아왔다.
+현재 CentOS 는 서비스를 중단했고,
+CentOS를 사용하던 사람들은 Rocky Linux로 대체하고 있었다.</p>
+
+<p>한마디로 yum 명령어로 다운로드 받을 수 있는 패키지가 제한적이었다.
+이 구간에서 꽤나 헤맸다.
+이전에 Docker를 사용해봐서 컨테이너 이미지를 불러오고
+해당 이미지로 서비스를 올리는 것 자체는 익숙해서 알고 있었으나,
+서비스를 중단한 OS에서 패키지를 어떻게 관리하는지는 전혀 무지했다.</p>
+
+<p>결국 여러 방면으로 찾아 본 결과,
+CentOS의 경우 /etc/yum.repos.d 에서 레포지터리를 관리하고 있는 것을 알았다.
+그리고 이 repos 에서 패키지를 다운로드 받을 사이트 주소를 관리하고 있었다.
+이 주소에 더 이상 활성화되지 않은 패키지를 제공해주는 아카이브인
+vault repo로 지정해주면 해결 가능하다.</p>
+
+<p><a href="/InBusiness/2/#CentOSReposSetting" target="_blank">CentOS Repos 설정하기</a></p>
+
+<p>이후 <span class="codes">yum install -y docker</span> 코드를 이용해 도커를 설치한다.
+그리고 <span class="codes">docker –version</span> 혹은 <span class="codes">docker search centos</span> 등을 이용해
+정상적으로 설치되고 동작하는지 확인하면 된다.</p>
+
+<p><img class="image" src="/contents\imgs\InBusiness_1\02_docker_install_check.png" /></p>
+
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">5. 도커 이미지 pull 그리고 실행</span>
+먼저 우리는 CentOS 7.9 이미지가 필요하다.
+지금 사용하고 있는 Virtual Box 자체도 CentOS 7.9 이긴하지만
+다른 리눅스 버전에서 사용하고 있다는 가정하에 진행한다.</p>
+
+<p><a href="https://hub.docker.com/_/centos/tags" target="_blank">도커 허브</a></p>
+
+<p>위 링크를 통해 정식 배포중인 centos 이미지 내에서 버전을 확인할 수 있다.</p>
+
+<p><img class="image" src="/contents\imgs\InBusiness_1\03_image_pull.png" />
+TAG가 이미지의 버전이고, 
+옆에 pull 명령어로 어떻게 해야 해당 이미지를 가져올 수 있는지도 편히 요약되어 있다.</p>
+
+<p><br />
+<span class="codes">docker pull centos:centos7.9.2009</span> 명령을 시행하면 다운로드를 실행하고,
+<span class="codes">docker images</span> 명령을 통해 현재 보유중인 이미지를 확인할 수 있다.</p>
+
+<p><img src="/contents\imgs\InBusiness_1\04_image_check.png" class="image" />
+<br />
+이제 해당 이미지를 실행시켜 컨테이너 내부에서 작업을 진행해줘야 한다.</p>
+
+<p><span class="codes">docker run -itd -p 8888:80 –name helpdesk-test centos:centos7.9.2009</span>
+위 명령어를 통해 centos7.9 버전을 실행시킬 수 있다.</p>
+
+<div class="amplification">
+[Docker run option 부연]<br />
+-it : 컨테이너 내부에서 터미널 환경 제공(해당 옵션 없으면 컨테이너 내부에서 셸을 사용할 수 없음)<br />
+-d : 백그라운드 실행<br />
+--name : 태그(이름) 설정<br />
+-p : 포트 매핑 설정(호스트포트:컨테이너포트)<br />
+<br />
+* docker의 이미지 및 실행되는 컨테이너는 각기 부여되는 ID가 있어서<br />
+해당 ID를 통해 run, exec, rm, rmi 등의 명령어를 실행할 수 있다.
+</div>
+<p><br />
+<img src="/contents\imgs\InBusiness_1\05_docker_run_check.png" class="image" />
+<span class="codes">docker ps</span> 명령어를 통해 실행중인 컨테이너를 확인할 수 있다.</p>
+
+<hr />
+
+<p><br />
+<span class="mini-title">6. 컨테이너 진입 및 환경 구축</span></p>
+
+<p><span class="codes">docker exec -it (컨테이너ID) /bin/bash</span> 해당 명령어로 컨테이너에 진입하면
+<img class="image" src="/contents\imgs\InBusiness_1\06_container_start.png" />
+이런식으로 해당 컨테이너의 터미널로 진입한 것을 확인할 수 있다.</p>
+
+<p>이제 이 환경 내에서 필요한 PHP, Apache, DB 등을 설치해주면 된다.</p>
+
+<p>해당 컨테이너 내부에서도 마찬가지로 
+CentOS 7.9의 서비스가 종료되었기 때문에 repos 를 변경해주어야 한다.</p>
+
+<p><a href="/InBusiness/2/#CentOSReposSetting" target="_blank">repos 변경법</a></p>
+
+<p>위 링크를 통해 동일하게 변경하여 yum 서비스 설정을 진행한다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title">7. 알 수 없는 오류</span></p>
+
+<p>yum을 통해 php5.6 버전을 설치하려던 중
+알 수 없는 오류에 맞닥뜨린다.
+php5.6 버전을 설치하기 위해선 remi-repo라는 비공식 repository를 사용해야 하는데,
+이 remi-repo를 이용해 설치를 진행하면 패키지를 다운로드 받고
+추출 후 설치하는 과정에 멈춤 현상이 발생한다.</p>
+
+<p>내가 이용하고 있는 CentOS 호스트 OS 이미지는 minimal, DVD 였는데
+minimal 에는 네트워크 기능이 없어 DVD 이미지를 활용중이었다.
+각종 오류 사항을 검색해보고 할 수 있는 방식을 모두 동원했는데도 오류가 해결되지 않았다.
+<br />
+<span class="mini-caution"> 1) there are unfinished transactions remaining </span>
+yum 패키지 설치 중 해당 오류가 발생하여 찾아보니
+트랜잭션이 남아 있어 설치 과정에 중단되었을 때 발생한다고 한다.</p>
+
+<p><span class="codes">yum history list</span>
+위 명령어를 통해 남아있는 트랜잭션을 확인할 수 있고</p>
+
+<p><span class="codes">yum-complete-transaction</span>
+위 명령어를 통해 미완료 상태의 트랜잭션을 정리 시도 할 수 있다.</p>
+
+<p>이렇게 진행했을 때 yum을 통해 패키지 설치를 진행하면
+there are unfinished transactions remaining 이라는 오류는 사라지지만
+여전히 Installing 중간에 멈춤 현상이 발생한다.</p>
+
+<p><br />
+<span class="mini-caution"> 2) yum 캐시 정리 </span>
+<span class="codes">yum clean all</span>
+위 명령어로 캐시를 정리할 수 있고</p>
+
+<p><span class="codes">yum makecache</span>
+위 명령어로 yum 사용에 필요한 각종 메타데이터를 다운로드하고
+로컬 캐시에 저장하는 역할을 수행한다.</p>
+
+<p>즉, yum을 활용하기 위해 기존에 있던 yum 캐시를 버리고
+메타데이터의 데이터로 초기화하여 yum을 활용하기 위함이다.
+<br /></p>
+
+<p><span class="mini-caution"> 3) 호스트OS 커널의 업데이트? </span>
+호스트OS 커널에서의 yum update는 진행하지 않았으나
+컨테이너OS에서 yum update를 진행하려 해서 문제가 되었나?
+해서 호스트OS yum update를 선진행 후,
+기존의 컨테이너를 삭제하고 신규 컨테이너를 만들어
+해당 컨테이너OS에서 yum update를 진행해보았음에도
+동일한 Installing 설치 도중 멈춤 현상이 나아지질 않았다
+<br />
+<span class="mini-caution"> 4) 이미지 변경 </span>
+기존에 사용하던 DVD 이미지에도 웬만한 기능이나 커널 모듈이 들어있는 것으로 알고 있으나,
+혹시나 해서 이미지를 everything 으로 바꾸어 보았다.</p>
+
+<p>바로 Installing 멈춤 현상이 해결 되었고
+yum update를 오류 없이 진행할 수 있었다
+<br />
+<span class="mini-caution"> 번외) 의존성 및 패키지 충돌 문제 </span>
+Installing 멈춤 현상이 발생하는 특정 패키지의 의존성과
+기존에 설치되어 있는 패키지의 충돌 문제가 있을 수 있어
+수동으로 삭제하여 진행하는 방식을 시도하려 했으나
+update만 해도 200개가 넘는 패키지에
+문제가 되는 패키지를 일일이 찾는게 쉽지 않아 이미지 변경으로 최종 시도하였다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title" style="font-size:38px;">8. 필요 패키지 설치(PHP5.6/Apache)</span></p>
+
+<p><span class="caution"> 1) Apache 설치 및 테스트 </span></p>
+<ol>
+  <li><span class="codes"> yum install -y httpd </span> 을 통해 Apache를 설치한다.</li>
+  <li><span class="codes"> systemctl start httpd </span> 웹서버 시작</li>
+  <li><span class="codes"> systemctl status httpd </span> 현재 아파치 서비스 상태 확인
+<img src="/contents\imgs\InBusiness_1\07_httpd_status.png" class="image" />
+<br />
+<img src="/contents\imgs\InBusiness_1\08_apache_browser.png" class="image" />
+위 이미지처럼 우리가 설정한 호스트IP(게스트OS IP):포트(docker run 실행시 포트 매핑한 포트”8888”)
+로 접속했을 때 Apache 첫 실행 화면을 보여주면 정상 실행된다.</li>
+</ol>
+
+<p><br />
+<span class="caution"> 2) PHP 패키지 및 모듈 설치 </span>
+본래 PHP 5.6 버전 설치를 위해선 remirepo를 이용해야 하지만,
+현재 모종의 이유로 remirepo에 접속할 수 없어 5.6 대신 최신 버전을 활용해보려 한다.</p>
+
+<p><span class="codes"> yum install -y php php-bcmath php-cli php-common php-dba php-dbg php-devel php-embedded php-enchant php-fpm php-gd php-gmp php-imap php-interbase php-intl php-ldap php-litespeed php-mbstring php-mcrypt php-mysqlnd php-odbc php-opcache php-pdo php-pgsql php-process php-pspell php-recode php-snmp php-soap php-tidy php-xml php-xmlrpc </span></p>
+
+<p>자사 서비스 이용을 위해 설치한 php 모듈이다
+해당 모듈과 php 설치를 모두 마친 후 <span class="codes"> php -v </span>
+혹은 /etc 폴더에 잘 설치되었는지 확인해본다.
+<img class="image" src="/contents\imgs\InBusiness_1\09_php_installed.png" />
+<br /></p>
+
+<p><span class="caution"> 3) Apache 경로 설정 및 PHP 설정 </span>
+/etc/httpd 가 기본 Apache 설치 경로이다.
+해당 경로로 들어가서 conf 폴더를 들어가면 httpd.conf라는 Apache 기본 설정 파일이 보인다.</p>
+
+<p>내용을 잘 살펴보면, IncludeOptional conf.d/*.conf 라는 내용이 보이는데
+이는 conf.d 폴더의 모든 conf 파일의 내용을 담겠다는 내용이다.
+Apache 기본 설정은 건드리지 않고 /etc/httpd/conf.d 폴더로 가본다.
+다른 파일들이 존재하는데 여기에 새로운 vhost.conf 라는 파일을 만들어준다.</p>
+
+<p><span class="codes"> vi vhost.conf </span> 이후에 아래 내용을 작성한다.</p>
+
+<p><img src="/contents\imgs\InBusiness_1\11_vhost.png" class="image" /></p>
+<div class="amplification">
+VirtualHost *:80 : 모든 80번 포트로 오는 요청에 대해<br />
+DocumentRoot : html index 파일의 경로<br />
+Directory index 파일 경로 : 해당 폴더에 대해<br />
+AllowOverride : 어떻게 접근을 허락할 것인가<br />
+Require : 특정 리소스에 대한 접근 허용/거부
+</div>
+<p><br /></p>
+
+<p>이후 아까의 주소로 매핑한 포트로 접속하면
+vhost.conf 파일에서 설정한 경로의 파일을 찾을 수 있다.
+<img src="/contents\imgs\InBusiness_1\12_html.png" class="image" /></p>
+
+<ul>
+  <li>실제 회사에서 쓰는 서비스라 해당 파일의 경로는 가립니다.</li>
+</ul>
+
+<p>위 도커 설정과 마찬가지로 DB 서버도 컨테이너로 서비스를 올리고,
+해당 DB로의 연결 설정만 바꿔주면
+DB 접속도 가능하다.</p>
+
+<p>도커 컨테이너의 경우 내부 네트워크는 동일한 네트워크 네임스페이스로 이루어져있기 때문에
+실제 컨테이너의 ip 주소로 연결하면 된다.
+(포트 매핑 후 호스트 OS의 ip주소:매핑포트 로 연결할 필요 없다는 이야기)</p>
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>

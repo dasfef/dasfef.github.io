@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [Linux] 리눅스 해상도 설정하기 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Linux] 리눅스 해상도 설정하기 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[Linux] 리눅스 해상도 설정하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Virtual Box에 CentOS를 구축하여 진행하던 중, 해상도 이슈로 인해 화면이 너무 작은 문제가 발생했다. 명령어를 입력하면 잘리는 화면 위로는 커서를 올릴 수도 없고 더이상의 명령 하달이 어려워 알아보고 정리해둔다. 기본적으로 1번 영구설정을 선호하여 grubby 명령어는 익혀두는 것이 좋을것 같다." />
+<meta property="og:description" content="Virtual Box에 CentOS를 구축하여 진행하던 중, 해상도 이슈로 인해 화면이 너무 작은 문제가 발생했다. 명령어를 입력하면 잘리는 화면 위로는 커서를 올릴 수도 없고 더이상의 명령 하달이 어려워 알아보고 정리해둔다. 기본적으로 1번 영구설정을 선호하여 grubby 명령어는 익혀두는 것이 좋을것 같다." />
+<link rel="canonical" href="http://localhost:4000/InBusiness/3" />
+<meta property="og:url" content="http://localhost:4000/InBusiness/3" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Linux] 리눅스 해상도 설정하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Virtual Box에 CentOS를 구축하여 진행하던 중, 해상도 이슈로 인해 화면이 너무 작은 문제가 발생했다. 명령어를 입력하면 잘리는 화면 위로는 커서를 올릴 수도 없고 더이상의 명령 하달이 어려워 알아보고 정리해둔다. 기본적으로 1번 영구설정을 선호하여 grubby 명령어는 익혀두는 것이 좋을것 같다.","headline":"[Linux] 리눅스 해상도 설정하기","url":"http://localhost:4000/InBusiness/3"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[Linux] 리눅스 해상도 설정하기</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2025.01.05</p>
+
+<p class="caution">[Linux] 리눅스 해상도 설정하기</p>
+<p><br /></p>
+
+<p><span class="mini-title">GRUB 에서 VGA 모드 설정하기</span></p>
+<dl>
+[ 영구설정 ]
+<dt>1) <span class="codes">grubby --update-kernel=ALL --args="vga=[모드코드]"</span></dt>
+<dt>2) 시스템 재부팅 : <span class="codes">reboot</span></dt>
+</dl>
+<p><br /></p>
+
+<dl>
+  <dt>[ 임시설정 ]</dt>
+  <dt>1) GRUB 부팅 시 e를 눌러 환경설정 진입</dt>
+  <dt>2) vmlinuz 가 들어있는 줄의 끝에 vga=[모드] 삽입</dt>
+  <dd>vga=ask 로 설정할 경우 ctrl-x 를 눌러 진입 시 가능한 vga모드를 물어봄
+<img src="/contents\imgs\InBusiness_3\01_GRUB_Setting.png" class="image" /></dd>
+</dl>
+
+<dl>
+[ 강제 해상도 설정 ]
+<dt>1) /etc/default/grub 파일 편집</dt>
+<dt>2) GRUB_CMDLINE_LINUX 줄에 아래 코드 추가</dt>
+<dt><span class="codes">video=1920x1080</span></dt>
+<dt><img src="/contents\imgs\InBusiness_3\03_GRUB_config_setting.png" class="image" /></dt>
+<dt>3) GRUB 설정 업데이트</dt>
+<dt><span class="codes">grub2-mkconfig -o /boot/grub2/grub.cfg</span></dt>
+<dt>4) 시스템 재부팅 : <span class="codes">reboot</span></dt>
+</dl>
+<p><br /></p>
+
+<dl>
+[ VGA 모드 코드 ]
+<dt><img src="/contents\imgs\InBusiness_3\02_vga_modes.png" class="image" /></dt>
+</dl>
+
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>

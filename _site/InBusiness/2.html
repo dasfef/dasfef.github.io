@@ -119,14 +119,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다." />
 <meta property="og:description" content="ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다." />
-<link rel="canonical" href="http://localhost:4000/ErrorReviews/2" />
-<meta property="og:url" content="http://localhost:4000/ErrorReviews/2" />
+<link rel="canonical" href="http://localhost:4000/InBusiness/2" />
+<meta property="og:url" content="http://localhost:4000/InBusiness/2" />
 <meta property="og:site_name" content="dasfef" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다.","headline":"[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기","url":"http://localhost:4000/ErrorReviews/2"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"ISP에서 공급받은 IP를 받아 고정IP 설정 후 Virtual Box에서 네트워크 설정 시 오류 발생. 해당 오류에 대한 해결 과정과 해결방법을 기술합니다.","headline":"[Virtual Box] 고정IP 내에서 VirtualBox 네트워크 설정하기","url":"http://localhost:4000/InBusiness/2"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -160,14 +160,14 @@ Docker 컨테이너 구축 실습을 위해
 고정 IP를 설정하여 192.168.0.2 를 메인 PC에 연결하여 사용중에 있다.</p>
 
 <figure class="fig">
-<img src="/contents\imgs\TechReviews_2\01_NetworkSetting.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\01_NetworkSetting.png" class="image" />
 <figcaption class="figcap">사용중인 개인 네트워크</figcaption>
 </figure>
 <hr />
 
 <p><br />
 <br />
-<span class="mini-title">2. Virtual Box 이미지 마운트</span>
+<span class="mini-title" id="ImageMount">2. Virtual Box 이미지 마운트</span>
 Virtual Box 자체의 설치는 다른 곳을 살펴봐도 친절히 설명되어 있기 때문에 생략.</p>
 
 <p>구성할 메인 PC는 Windows OS이다.
@@ -177,7 +177,7 @@ Virtual Box 자체의 설치는 다른 곳을 살펴봐도 친절히 설명되�
 <p><a href="https://vault.centos.org/centos/7.9.2009/isos/x86_64/" target="_blank">CentOS 7.9 iso 다운로드</a></p>
 
 <figure class="fig">
-<img src="/contents\imgs\TechReviews_2\02_CentOS.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\02_CentOS.png" class="image" />
 <figcaption class="figcap">CentOS 이미지 종류</figcaption>
 </figure>
 <p><br /></p>
@@ -189,19 +189,19 @@ Virtual Box 자체의 설치는 다른 곳을 살펴봐도 친절히 설명되�
 가상 머신 만들기로 다운로드 한 iso 파일을 대상으로 설정한다.</p>
 
 <figure class="fig">
-<img src="/contents\imgs\TechReviews_2\03_VBSetting.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\03_VBSetting.png" class="image" />
 <figcaption class="figcap">이름 &gt; [무인 설치] 이름 및 비밀번호 &gt; [하드웨어] CPU 코어 및 RAM 용량 &gt; [하드 디스크] 용량</figcaption>
 </figure>
 <p><br /></p>
 
 <figure class="fig">
-<img src="/contents\imgs\TechReviews_2\04_VBStart.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\04_VBStart.png" class="image" />
 <figcaption class="figcap">가상환경 시작을 눌러 구성된 이미지를 시작한다</figcaption>
 </figure>
 <p><br /></p>
 
 <figure class="fig">
-<img src="/contents\imgs\TechReviews_2\05_mount.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\05_mount.png" class="image" />
 </figure>
 
 <p>위와 같이 마운트 실패 경고가 뜰 수 있는데,
@@ -214,9 +214,9 @@ Virtual Box 자체의 설치는 다른 곳을 살펴봐도 친절히 설명되�
 
 <p><br />
 <br />
-<span class="mini-title">3. CentOS repo 설정</span></p>
+<span class="mini-title" id="CentOSReposSetting">3. CentOS repo 설정</span></p>
 
-<p><img src="/contents\imgs\TechReviews_2\06_CentOS Execute Complete.png" class="image" />
+<p><img src="/contents\imgs\InBusiness_2\06_CentOS Execute Complete.png" class="image" />
 모든 설치가 완료되면 이와 같이 로그인 유저 계정과 비밀번호를 기입하라고 뜬다.
 첫 설정(이미지 마운트 시) 설정한 이름과 비밀번호로 접속한 후,
 바로 도커를 설치해주자</p>
@@ -225,7 +225,7 @@ Virtual Box 자체의 설치는 다른 곳을 살펴봐도 친절히 설명되�
 </iframe>
 <p><br /></p>
 
-<p><img src="/contents\imgs\TechReviews_2\07_error in yum.png" class="image" />
+<p><img src="/contents\imgs\InBusiness_2\07_error in yum.png" class="image" />
 뭔진 모르지만 엄청난 오류가 떴다.
 “Could not resolve host: mirrorlist.centos.org; Unknown error”
 해당 오류는 현재 CentOS에 기본적으로 패키지를 가져오는 repository가
@@ -268,8 +268,8 @@ Virtual Box 내의 네트워크에서도 부여 받은 공인IP에서 내부 네
 (이해는 이렇게 하였지만 지식에 오류가 있을 수 있으니 오류 수정에 대한 피드백은 환영입니다.)
 <br /></p>
 
-<p><img src="/contents\imgs\TechReviews_2\08_virtualbox_setting.png" class="image" />
-<img src="/contents\imgs\TechReviews_2\08-1_virtualbox_setting(2).png" class="image" />
+<p><img src="/contents\imgs\InBusiness_2\08_virtualbox_setting.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\08-1_virtualbox_setting(2).png" class="image" />
 위 이미지와 같이 Virtual Box 의 가상 머신 설정 안에서
 네트워크 세팅 &gt; 포트포워딩 설정
 이후 자신의 고정IP를 호스트IP로 넣고, SSH 포트포워딩 설정을 해준다.
@@ -288,14 +288,14 @@ dhclient “장치 이름” 을 입력하면 해당 장치에 DHCP 활성화를
 
 <p><br />
 그리고 다시 ip addr 명령어를 기입하면
-<img src="/contents\imgs\TechReviews_2\09_ip_setting_complete.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\09_ip_setting_complete.png" class="image" />
 첫 번째 ip addr 에서는 보이지 않던 IP주소가
 아래쪽 두 번째 ip addr 에서는 10.0.2.15 로 IP주소가 할당되었다.</p>
 
 <p><br />
 그리고 다시 yum 명령어를 통해 도커를 설치해주면
-<img src="/contents\imgs\TechReviews_2\10_docker installing.png" class="image" />
-<img src="/contents\imgs\TechReviews_2\11_docker_installed.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\10_docker installing.png" class="image" />
+<img src="/contents\imgs\InBusiness_2\11_docker_installed.png" class="image" />
 정상적으로 설치됨을 확인할 수 있다.</p>
 
 <ul>
