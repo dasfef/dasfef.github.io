@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [Docker]Java spring, Tomcat을 활용한 컨테이너 배포 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Docker]Java spring, Tomcat을 활용한 컨테이너 배포 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[Docker]Java spring, Tomcat을 활용한 컨테이너 배포" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="실제 현재 회사에서 쓰고있는 RMS 서버의 코드를 활용한다. Virtual Box를 활용해 게스트 OS를 구축하고, 호스트-게스트의 경우 브릿지 네트워크로 연결한다. 이후 게스트OS에 도커를 구성해 해당 환경 내에서 테스트 서버를 구축한다. 현장에선 리눅스 서버라 이렇게까지 할 필요가 없지만, 자택이라서 위와 같이 환경 구성 후 테스트 서버를 구축했다." />
+<meta property="og:description" content="실제 현재 회사에서 쓰고있는 RMS 서버의 코드를 활용한다. Virtual Box를 활용해 게스트 OS를 구축하고, 호스트-게스트의 경우 브릿지 네트워크로 연결한다. 이후 게스트OS에 도커를 구성해 해당 환경 내에서 테스트 서버를 구축한다. 현장에선 리눅스 서버라 이렇게까지 할 필요가 없지만, 자택이라서 위와 같이 환경 구성 후 테스트 서버를 구축했다." />
+<link rel="canonical" href="http://localhost:4000/InBusiness/5" />
+<meta property="og:url" content="http://localhost:4000/InBusiness/5" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Docker]Java spring, Tomcat을 활용한 컨테이너 배포" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"실제 현재 회사에서 쓰고있는 RMS 서버의 코드를 활용한다. Virtual Box를 활용해 게스트 OS를 구축하고, 호스트-게스트의 경우 브릿지 네트워크로 연결한다. 이후 게스트OS에 도커를 구성해 해당 환경 내에서 테스트 서버를 구축한다. 현장에선 리눅스 서버라 이렇게까지 할 필요가 없지만, 자택이라서 위와 같이 환경 구성 후 테스트 서버를 구축했다.","headline":"[Docker]Java spring, Tomcat을 활용한 컨테이너 배포","url":"http://localhost:4000/InBusiness/5"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[Docker]Java spring, Tomcat을 활용한 컨테이너 배포</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2025.02.10</p>
+
+<p class="caution">자사 서비스 테스트 서버 구축(RMS)</p>
+<p><br />
+<span class="mini-title">1. 테스트 서버 구축 동기</span>
+자사에서 서비스하고 있는 웹 애플리케이션에 대해 테스트 서버를 구축중에 있다.
+테스트 서버를 구축하게 된 동기는 아래 링크를 통해 확인할 수 있다.</p>
+
+<p><a href="/InBusiness/1/#title" target="_blank">테스트 서버 구축 동기</a></p>
+
+<p>웹 애플리케이션 서비스 중에 RMS(Raw-material Management System)이 있다.
+원료를 중요시 하는 공정이기에
+원료에 대한 갖가지 정보를 담아두는 공간이 필요했는데
+그 시스템을 RMS에 녹여냈다.</p>
+
+<p>해당 시스템의 히스토리는 19-20년도 즈음에 구축 되었고,
+현재는 유지보수 업체를 통해 유지보수를 진행하고 있지만
+서비스 자체에 크게 업데이트 되는 사항은 없고
+오류가 발생하면 해당 오류에 대해 체크와 보수를 진행하고 있는것으로 파악중에 있다.</p>
+<hr />
+
+<p><br />
+<br />
+<span class="mini-title">2. 버전 체크</span>
+RMS 시스템의 소스코드를 살펴보면
+Java spring 프레임워크를 활용하여 MVC패턴을 이루고 있고,
+Apache Tomcat 애플리케이션 서버를 통해 Java를 웹 브라우저에서도 확인할 수 있는 구조로 되어 있었다.</p>
+
+<p>Java의 경우 11 버전을 사용하고,
+Tomcat은 Tomcat-9.0.29
+Spring은 Spring 5.2.1 버전을 사용하고 있다.
+<img class="image" src="/contents/imgs/InBusiness_5/1_.png" /></p>
+<hr />
+
+<p><br />
+<br />
+<span class="mini-title">3. 도커 이미지 빌드</span></p>
+
+<p>각 컴포넌트의 버전을 파악했으니
+같은 OS인 CentOS7.9 OS에 도커 컨테이너를 올려보도록 하자.</p>
+
+<p class="codes">FROM centos:centos7.9.2009
+
+RUN cd /etc/yum.repos.d/ &amp;&amp; sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* &amp;&amp; sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum update -y &amp;&amp; yum install -y wget &amp;&amp; yum install -y java-11 
+RUN cd /etc &amp;&amp; wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29.tar.gz &amp;&amp; tar -zxvf apache-tomcat-9.0.29.tar.gz
+</p>
+
+<p>위와 같이 작성한 후 Dockerfile 이름으로 파일을 만들어준다.
+위 명령어를 한 줄씩 파악해보면 다음과 같다.</p>
+<div class="amplification">
+FROM centos:centos7.9.2009<br />
+&gt;&gt; CentOS7.9 버전 이미지 활용<br />
+<br />
+RUN cd /etc/yum.repos.d/ &amp;&amp; sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* &amp;&amp; sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*<br />
+&gt;&gt; yum repo 경로 vault로 변경<br />
+<br />
+RUN yum update -y &amp;&amp; yum install -y wget &amp;&amp; yum install -y java-11<br />
+&gt;&gt; yum update 및 wget 설치, java-11 버전 설치<br />
+<br />
+RUN cd /etc &amp;&amp; wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29.tar.gz &amp;&amp; tar -zxvf apache-tomcat-9.0.29.tar.gz<br />
+&gt;&gt; /etc 폴더에 Tomcat 9.0.29버전 다운로드 및 압축 해제<br />
+</div>
+
+<p>이제 해당 경로 안에서 도커 빌드 명령어를 입력한다.</p>
+
+<p><span class="codes">docker build –tag rms-app .</span></p>
+
+<p>위 명령어가 정상적으로 작동했을 경우, 
+docker images에서 태그로 지정한 “rms-app” 이미지가 확인된다.
+그리고 해당 이미지로 컨테이너를 실행한 후
+build 이미지에서 지정한 /etc 폴더를 가보면,
+tomcat-9.0.29 버전이 압축이 풀린 상태의 폴더와
+java-11 버전이 설치된 것을 확인할 수 있다.</p>
+<hr />
+
+<p><br />
+<br />
+<span class="mini-title">4. Tomcat 설정</span>
+이미지를 빌드할 때 tomcat을 wget으로 받아 /etc 폴더에 저장해 두었으니
+/etc 폴더로 들어가 압축이 풀려있는 tomcat 파일을 확인한다.</p>
+
+<p>tomcat은 bin 폴더의 리눅스라면 startup.sh, 윈도우라면 startup.bat 으로 서비스를 실행할 수 있다.
+./startup.sh 명령어로 서비스를 올리면</p>
+
+<p><img class="image" src="/contents/imgs/InBusiness_5/2_.png" />
+위와 같이 Tomcat started. 라는 내용을 확인할 수 있고,
+도커 컨테이너의 8080 포트로 진입해보면 Tomcat 시작 페이지를 확인할 수 있다.</p>
+
+<fig class="fig">
+<img class="image" src="/contents/imgs/InBusiness_5/3_.png" />
+<figcaption class="figcap">필자의 경우 가상OS 위에 도커 컨테이너를 구상중이라 가상OS의 8989포트를 포트포워딩 진행시켜 두었다.</figcaption>
+</fig>
+<hr />
+
+<p><br />
+<br />
+<span class="mini-title">5. Spring 설정</span>
+현재 자사에서 사용중인 서비스의 경우,
+java를 통해 특정 폴더로의 리다이렉션을 진행중이다.
+따라서 위 포트포워딩을 진행한 포트와 리다이렉션 폴더 경로를 지정해주면
+서비스로 진입할 수 있다.</p>
+
+<p>하지만 War 파일을 통째로 Tomcat에 넣어
+해당 War 파일을 풀어 배포하고 있기 때문에
+Spring Profile 설정이 진행되어 있지 않은 상태이다.</p>
+
+<p>따라서 해당 리다이렉션 경로로 들어가고자 하면
+아래와 같은 404 오류를 확인할 수 있다.</p>
+
+<p><img class="image" src="/contents/imgs/InBusiness_5/4_.png" />
+<br />
+<span class="mini-sub">1) JVM에서 프로파일 바인딩</span>
+Tomcat 폴더의 setenv.sh 파일을 만들어 해당 파일 안에 다음과 같이 작성한다.
+JAVA_OPTS=”$JAVA_OPTS -Dspring.profiles.active=prod”
+export JAVA_OPTS</p>
+
+<p>이후 Tomcat 서비스를 재실행하고 echo $JAVA_OPTS 를 해주면 내용을 확인할 수 있고,
+혹은 logs 폴더에서 catalina.out 파일에서 spring.profiles.active 에 대해
+어떤 프로파일이 설정되었는지 확인할 수 있다.
+<br />
+<span class="mini-sub">2) XML 파일에서 직접 바인딩</span>
+본인의 경우 어디서 프로파일 지정을 해주는지 추적하기 어려웠다.
+또한 위와 같이 catalina.out 파일에서 JAVA_OPTS 경로 지정을 해주고
+export 까지 해주었지만 프로파일 바인딩이 되지 않았다.</p>
+
+<p>catalina.out 파일 내에서 스스로 JAVA_OPTS를 초기화 하고 있는 것인지,
+정확한 원인 파악은 어려워 context.xml 파일을 수정하는 방식으로 진행했다.</p>
+
+<p>직접 context param 내용에 프로파일을 지정하여 설정하는 것인데,
+web.xml 파일에 아래와 같이 작성하면 된다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;context-param&gt;</code>
+    <code class="language-plaintext highlighter-rouge">&lt;param-name&gt;spring.profiles.active&lt;/param-name&gt;</code>
+    <code class="language-plaintext highlighter-rouge">&lt;param-value&gt;prod&lt;/param-value&gt;</code>
+<code class="language-plaintext highlighter-rouge">&lt;/context-param&gt;</code></p>
+
+<p><br />
+<span class="mini-sub">3) setenv.sh 파일 생성</span>
+catalina.out 파일이 있는 bin 폴더에서 setenv.sh 파일을 생성한다.
+그리고 해당 파일 안에 JAVA_OPTS 환경 변수 설정을 한다.
+그렇게 되면 Tomcat은 시작할 때 setenv.sh 파일이 있으면
+해당 파일의 설정을 불러오기 때문에 JAVA_OPTS 환경 변수를 설정해줄 수 있다.</p>
+
+<div class="amplification">
+#!/bin/bash<br />
+export JAVA_OPTS="$JAVA_OPTS -Dspring.profiles.active=prod"
+</div>
+<p>위의 명령어를 실행하면서 JVM 영역에서 Spring의 프로파일을 설정해주고,
+그 값을 prod(혹은 시스템 설정마다 다름)로 지정하면서
+해당 프로파일로 spring을 실행시킨다.</p>
+
+<p>그리고 아까 포트포워딩 한 경로로 들어가보면
+<br /></p>
+
+<p><img class="image" src="/contents/imgs/InBusiness_5/5_.png" />
+위와 같이 로그인 페이지로 이동하는 것을 볼 수 있다.
+여기에 DB를 구축하고, 구축한 DB와 연결해주면
+로그인까지 되는 웹 애플리케이션을 구성할 수 있다.</p>
+
+
+
+
+    <footer>
+
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>
