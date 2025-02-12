@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [Docker] Failed to get D-bus connection operation not permitted 오류 발생 시 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Docker] Failed to get D-bus connection operation not permitted 오류 발생 시 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[Docker] Failed to get D-bus connection operation not permitted 오류 발생 시" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CentOS 도커 컨테이너 구축 후 내부에서 systemctl 명령어를 활용하지 못하는 경우가 허다했다. 그럴 때마다 /sbin/init 과 –privileged=true 옵션을 활용하여 컨테이너 실행을 시켰는데, 이제 다른 방법을 알게 되어 게시한다." />
+<meta property="og:description" content="CentOS 도커 컨테이너 구축 후 내부에서 systemctl 명령어를 활용하지 못하는 경우가 허다했다. 그럴 때마다 /sbin/init 과 –privileged=true 옵션을 활용하여 컨테이너 실행을 시켰는데, 이제 다른 방법을 알게 되어 게시한다." />
+<link rel="canonical" href="http://localhost:4000/Study/1" />
+<meta property="og:url" content="http://localhost:4000/Study/1" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Docker] Failed to get D-bus connection operation not permitted 오류 발생 시" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"CentOS 도커 컨테이너 구축 후 내부에서 systemctl 명령어를 활용하지 못하는 경우가 허다했다. 그럴 때마다 /sbin/init 과 –privileged=true 옵션을 활용하여 컨테이너 실행을 시켰는데, 이제 다른 방법을 알게 되어 게시한다.","headline":"[Docker] Failed to get D-bus connection operation not permitted 오류 발생 시","url":"http://localhost:4000/Study/1"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[Docker] Failed to get D-bus connection operation not permitted 오류 발생 시</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2025.02.12</p>
+
+<p class="caution">컨테이너 내부에서 systemctl 활용 불가할 때</p>
+<p><br />
+<span class="mini-title" style="font-size:34px;">도커 컨테이너 실행 후 systemctl 명령어 시행</span>
+<img class="image" src="/contents/imgs/study_1/1_.png" />
+평소와 같이 위 이미지처럼 –privileged=true 옵션과 /sbin/init 옵션을 추가했는데도
+도커 컨테이너 내부에서 systemctl 을 시행하면 다음과 같은 오류가 발생한다.</p>
+<p class="mini-caution">Failed to get D-Bus connection</p>
+<p><br />
+인터넷을 뒤져보던 중 이와 같은 오류를 겪는 사람이 한둘이 아니란걸 알았고
+github 소스의 대단한 내용을 공유해 준 사람을 발견했다.</p>
+
+<p>해결법은 다음과 같다.</p>
+<hr />
+
+<p><br /></p>
+
+<p><span class="mini-title">해결 방법</span>
+컨테이너 내부에서 다음 명령어를 차례대로 시행한다.</p>
+<div class="amplification">
+mv /usr/bin/systemctl /usr/bin/systemctl.old<br />
+-- 기존 systemctl 내용을 systemctl.old로 이동<br />
+<br />
+curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py &gt; /usr/bin/systemctl<br />
+-- gdraheim 이 오픈해 둔 python 파일을 시행하여 /usr/bin/systemctl 내부에 덮어쓰기<br />
+<br />
+chmod +x /usr/bin/systemctl<br />
+-- /usr/bin/systemctl 에 실행 권한 부여<br />
+</div>
+<p>위와 같이 명령어 차례대로 시행 후, 다시 systemctl을 동작시켜 보자.
+<br />
+<img class="image" src="/contents/imgs/study_1/2_.png" />
+이미지로 볼 수 있듯이 systemctl 명령어가 잘 먹히는 것을 확인할 수 있다.</p>
+
+<p><a href="https://github.com/gdraheim/docker-systemctl-replacement">원본 github 링크</a></p>
+
+<p>해당 링크에서 살펴보면, docker commit을 통해 생성된 컨테이너로 이미지를 빌드하라고 하는데
+본인은 이미지 빌드 시 RUN 을 통해 환경을 구성해봤다.
+<br /></p>
+<div class="amplification">
+FROM centos:centos7.9.2009
+RUN mv /usr/bin/systemctl /usr/bin/systemctl.old &amp;&amp; curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py &gt; /usr/bin/systemctl
+</div>
+<p><br />
+CentOS 7.9 버전을 활용해 이미지를 빌드하였고,
+systemctl-test 라는 이름으로 빌드된 이미지로 컨테이너를 구동시켜봤다.
+<img class="image" src="/contents/imgs/study_1/3_.png" />
+그리고 내부 컨테이너에서 systemctl 명령어를 시행하자
+<img class="image" src="/contents/imgs/study_1/4_.png" />
+잘 실행이 되는것을 확인했다.</p>
+
+    <br>
+    <div class="historyBack">
+        <a href="#" onclick="event.preventDefault(); history.back();">이전 페이지로 이동</a>
+    </div>
+
+
+    <footer>
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>

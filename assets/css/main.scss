@@ -58,7 +58,7 @@ ul :not(.menu) > ul > li:before { content: "*";  margin-right: 9px; }
 
 /* NAVIGATION */
 .menu { border-top: dashed 1px rgba(219, 219, 219, 0.9);  border-bottom: dashed 1px rgba(219, 219, 219, 0.9);  margin-bottom: 25px; }
-.menu ul { margin-top: 12px;  margin-bottom: 12px;  padding-left: 0px;  list-style-type: none;  text-align: right; }
+.menu ul { margin-top: 12px;  margin-bottom: 12px;  padding-left: 0px;  list-style-type: none;  text-align: right;}
 // .menu ul li { display: block;  margin-left: 10px; }
 .menu ul li { display: inline-block;  margin-left: 10px;}
 .menu ul li a { text-decoration: none;  color: var(--text-color); transition:all 0.35s; text-align:left; flex-grow:1;}
@@ -321,4 +321,9 @@ input[id*="menu"]:checked + label + div {max-height: 100%;}
   width: 100%;
   background-color: #24273A;
   color: #B9C69f;
+}
+
+/* 컨텐츠 마지막 뒤로가기 링크 */
+.historyBack{
+  text-align: right;
 }
