@@ -62,6 +62,7 @@ title:  "POSTS"
     <input type="checkbox" class="menus" id="menu14">
     <label for="menu14">[ Study ]<em></em></label>
     <div>
+        <li><a href="/Study/2" title="2025.02.16 작성">[k8s] minikube 설치 및 환경 구성하기</a><span>2025.02.16</span></li>
         <li><a href="/Study/1" title="2025.02.12 작성">[Docker] Failed to get D-bus connection operation not permitted 오류 발생 시 </a><span>2025.02.12</span></li>
         <li><a href="/InBusiness/4" title="2025.01.05 작성">[PHP] 제공하지 않는 서비스 PHP 5.6 버전 설치</a><span>2025.01.05</span></li>
         <li><a href="/InBusiness/3" title="2025.01.05 작성">[Linux] 리눅스 해상도 설정하기</a><span>2025.01.05</span></li>
