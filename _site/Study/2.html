@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="dasfef(다스페프)의 개발취업난중일기">
+  <!-- <meta name="description" content="dasfef의 개발취업난중일기"> -->
+  <meta name="keywords" content="C,C++,C#,Python,Java,Arduino,Javascript,Oracle,Machine Learning,dev,파이썬,자바,아두이노,자바스크립트,오라클,머신러닝,AI">
+  <title>
+    [k8s] minikube 설치 및 환경 구성하기 
+  </title>
+  <!-- : dasfef -->
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" src=""></script>
+
+<!-- iframe 관련 함수 -->
+<script>
+  // CSS 페이지 선언
+  const root = document.documentElement;    
+
+  document.addEventListener("DOMContentLoaded", function(){
+        root.style.setProperty('--main-color', 'white');
+        root.style.setProperty('--bg-color', 'black');
+    })
+
+  // iframe img 태그에서 url 받아오기
+  function showFrame(url){
+    var img = new Image();
+    img.onload = function(){
+        var iframe = document.getElementById('iframe');
+        var container = document.getElementById('iframeContainer');
+        var imgClass = document.getElementsByClassName('image');
+
+        // 이미지 비율 계산
+        // var ratio = Math.min(maxWidth / this.width, maxHeight / this.height, 1);
+        // var newWidth = maxWidth * ratio;
+        // var newHeight = maxHeight * ratio;
+
+        // 모든 이미지 클래스 이미지 조정
+        // Array.from(imgClass).forEach(function(image){
+        //   image.style.width = maxWidth + 'px';
+        //   image.style.height = maxHeight + 'px';
+        // })
+        
+        if(container.style.display === 'block'){
+          container.style.display = 'none';
+        } else {
+          // 이미지 사이즈 계산
+          iframe.style.width = this.width + 'px';
+          iframe.style.height = this.height + 'px';
+          iframe.src = url;
+          
+          // 컨테이너 나타내기
+          container.style.display = 'block';
+        }
+    };
+    img.src = url;
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('img').forEach(function(image){
+        image.addEventListener('click', function(){
+          showFrame(this.src);
+        });
+      });
+  });
+  
+  //iframe 외의 영역 클릭시 iframe 숨기기
+  function hideIframe() {
+      var container = document.getElementById('iframeContainer');
+      container.style.display = 'none';
+  }
+
+  // root CSS 파일 변환(dark mode)
+  function darkMode(){
+          // let root = document.documentElement;
+          let btn = document.getElementById("dkBtn");
+
+          console.log(root);
+          if(root.style.getPropertyValue('--main-color') === 'white'){
+              console.log("if --main-color is white");
+              root.style.setProperty('--main-color', 'black');
+              root.style.setProperty('--bg-color', 'white');
+          } else{
+              console.log("if --main-color is black");
+              root.style.setProperty('--main-color', 'white');
+              root.style.setProperty('--bg-color', 'black');
+          }
+
+          if(btn.innerText === "Night Mode"){
+              btn.innerText = "Day Mode";
+          } else{
+              btn.innerText = "Night Mode";
+          }
+      }
+</script>   
+  
+</head>
+
+<div id="iframeContainer" onclick="hideIframe()";>
+  <iframe id="iframe"></iframe>
+</div>
+  
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[k8s] minikube 설치 및 환경 구성하기 | dasfef</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[k8s] minikube 설치 및 환경 구성하기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CentOS 도커 컨테이너 구축 후 내부에서 systemctl 명령어를 활용하지 못하는 경우가 허다했다. 그럴 때마다 /sbin/init 과 –privileged=true 옵션을 활용하여 컨테이너 실행을 시켰는데, 이제 다른 방법을 알게 되어 게시한다." />
+<meta property="og:description" content="CentOS 도커 컨테이너 구축 후 내부에서 systemctl 명령어를 활용하지 못하는 경우가 허다했다. 그럴 때마다 /sbin/init 과 –privileged=true 옵션을 활용하여 컨테이너 실행을 시켰는데, 이제 다른 방법을 알게 되어 게시한다." />
+<link rel="canonical" href="http://localhost:4000/Study/2" />
+<meta property="og:url" content="http://localhost:4000/Study/2" />
+<meta property="og:site_name" content="dasfef" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[k8s] minikube 설치 및 환경 구성하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"CentOS 도커 컨테이너 구축 후 내부에서 systemctl 명령어를 활용하지 못하는 경우가 허다했다. 그럴 때마다 /sbin/init 과 –privileged=true 옵션을 활용하여 컨테이너 실행을 시켰는데, 이제 다른 방법을 알게 되어 게시한다.","headline":"[k8s] minikube 설치 및 환경 구성하기","url":"http://localhost:4000/Study/2"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">[k8s] minikube 설치 및 환경 구성하기</li><li><a href="/home">/HOME</a></li><li><a href="/posts">/POSTS</a></li><li><a href="/portfolio">/PORTFOLIO</a></li><li><a href="/about">/ABOUT</a></li></ul>
+  </div>
+</header>
+
+    <button id="dkBtn" class="dkmodeBtn" onclick="darkMode()">Night Mode</button>
+    <h1></h1>
+    
+    <p class="date">2025.02.16</p>
+
+<p class="caution">kubernetes 실습을 위한 환경 구성</p>
+<p><br />
+<span class="mini-title">1. minikube를 활용하는 이유</span>
+본래 근무중인 회사에서 사용중인 CentOS 7.9 버전으로 활용할까 했으나
+해당 버전의 서비스도 종료된 상황이고
+쿠버네티스 활용을 위해 대체재인 Rocky Linux로 실습을 진행하려 한다.</p>
+
+<p>kubernetes는 최소 3대의 마스터 서버를 구성하는 것이 일반적이다.
+1대의 로컬 컴퓨터를 보유하고 있는 상황에선
+복잡한 클러스터 구성을 필요로 하지 않는 minikube를 설치하여
+kubernetes와 동일한 환경을 구성하고 실습하는 것을 목적으로 한다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title">2. Docker 설치</span>
+<span class="mini-caution">1) 서비스를 지원하지 않는 CentOS 7.9에서의 도커 설치</span></p>
+
+<p><a href="/InBusiness/1.html#docker-install" target="_blank">CentOS 7.9 에서 Docker 설치하기</a></p>
+
+<p>CentOS 7.9 에서의 도커 설치 방법은 위 링크를 통해 확인할 수 있다.</p>
+
+<p><br />
+<span class="mini-caution">2) Rocky Linux 에서의 도커 설치</span>
+서비스를 지원하고 있는 Rocky Linux의 경우,
+yum 패키지 관리자를 통해 최신 버전 혹은 원하는 버전의 Docker를 설치할 수 있다.</p>
+
+<p><span class="codes">yum install -y docker</span></p>
+
+<p>다만, 패키지의 무결성을 확인하여 보안 조치를 높일 수 있는 방법이 있다.
+방법은 아래와 같다.</p>
+
+<div class="amplification">
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo<br />
+-- dnf config-manager 를 통해 yum.repos.d 폴더에 해당 repo site를 추가한다.<br />
+<br />
+sudo rpm --import https://download.docker.com/linux/centos/gpg<br />
+-- rpm 패키지 매니저에 docker 공식 홈페이지의 GPG 키를 직접 추가한다.<br />
+<br />
+sudo dnf install docker-ce docker-ce-cli containerd.io<br />
+-- docker engine, cli 도구, containerd를 설치한다.
+</div>
+<hr />
+
+<p><br />
+<span class="mini-title">3. minikube 설치</span>
+<span class="codes">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-$(dpkg –print-architecture)</span>
+<span class="codes">sudo install minikube-linux-$(dpkg –print-architecture) /usr/local/bin/minikube</span>
+위 명령어를 차례로 실행해 minikube를 설치한다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title">4. kubectl 설치</span>
+<span class="codes">curl -LO “https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/$(dpkg –print-architecture)/kubectl”</span>
+<span class="codes">chmod +x kubectl</span>
+<span class="codes">sudo mv kubectl /usr/local/bin/</span>
+위 명령어를 차례로 실행해 kubectl을 설치한다.</p>
+<hr />
+
+<p><br />
+<span class="mini-title" style="font-size:34px;">5. minikube를 이용한 클러스터 init</span>
+<span class="codes">minikube start –driver=docker</span>
+위 명령어를 시행하면 minikube가 docker 엔진을 활용하여 클러스터를 생성한다.
+그리고 docker ps 명령어를 활용해 현재 구성되어 있는 docker 컨테이너를 확인해보면,
+minikube 이름으로 생성된 클러스터 컨테이너를 확인할 수 있다.
+<img class="image" src="/contents/imgs/study_2/1_.png" /></p>
+
+<p>현재 본인은 테스트용으로 여러 컨테이너를 생성해 둔 터라,
+위 이미지에 표시해 둔 컨테이너와 같이 minikube 라는 이름으로 컨테이너가 생성되면
+minikube init이 정상적으로 실행된 것으로 확인하면 된다.</p>
+
+    <br>
+    <div class="historyBack">
+        <a href="#" onclick="event.preventDefault(); history.back();">이전 페이지로 이동</a>
+    </div>
+
+
+    <footer>
+  dasfef/posts
+  <br>
+  <!--  :octocat: <a href="https://github.com/dasfef">@dasfef</a>  -->
+  <a href="https://github.com/dasfef">@dasfef</a>
+  
+
+</footer>
+
+
+  </body>
+</html>
